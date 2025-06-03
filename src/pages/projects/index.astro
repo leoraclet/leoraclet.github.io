@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets'
+
+import type { iconsType } from 'astro-pure/types'
+import { Button, Collapse, Icon } from 'astro-pure/user'
+import PageLayout from '@/layouts/CommonPage.astro'
+import ProjectSection from '@/components/projects/ProjectSection.astro'
+import Sponsors from '@/components/projects/Sponsors.astro'
+import config from '@/site-config'
+import data from '@/data'
+
+/*
+const headings = [
+  { depth: 2, slug: 'theme', text: 'Theme' },
+  { depth: 2, slug: 'programs', text: 'Programs' },
+  { depth: 2, slug: 'learnings', text: 'Learnings' },
+  { depth: 2, slug: 'others', text: 'Others' },
+  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+]
+*/
+
+const headings = [];
+data.projectCategories.filter(item => item.items.length !== 0).forEach((category) => {
+  headings.push({ depth: 2, slug: category.slug, text: category.name });
+});
+---
+
+<PageLayout title='Projects' {headings} info={{ slug: '/projects', hideComment: true }}>
+  <p>Github Activities:</p>
+  <p>
+    <Image
+      src='https://ghchart.rshah.org/659eb9/leoraclet'
+      alt='github activities'
+      inferSize
+      loading='lazy'
+    />
+  </p>
+  <p>
+    If you think it would be useful or interesting to collaborate on a project, you can donate to
+    support my work or contact me to discuss a project.
+  </p>
+  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
+    <Icon class='size-5' name='receive-money' slot='before' />
+  </Button>
+
+   {data.projectCategories.filter(item => item.items.length !== 0 && item.slug !== "unfinished").map((category) => (
+    <h3 id={category.slug}>{category.name}</h3>
+    <p>{category.description}</p>
+    <ProjectSection
+      class='my-2'
+      project={category.items}
+    />
+   ))}
+
+   {data.projectCategories.filter(item => item.slug === "unfinished").map((category) => (
+    <h3 id={category.slug}>{category.name}</h3>
+    <Collapse title={category.description}>
+      <ProjectSection
+        class='my-2'
+        project={category.items}
+      />
+    </Collapse>
+   ))}
+</PageLayout>
+
+<script
+  is:inline
+  type='module'
+  data-astro-rerun
+  define:vars={{ npmCDN: config.npmCDN, walineServer: config.integ.waline.server }}
+>
+  const loadPageviewCount = async () => {
+    const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
+    pageview.pageviewCount({
+      serverURL: walineServer,
+      path: window.location.pathname
+    })
+  }
+
+  await loadPageviewCount()
+</script>
