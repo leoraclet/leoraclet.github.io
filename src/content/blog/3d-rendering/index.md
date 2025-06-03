@@ -7,6 +7,7 @@ tags:
   - 3D
 language: 'English'
 heroImage: { src: './thumbnail.jpg', color: '#D58388' }
+draft: true
 ---
 
 3D rendering is all around us. From huge action movies to car commercials to previews of upcoming buildings or product designs, 3D visualization has become so widespread and realistic that you probably don’t even know it’s there.

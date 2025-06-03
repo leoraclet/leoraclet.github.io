@@ -5,28 +5,6 @@ const me = {
 }
 
 
-const projects = [
-    {
-        title: "Game of Life",
-        description: "A simple implementation of Conway's Game of Life",
-        image: "/src/assets/projects/alex-tyson-2BAXJ7ha74s-unsplash.jpg",
-        link: "https://github.com/leoraclet/game-of-life",
-    },
-    {
-        title: "Unycoin",
-        description: "A simple cryptocurrency implementation",
-        image: "/src/assets/projects/angelica-teran-Bk9hpaXHK4o-unsplash.jpg",
-        link: "https://github.com/leoraclet/unycoin"
-    },
-    {
-        title: "Fractals Explorer",
-        description: "A project to explore fractals using OpenGL",
-        image: "/src/assets/projects/kseniia-zapiatkina-yATU3rg8tNI-unsplash.jpg",
-        link: "https://github.com/leoraclet/fractals",
-    }
-]
-
-
 const projectCategories = [
     {
         name: "🖥️ Computing",
@@ -35,7 +13,7 @@ const projectCategories = [
         items: [
             {
                 name: "Game of Life",
-                description: "A simple implementation of Conway's Game of Life",
+                description: "A cellular automaton simulation",
                 image: "game-of-life.jpg",
                 links: [{
                     type: "github",
@@ -114,8 +92,8 @@ const projectCategories = [
 
 const education = [
     {
-        title: "Engineering Degree in Electronics and Telecommunications",
-        institution: "Télécom Saint- Etienne",
+        title: "📐 Engineering Degree in Electronics and Telecommunications",
+        institution: "📍 Télécom Saint-Etienne",
         date: "2023 - Today",
         achievements: [
             "President of the Robotics Club",
@@ -123,8 +101,8 @@ const education = [
         ]
     },
     {
-        title: "Integrated Preparatory Class",
-        institution: "Télécom Saint- Etienne",
+        title: "🥷 Integrated Preparatory Class",
+        institution: "📍 Télécom Saint-Etienne",
         date: "2021 - 2023",
         achievements: [
         ]
@@ -133,7 +111,7 @@ const education = [
 
 const skills = [
     {
-        category: "💻 Languages",
+        category: "💻 Programming",
         items: ["JavaScript", "Python", "C++", "HTML", "CSS", "Bash", "OpenGL"]
     },
     {
@@ -146,28 +124,75 @@ const skills = [
     },
     {
         category: "🧰 Tools",
-        items:["VS Code", "Neovim", "Arduino IDE", "Pycharm", "Altium Designer", "STM32CubeIDE"]
+        items: ["VS Code", "Neovim", "Arduino IDE", "Pycharm", "Altium Designer", "STM32CubeIDE"]
+    }
+]
+
+
+const languages = [
+    {
+        name: "🇫🇷 French",
+        level: "Native",
+    },
+    {
+        name: "🇬🇧 English",
+        level: "Fluent",
+    },
+    {
+        name: "🇨🇳 Spanish",
+        level: "Intermediate",
+    }
+]
+
+const participations = [
+    {
+        title: "🤖 French Cup of Robotics 2024",
+        description: "Participated in the French Cup of Robotics with the robotics club of Télécom Saint-Etienne.",
+        date: "2024",
+        achievements: [
+            "Developed a robot that competed in the cup",
+            "Collaborated with a team of 10 people"
+        ]
+    },
+    {
+        title: "🎓 Hackathon at Télécom Saint-Etienne",
+        description: "Participated in a hackathon organized by Télécom Saint-Etienne.",
+        date: "2023",
+        achievements: [
+            "Developed a web application in 24 hours",
+            "Won the first prize for best application"
+        ]
     }
 ]
 
 
 const experiences = [
     {
-        title: "Software Engineer at Example Corp",
-        description: "Worked on building scalable web applications using React and Node.js.",
-        date: "Dec 2022 - Nov 2023",
+        title: "🤖 French Cup of Robotics 2024",
+        description: "Participated in the French Cup of Robotics with the robotics club of Télécom Saint-Etienne.",
+        date: "May 2024",
         achievements: [
-            "Led a team of 5 developers to deliver a major feature ahead of schedule",
-            "Improved application performance by optimizing database queries"
+            "Developed a robot that competed in the cup",
+            "Collaborated with a team of 12 people"
         ]
     },
     {
-        title: "Intern at Tech Startup",
-        description: "Assisted in developing a mobile application using React Native.",
-        date: "Jun 2022 - Nov 2022",
+        title: "🚢 Intern at Alternatives Energies",
+        description: "",
+        date: "May 2024 - Aug 2024",
         achievements: [
-            "Improved app performance by 20%",
-            "Implemented new features based on user feedback"
+            "Built a web application using Djnago and PostgreSQL",
+            "Set up a Debian server and deployed the application using Docker",
+        ]
+    },
+    {
+        title: "🔬 Intern at Hubert Curien Laboratory",
+        description: "Assisted in security research of post-quantum cryptography primitives on hardware.",
+        date: "Apr 2023 - Jul 2023",
+        achievements: [
+            "Implemented in VHDL on FPGA post-quantum cryptography primitives",
+            "Wrote a Python script to interface with FPGA through the ChipWhisperer platform",
+            "Conducted side-channel attacks on the implemented primitives",
         ]
     }
 ]
@@ -379,7 +404,6 @@ const networks = [
 
 
 const data = {
-    projects,
     education,
     skills,
     me,
@@ -388,6 +412,8 @@ const data = {
     tools,
     networks,
     projectCategories,
+    languages,
+    participations,
 }
 
 export default data;

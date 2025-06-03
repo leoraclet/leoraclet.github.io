@@ -105,6 +105,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
                     <li>{d}</li>
                   ))}
                 </ul>
+                <p class='text-muted-foreground'>
+                  📅 <span class='italic'>{e.date}</span>
+                </p>
               </Card>
             ))}
           </Section>
