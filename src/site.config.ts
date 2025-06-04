@@ -60,6 +60,13 @@ export const theme: ThemeUserConfig = {
   footer: {
     links: [
       // Registration link
+      /*
+      {
+        title: 'Moe ICP APTX4869',
+        link: 'https://icp.gov.moe/?keyword=APTX4869',
+        style: 'text-sm' // Uno/TW CSS class
+      },
+      */
       // Privacy Policy link
       {
         title: 'Site Policy',
@@ -97,8 +104,8 @@ export const integ: IntegrationUserConfig = {
     applyTip: [
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://astro-pure.js.org/' },
-      { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+      { name: 'Link', val: 'https://leoraclet.github.io/' },
+      { name: 'Avatar', val: 'https://leoraclet.github.io/favicon/favicon.ico' }
     ]
   },
   // Enable page search function

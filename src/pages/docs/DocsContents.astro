@@ -16,13 +16,6 @@ const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsColle
   return acc
 }, {})
 
-const docCategories = {
-  setup: 'Setup',
-  integrations: 'Integrations',
-  advanced: 'Advanced',
-  theme: 'Theme',
-}
-
 type Props = {
   title?: boolean
   class?: string
@@ -35,11 +28,11 @@ const { title = true, class: className, ...props } = Astro.props
   {title && <h2 class='text-foreground font-semibold'>DOCS</h2>}
   <ul class='mt-4 flex flex-col gap-y-5'>
     {
-      Object.entries(docCategories).map(([id, title]: [string, string]) => (
+      Object.keys(docsByCate).map((key) => (
         <li>
-          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{title}</h3>
+          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{key.split('-').join(' ')}</h3>
           <ul class='mt-2 flex flex-col'>
-            {docsByCate[id]
+            {docsByCate[key]
               .sort((a, b) => a.data.order - b.data.order)
               .map((doc) => (
                 <li class='docs-item relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
