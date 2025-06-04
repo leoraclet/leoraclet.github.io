@@ -7,12 +7,12 @@ import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
+  { depth: 2, slug: 'tools', text: 'Tools' }
 ]
 ---
 
 <PageLayout title='About' {headings} info='/about'>
-  <p class="font-bold">{data.me.jobtitle}</p>
+  <p class='font-bold'>{data.me.jobtitle}</p>
   <p class='text-justify'>
     {data.me.long_description}
   </p>

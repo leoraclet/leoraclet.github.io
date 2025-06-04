@@ -24,13 +24,7 @@ const {
   remarkPluginFrontmatter
 } = Astro.props
 
-const {
-  description,
-  heroImage,
-  publishDate,
-  title,
-  updatedDate,
-} = data
+const { description, heroImage, publishDate, title, updatedDate } = data
 
 const socialImage = heroImage
   ? typeof heroImage.src === 'string'

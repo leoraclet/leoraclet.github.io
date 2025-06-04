@@ -7,7 +7,8 @@ export const theme: ThemeUserConfig = {
   /** Will be used in index page & copyright declaration */
   author: 'N£utr0nys',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Léo Raclet personnal blog, portfolio and documentation site powered by Astro and Astro Pure theme.',
+  description:
+    'Léo Raclet personnal blog, portfolio and documentation site powered by Astro and Astro Pure theme.',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** Specify the default language for this site. */
@@ -128,16 +129,16 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: false,
+    enable: true,
     // Server service link
     server: 'https://astro-theme-pure-waline.arthals.ink/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
     additionalConfigs: {
-      // search: false,
-      pageview: false,
-      comment: false,
+      search: true,
+      pageview: true,
+      comment: true,
       locale: {
         reaction0: 'Like',
         placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
