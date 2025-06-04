@@ -157,6 +157,28 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Section title='🛠️ Skills'>
         {data.skills.map((skill) => <SkillLayout title={skill.category} skills={skill.items} />)}
       </Section>
+
+      <Section title='🏆 Events'>
+        <div class='grid grid-cols-2 gap-3 sm:grid-cols-3'>
+          {data.events.map((e) => (
+            <Card class="bg-gray/5 border-purple-200 hover:border-purple-500 transition-all duration-500 hover:bg-gray/20 transform hover:scale-105"
+              heading={e.title}
+              date={e.date}
+              as='a'
+              href={e.link}
+            >
+              <ul class='ms-4 list-disc text-muted-foreground'>
+                {e.achievements.map((d) => (
+                  <li>{d}</li>
+                ))}
+              </ul>
+              <p class='text-muted-foreground'>
+                📅 <span class='italic'>{e.date}</span>
+              </p>
+            </Card>
+          ))}
+        </div>
+      </Section>
     </div>
     <Quote class='mt-12' />
   </main>

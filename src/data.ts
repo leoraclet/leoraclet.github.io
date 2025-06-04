@@ -144,25 +144,51 @@ const languages = [
     }
 ]
 
-const participations = [
+const events = [
     {
-        title: "🤖 French Cup of Robotics 2024",
-        description: "Participated in the French Cup of Robotics with the robotics club of Télécom Saint-Etienne.",
-        date: "2024",
+        title: "🏅 404CTF",
+        description: "2025 edition",
+        where: "🌎 Online",
+        date: "2025",
+        link: "#",
         achievements: [
-            "Developed a robot that competed in the cup",
-            "Collaborated with a team of 10 people"
+            "Rank: 67 / 2893",
+            "5428 pts"
         ]
     },
     {
-        title: "🎓 Hackathon at Télécom Saint-Etienne",
-        description: "Participated in a hackathon organized by Télécom Saint-Etienne.",
-        date: "2023",
+        title: "🦸 HeroCTF v6",
+        description: "2025 edition",
+        where: "🌎 Online",
+        date: "2024",
+        link: "https://ctftime.org/team/190046",
         achievements: [
-            "Developed a web application in 24 hours",
-            "Won the first prize for best application"
+            "40 / 670 teams",
+            "@Z&roDivision£rr0r"
         ]
-    }
+    },
+    {
+        title: "🏅 404CTF",
+        description: "2024 edition",
+        where: "🌎 Online",
+        date: "2024",
+        link: "#",
+        achievements: [
+            "Rank: 63 / ~3000",
+            "10179 pts"
+        ]
+    },
+    {
+        title: "🦸 HeroCTF v4",
+        description: "2022 edition",
+        where: "🌎 Online",
+        date: "2022",
+        link: "https://ctftime.org/team/190046",
+        achievements: [
+            "53 / 632 teams",
+            "@Z&roDivision£rr0r"
+        ]
+    },
 ]
 
 
@@ -413,7 +439,7 @@ const data = {
     networks,
     projectCategories,
     languages,
-    participations,
+    events,
 }
 
 export default data;
