@@ -161,6 +161,14 @@ const events = [
     achievements: ['Rank: 67 / 2893', '5428 pts']
   },
   {
+    title: '👣 Tracs',
+    description: '2024 edition',
+    where: '🏛️ CentralSupelec',
+    date: '2022',
+    link: '#',
+    achievements: ["On Site", "IRL challenges"]
+  },
+  {
     title: '🦸 HeroCTF v6',
     description: '2025 edition',
     where: '🌎 Online',
@@ -183,12 +191,12 @@ const events = [
     date: '2022',
     link: 'https://ctftime.org/team/190046',
     achievements: ['53 / 632 teams', '@Z&roDivision£rr0r']
-  }
+  },
 ]
 
 const experiences = [
   {
-    title: '🤖 French Cup of Robotics 2024',
+    title: '🤖 French Cup of Robotics 2024 & 2025',
     description:
       'Participated in the French Cup of Robotics with the robotics club of Télécom Saint-Etienne.',
     date: 'May 2024',
@@ -226,6 +234,10 @@ const hobbies = [
       'One of my favorite pastimes is hiking in nature, where I can immerse myself in the beauty of the outdoors.'
   },
   {
+    name: "Traveling",
+    description: "I enjoy exploring new places and cultures. Thanks to my family, I've had the opportunity to travel to various countries, including England, Ireland, Scotland, Italy, China, and to visit many places in France."
+  },
+  {
     name: 'Cybersecurity',
     description:
       'I have a keen interest in cybersecurity, especially in cryptography, and I enjoy learning how our digital world works'
@@ -233,7 +245,7 @@ const hobbies = [
   {
     name: 'Reading',
     description: 'I love reading books, particularly in the genres of science fiction and fantasy.'
-  }
+  },
 ]
 
 const tools = [
