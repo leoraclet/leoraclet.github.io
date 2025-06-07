@@ -153,7 +153,7 @@ const languages = [
 
 const events = [
   {
-    title: '🏅 404CTF',
+    title: '🏅 404CTF 4e',
     description: '2025 edition',
     where: '🌎 Online',
     date: '2025',
@@ -165,8 +165,8 @@ const events = [
     description: '2024 edition',
     where: '🏛️ CentralSupelec',
     date: '2022',
-    link: '#',
-    achievements: ["On Site", "IRL challenges"]
+    link: 'https://tracs.viarezo.fr/edition_results/show_student_ranking/2024/',
+    achievements: ['Rank: 73 / 107', '2353 pts']
   },
   {
     title: '🦸 HeroCTF v6',
@@ -177,11 +177,11 @@ const events = [
     achievements: ['40 / 670 teams', '@Z&roDivision£rr0r']
   },
   {
-    title: '🏅 404CTF',
+    title: '🏅 404CTF 3e',
     description: '2024 edition',
     where: '🌎 Online',
     date: '2024',
-    link: '#',
+    link: 'https://www.404ctf.fr/ranking_2024.html',
     achievements: ['Rank: 63 / ~3000', '10179 pts']
   },
   {
@@ -191,7 +191,7 @@ const events = [
     date: '2022',
     link: 'https://ctftime.org/team/190046',
     achievements: ['53 / 632 teams', '@Z&roDivision£rr0r']
-  },
+  }
 ]
 
 const experiences = [
@@ -234,8 +234,9 @@ const hobbies = [
       'One of my favorite pastimes is hiking in nature, where I can immerse myself in the beauty of the outdoors.'
   },
   {
-    name: "Traveling",
-    description: "I enjoy exploring new places and cultures. Thanks to my family, I've had the opportunity to travel to various countries, including England, Ireland, Scotland, Italy, China, and to visit many places in France."
+    name: 'Traveling',
+    description:
+      "I enjoy exploring new places and cultures. Thanks to my family, I've had the opportunity to travel to various countries, including England, Ireland, Scotland, Italy, China, and to visit many places in France."
   },
   {
     name: 'Cybersecurity',
@@ -245,7 +246,7 @@ const hobbies = [
   {
     name: 'Reading',
     description: 'I love reading books, particularly in the genres of science fiction and fantasy.'
-  },
+  }
 ]
 
 const tools = [

@@ -30,7 +30,9 @@ const { title = true, class: className, ...props } = Astro.props
     {
       Object.keys(docsByCate).map((key) => (
         <li>
-          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{key.split('-').join(' ')}</h3>
+          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>
+            {key.split('-').join(' ')}
+          </h3>
           <ul class='mt-2 flex flex-col'>
             {docsByCate[key]
               .sort((a, b) => a.data.order - b.data.order)
