@@ -207,7 +207,7 @@ const experiences = [
   },
   {
     title: '🚢 Intern at Alternatives Energies',
-    description: '',
+    description: 'Built a data analytics web application for a maritime company.',
     date: 'May 2024 - Aug 2024',
     achievements: [
       'Built a web application using Djnago and PostgreSQL',

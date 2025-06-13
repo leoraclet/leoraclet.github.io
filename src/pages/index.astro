@@ -31,7 +31,8 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>
           <a href='/src/assets/cv.pdf' target='_blank' class='transition-all duration-300' download
-            >{config.author}</a>
+            >{config.author}</a
+          >
         </h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
           <Label title='France'>
@@ -100,15 +101,15 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
                 as='a'
                 heading={e.title}
                 subheading={e.description}
-                date={e.date}
                 imageClass='h-12 w-auto md:-start-16'
+                class='transition-all hover:border-foreground/25 hover:shadow-sm'
               >
                 <ul class='ms-4 list-disc text-muted-foreground'>
                   {e.achievements.map((d) => (
-                    <li>{d}</li>
+                    <li class='text-[15px]/6'>{d}</li>
                   ))}
                 </ul>
-                <p class='text-muted-foreground'>
+                <p class='text-muted-foreground text-[15px]'>
                   📅 <span class='italic'>{e.date}</span>
                 </p>
               </Card>
@@ -125,10 +126,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
               subheading={e.institution}
               date={e.date}
               imageClass='h-12 w-auto md:-start-16'
+              class='transition-all hover:border-foreground/25 hover:shadow-sm'
             >
               <ul class='ms-4 list-disc text-muted-foreground'>
                 {e.achievements.map((d) => (
-                  <li>{d}</li>
+                  <li class='text-[15px]/6'>{d}</li>
                 ))}
               </ul>
             </Card>
@@ -166,7 +168,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           {
             data.events.map((e) => (
               <Card
-                class='bg-gray/5 border-purple-200 hover:border-purple-500 transition-all duration-300 hover:bg-gray/20 transform hover:scale-105'
+                class='bg-gray/5 transition-all duration-300 hover:bg-gray/20 transform hover:scale-103'
                 heading={e.title}
                 as='a'
                 href={e.link}
