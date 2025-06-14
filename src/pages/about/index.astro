@@ -1,7 +1,7 @@
 ---
 import data from '@/data'
 
-import { Button } from 'astro-pure/user'
+import { Button, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
@@ -16,7 +16,9 @@ const headings = [
   <p class='text-justify'>
     {data.me.long_description}
   </p>
-  <Button title='Contact Me' class='w-fit' href='/' style='ahead' />
+  <Button title='Contact Me' class='w-fit' href='/' style='ahead'>
+    <Icon class='size-5' name='time' slot='before' />
+  </Button>
 
   {/* general-talk */}
   <h2 id='hobbies'>Hobbies</h2>

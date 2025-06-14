@@ -49,10 +49,10 @@ export const theme: ThemeUserConfig = {
   header: {
     menu: [
       { title: 'Blog', link: '/blog' },
-      // { title: 'Docs', link: '/docs' },
+      { title: 'Docs', link: '/docs' },
       { title: 'Projects', link: '/projects' },
       { title: 'Wiki', link: '/wiki' },
-      //{ title: 'Links', link: '/links' },
+      // { title: 'Links', link: '/links' },
       { title: 'About', link: '/about' }
     ]
   },
@@ -60,14 +60,6 @@ export const theme: ThemeUserConfig = {
   /** Configure the footer of your site. */
   footer: {
     links: [
-      // Registration link
-      /*
-      {
-        title: 'Moe ICP APTX4869',
-        link: 'https://icp.gov.moe/?keyword=APTX4869',
-        style: 'text-sm' // Uno/TW CSS class
-      },
-      */
       // Privacy Policy link
       {
         title: 'Site Policy',
@@ -75,10 +67,14 @@ export const theme: ThemeUserConfig = {
         pos: 2 // position set to 2 will be appended to copyright line
       }
     ],
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+    /** Enable displaying a "Astro & Pure theme powered" link in your site's footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/leoraclet' }
+    social: {
+      github: 'https://github.com/leoraclet',
+      discord: 'https://discordapp.com/users/454935749767200768',
+      email: "mailto:leo.raclet@gmail.com"
+    }
   },
 
   content: {
@@ -114,9 +110,6 @@ export const integ: IntegrationUserConfig = {
   // Add a random quote to the footer (default on homepage footer)
   // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
   quote: {
-    // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
-    // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
     // https://github.com/lukePeavey/quotable
     server: 'https://api.quotable.io/quotes/random?maxLength=60',
     target: `(data) => data[0].content || 'Error'`
@@ -137,9 +130,9 @@ export const integ: IntegrationUserConfig = {
   },
   // Comment system
   waline: {
-    enable: true,
+    enable: false, // disable it will not load the whole library
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    // server: 'https://astro-theme-pure-waline.arthals.ink/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html

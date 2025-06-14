@@ -1,18 +1,19 @@
 ---
 import { Image } from 'astro:assets'
 
-import { Button, Collapse, Icon } from 'astro-pure/user'
-import PageLayout from '@/layouts/CommonPage.astro'
+import bitcoin from '@/assets/bitcoin_qr.png'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
-import config from '@/site-config'
 import data from '@/data'
+import PageLayout from '@/layouts/CommonPage.astro'
 import type { MarkdownHeading } from 'astro'
+import { Button, Collapse, Icon } from 'astro-pure/user'
 
 
 const headings: MarkdownHeading[] = [];
 data.projectCategories.filter(item => item.items.length !== 0).forEach((category) => {
   headings.push({ depth: 2, slug: category.slug, text: category.name });
 });
+headings.push({ depth: 2, slug: 'sponsorship', text: '☕ Sponsorship' });
 ---
 
 <PageLayout title='Projects' {headings} info={{ slug: '/projects', hideComment: true }}>
@@ -29,7 +30,10 @@ data.projectCategories.filter(item => item.items.length !== 0).forEach((category
     If you think it would be useful or interesting to collaborate on a project, you can donate to
     support my work or contact me to discuss a project.
   </p>
-  <Button title='Contact me' class='w-fit' href='/'>
+  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
+    <Icon class='size-5' name='receive-money' slot='before' />
+  </Button>
+  <Button title='Contact me' class='w-fit' href='/' style='ahead'>
     <Icon class='size-5' name='time' slot='before' />
   </Button>
 
@@ -51,21 +55,27 @@ data.projectCategories.filter(item => item.items.length !== 0).forEach((category
       />
     </Collapse>
    ))}
+
+   <!-- sponsorship -->
+  <h2 id='sponsorship'>Buy me a cup of coffee ☕</h2>
+  <p>If you like what you see here and what I do, please consider becoming a "sponsor" of my work. Thanks !</p>
+  <div class='flex flex-col justify-center gap-4 sm:flex-row'>
+    {
+      [
+        { name: 'Bitcoin', icon: 'qrcode', image: bitcoin },
+      ].map((item) => (
+        <div class='group relative justify-center overflow-hidden rounded-xl border bg-white'>
+          <div class='absolute bottom-0 end-0 start-0 top-0 flex items-center justify-center transition-opacity group-hover:opacity-0'>
+            <Icon class='size-20' name={item.icon as iconsType} />
+          </div>
+          <Image
+            class='mx-auto my-0 max-w-60 opacity-30 blur-sm transition-opacity group-hover:opacity-100 group-hover:blur-none'
+            src={item.image}
+            alt={item.name}
+            loading='lazy'
+          />
+        </div>
+      ))
+    }
+  </div>
 </PageLayout>
-
-<script
-  is:inline
-  type='module'
-  data-astro-rerun
-  define:vars={{ npmCDN: config.npmCDN, walineServer: config.integ.waline.server }}
->
-  const loadPageviewCount = async () => {
-    const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
-    pageview.pageviewCount({
-      serverURL: walineServer,
-      path: window.location.pathname
-    })
-  }
-
-  await loadPageviewCount()
-</script>

@@ -3,10 +3,10 @@ title: Markdown Syntax Support
 publishDate: 2024-07-26 08:00:00
 description: 'Markdown is a lightweight markup language.'
 tags:
+  - Example
   - Markdown
 heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
 language: 'English'
-draft: true
 ---
 
 ## Basic Syntax

@@ -1,14 +1,13 @@
 ---
-title: The Impact of Technology on the Music World
+title: Writeups 404CTF 2025
 publishDate: 2025-06-03
-description: 'The evolution of music is a symphony of creativity, rhythm, and technology.'
+description: 'My CTF Wriups'
 tags:
   - Example
   - Music
   - Technology
 heroImage: { src: './thumbnail.jpg', color: '#4891B2' }
 language: 'English'
-draft: true
 ---
 
 The evolution of music is a symphony of creativity, rhythm, and technology. From the humble beginnings of acoustic instruments to the present-day digital era, the relationship between music and technology has been transformative. In this article, we will explore the historical milestones, digital revolution, and emerging technologies that have shaped the music world. Join us on a journey through the chords of innovation as we discuss how technology has changed music.

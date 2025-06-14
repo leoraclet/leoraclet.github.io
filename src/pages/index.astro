@@ -24,7 +24,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Image
         src={avatar}
         alt='profile'
-        class='h-50 w-auto rounded-full border p-1'
+        class='h-50 w-auto rounded-full border p-1 duration-300 hover:scale-115 border-foreground/25 shadow-lg cursor-crosshair'
         loading='eager'
       />
 
@@ -147,6 +147,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
                 heading={p.name}
                 subheading={p.description}
                 imagePath={'/src/assets/projects/' + p.image}
+                class='border-foreground/25 shadow-md duration-300 hover:border-foreground/75 transition-all'
               />
             ))
           }
@@ -155,6 +156,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             heading='More projects'
             subheading='Check out more projects'
             imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
+            class='border-foreground/25 shadow-md duration-300 hover:border-foreground/75 transition-all'
           />
         </div>
       </Section>

@@ -36,7 +36,7 @@ const projectCategories = [
       },
       {
         name: 'Fractals Explorer',
-        description: 'A project to explore fractals using OpenGL',
+        description: 'A real-time colored fractals explorer',
         image: 'burning_ship.png',
         links: [
           {
@@ -416,6 +416,12 @@ const tools = [
         description: 'LLM',
         href: 'https://chat.openai.com/',
         icon: import('@/assets/tools/chatgpt.svg?raw')
+      },
+      {
+        name: 'Obsidian',
+        description: 'Note-taking App',
+        href: 'https://obsidian.md/',
+        icon: import('@/assets/tools/obsidian.svg?raw')
       }
     ]
   }
@@ -429,14 +435,6 @@ const networks = [
     text: 'followers',
     api: 'github/leoraclet'
   },
-  {
-    platform: 'Twitter',
-    icon: 'x',
-    color: '#50769d',
-    link: '',
-    text: 'followers',
-    api: 'twitter'
-  }
 ]
 
 const data = {
