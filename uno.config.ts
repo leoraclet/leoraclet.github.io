@@ -1,4 +1,5 @@
-import { defineConfig, presetTypography, presetUno } from 'unocss'
+import presetWind3 from '@unocss/preset-wind3'
+import { defineConfig, presetTypography } from 'unocss'
 
 const fg = 'hsl(var(--foreground) / var(--un-text-opacity, 1))'
 const fgMuted = 'hsl(var(--muted-foreground) / var(--un-text-opacity, 1))'
@@ -154,7 +155,7 @@ const themeColors = {
 
 export default defineConfig({
   presets: [
-    presetUno(), // required
+    presetWind3(), // required
     presetTypography(typographyConfig)
   ],
   rules: [],

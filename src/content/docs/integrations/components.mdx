@@ -4,18 +4,21 @@ description: 'Easily extend your content page more interactive'
 order: 1
 ---
 
-import { Aside, Tabs, TabItem, MdxRepl } from 'astro-pure/user'
+import { Aside, MdxRepl, TabItem, Tabs } from 'astro-pure/user'
 
 Components let you easily reuse a piece of UI or styling consistently. You can use them not just in `.astro` files, but also in `.mdx` files.
 
 <Aside type='tip'>
-[MDX](https://mdxjs.com/) is a format that lets you write JSX embedded inside Markdown. And it has no difference with markdown files in other ways.
+  [MDX](https://mdxjs.com/) is a format that lets you write JSX embedded inside Markdown. And it has
+  no difference with markdown files in other ways.
 </Aside>
 
 For `.astro`, you can directly import and use components and use. An example will also shown in the first section.
 
 <Aside type='tip'>
-If you always import some components in your contents, you can use [astro-auto-import](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import) to automatically import them instead of manually importing them in every file.
+  If you always import some components in your contents, you can use
+  [astro-auto-import](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import)
+  to automatically import them instead of manually importing them in every file.
 </Aside>
 
 ## Containers
@@ -78,7 +81,9 @@ import { Collapse } from 'astro-pure/user'
 
 <Collapse title='Lorem ipsum'>Lorem ipsum dolor sit amet, vidit suscipit at mei.</Collapse>
 <Collapse title='Lorem ipsum'>
-  <div slot='before' class='mt-2'>Are you sure you want to see?</div>
+  <div slot='before' class='mt-2'>
+    Are you sure you want to see?
+  </div>
   <div>Lorem ipsum dolor sit amet, vidit suscipit at mei.</div>
 </Collapse>
 
@@ -105,6 +110,7 @@ Other content is also supported in aside! 😍
 ```js
 // A code snippet, for example.
 ```
+
 </Aside>
 <Aside type='caution' title='You should know it!'>Is your code buggy again? 🤨</Aside>
 <Aside type="danger">Have you used `rm -rf` to clean your computer? 😡</Aside>
@@ -117,9 +123,10 @@ Other content is also supported in aside! 😍
   <Aside type="tip">
   Other content is also supported in aside! 😍
 
-  // ```js
+// `js
   // A code snippet, for example.
-  // ```
+  // `
+
   </Aside>
   <Aside type='caution' title='You should know it!'>Is your code buggy again? 🤨</Aside>
   <Aside type="danger">Have you used `rm -rf` to clean your computer? 😡</Aside>
@@ -171,9 +178,10 @@ This theme author is a good guy.
   ````jsx
   import { MdxRepl } from 'astro-pure/user'
 
-  // Width is optional; using width parameter to set
-  // all elements inside the MDX Repl component.
-  // (slot desc is not included this parameter)
+// Width is optional; using width parameter to set
+// all elements inside the MDX Repl component.
+// (slot desc is not included this parameter)
+
   <MdxRepl width='100%'>
   <p>Hello</p>
   <Fragment slot='desc'>
@@ -195,17 +203,22 @@ You can combine any other components for the sclot `desc`. And `<Fragment>` will
 <MdxRepl width='80%'>
 import { CardList } from 'astro-pure/user'
 
-<CardList title='A list' list={
-  [{title: 'I am hidden!'}]
-} collapse />
-<CardList title='A list' list={
-  [
+<CardList title='A list' list={[{ title: 'I am hidden!' }]} collapse />
+<CardList
+  title='A list'
+  list={[
     { title: 'Lorem ipsum', link: '#list' },
-    { title: 'Dolor sit amet', children: [{
-      title: 'Vidit suscipit', link: '#'
-    }] }
-  ]
-} />
+    {
+      title: 'Dolor sit amet',
+      children: [
+        {
+          title: 'Vidit suscipit',
+          link: '#'
+        }
+      ]
+    }
+  ]}
+/>
 
 <Fragment slot='desc'>
   ```jsx
@@ -231,12 +244,12 @@ import { CardList } from 'astro-pure/user'
 <MdxRepl>
 import { Timeline } from 'astro-pure/user'
 
-<Timeline events={
-  [
+<Timeline
+  events={[
     { date: 'August 2021', content: 'Hello' },
-    { date: 'August 2022', content: '<i>World!</i>' },
-  ]
-} />
+    { date: 'August 2022', content: '<i>World!</i>' }
+  ]}
+/>
 
 <Fragment slot='desc'>
   ```jsx
@@ -265,7 +278,6 @@ How to Yi Jian San Lian:
 2. Tou Bi
 3. Shou Cang
 
-   Or GuanZhu sometimes.
 </Steps>
 </div>
 
@@ -273,14 +285,15 @@ How to Yi Jian San Lian:
   ```jsx
   import { Steps } from 'astro-pure/user'
 
-  How to Yi Jian San Lian:
+How to Yi Jian San Lian:
 
   <Steps>
   1. Dian Zan
   2. Tou Bi
   3. Shou Cang
-    
+
     Or GuanZhu sometimes.
+
   </Steps>
   ```
 </Fragment>
@@ -298,7 +311,9 @@ import { Button } from 'astro-pure/user'
   <Button as='a' href='#button' title='Link style' style='ahead' class='not-prose' />
   <Button as='div' title='Back' style='back' />
   <Button as='div' title='Pill style' style='pill' />
-  <Button as='div' style='pill'><i>Italic</i></Button>
+  <Button as='div' style='pill'>
+    <i>Italic</i>
+  </Button>
 </div>
 
 <Fragment slot='desc'>
@@ -413,12 +428,12 @@ import { Icons as allIcons } from 'astro-pure/libs'
   ```jsx
   import { Icon } from 'astro-pure/user'
 
-  Single use: <Icon name='rss' class='inline' />
+Single use: <Icon name='rss' class='inline' />
 
-  Preview all icons available (click button to copy):
+Preview all icons available (click button to copy):
 
-  import { Icons as allIcons } from 'astro-pure/libs'
-  import { Button } from 'astro-pure/user'
+import { Icons as allIcons } from 'astro-pure/libs'
+import { Button } from 'astro-pure/user'
 
   <div class='flex flex-wrap gap-2'>
   {

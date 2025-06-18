@@ -13,7 +13,7 @@ The `Quote` component is a simple component that displays a random quote.
 ```jsx
 import { Quote } from 'astro-pure/advanced'
 
-<Quote />
+;<Quote />
 ```
 
 Renders:
@@ -56,7 +56,7 @@ The `GithubCard` component is a simple component that displays a GitHub user car
 ```jsx
 import { GithubCard } from 'astro-pure/advanced'
 
-<GithubCard repo='cworld1/astro-theme-pure' />
+;<GithubCard repo='cworld1/astro-theme-pure' />
 ```
 
 Render:
@@ -93,9 +93,11 @@ import { LinkPreview } from 'astro-pure/advanced'
 import { QRCode } from 'astro-pure/advanced'
 
 // <QRCode /> // default to render current page link
-<QRCode
+
+;<QRCode
   content='https://github.com/cworld1/astro-theme-pure'
-  class='inline-flex max-w-44 p-3 bg-muted rounded-lg border' />
+  class='inline-flex max-w-44 p-3 bg-muted rounded-lg border'
+/>
 ```
 
 Render:
@@ -104,7 +106,8 @@ import { QRCode } from 'astro-pure/advanced'
 
 <QRCode
   content='https://github.com/cworld1/astro-theme-pure'
-  class='inline-flex max-w-44 p-3 bg-muted rounded-lg border' />
+  class='inline-flex max-w-44 p-3 bg-muted rounded-lg border'
+/>
 
 ### Medium Zoom
 

@@ -5,16 +5,64 @@
       "desc": "Common links included in circle friends",
       "link_list": [
         {
-          "name": "Arthals' ink",
-          "intro": "所见高山远木，阔云流风；所幸岁月盈余，了无拘束",
-          "link": "https://arthals.ink/",
-          "avatar": "https://cdn.arthals.ink/Arthals.png"
+          "name": "F1DO",
+          "intro": "A great programmer and a great friend",
+          "link": "https://github.com/0xf1d0",
+          "avatar": "https://avatars.githubusercontent.com/u/40890393?v=4"
         },
         {
-          "name": "CWorld Site",
-          "intro": "求知若愚，虚怀若谷",
-          "link": "https://cworld0.com/",
-          "avatar": "https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200"
+          "name": "Projet&Tech",
+          "intro": "Robotics club of my engineering school",
+          "link": "https://github.com/Projet-et-Tech",
+          "avatar": "https://avatars.githubusercontent.com/u/194958533?s=200&v=4"
+        },
+        {
+          "name": "Realnitsuj",
+          "intro": "Friend of the robotics club",
+          "link": "https://github.com/realnitsuj",
+          "avatar": "https://avatars.githubusercontent.com/u/46000304?v=4"
+        },
+        {
+          "name": "0-T0M-0",
+          "intro": "Friend of the robotics club",
+          "link": "https://github.com/0-T0M-0",
+          "avatar": "https://avatars.githubusercontent.com/u/162920098?v=4"
+        },
+        {
+          "name": "Le Royaume",
+          "intro": "A developer community.",
+          "link": "https://github.com/Virtual-Royaume",
+          "avatar": "https://avatars.githubusercontent.com/u/68448397?s=200&v=4"
+        },
+        {
+          "name": "404CTF",
+          "intro": "A very good CTF by HackademINT",
+          "link": "https://www.404ctf.fr/",
+          "avatar": "https://www.404ctf.fr/assets/2025/logos/logo.png"
+        },
+        {
+          "name": "HeroCTF",
+          "intro": "My first CTF experience",
+          "link": "https://heroctf.fr/",
+          "avatar": "https://www.heroctf.fr/images/logo.png"
+        },
+        {
+          "name": "Tracs",
+          "intro": "My first IRL CTF by ViaRézo",
+          "link": "https://tracs.viarezo.fr/",
+          "avatar": "https://viarezo.fr/assets/images/logos_VR/thumbnail_blue.png"
+        },
+        {
+          "name": "Root-Me",
+          "intro": "A french platform to learn cybersecurity",
+          "link": "https://www.root-me.org/",
+          "avatar": "https://www.root-me.org/IMG/logo/siteon0.svg?1637496509"
+        },
+        {
+          "name": "TSE",
+          "intro": "My french engineering school",
+          "link": "https://www.telecom-st-etienne.fr/",
+          "avatar": "https://www.telecom-st-etienne.fr/wp-content/uploads/2025/01/Logo-plein.svg"
         }
       ]
     },
@@ -27,18 +75,6 @@
       "id_name": "special-links",
       "desc": "Other special links",
       "link_list": [
-        {
-          "name": "虫洞",
-          "intro": "随机前往十年之约的成员博客",
-          "link": "https://www.foreverblog.cn/go.html",
-          "avatar": "/images/wormhole.png"
-        },
-        {
-          "name": "开往",
-          "intro": "随机前往开往的成员博客",
-          "link": "https://www.travellings.cn/go.html",
-          "avatar": "https://www.travellings.cn/assets/travelling.png"
-        }
       ]
     }
   ]

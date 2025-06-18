@@ -1,13 +1,16 @@
 ---
 import data from '@/data'
 
-import { Button, Icon } from 'astro-pure/user'
+import { Button, Collapse, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
+import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' }
+  { depth: 2, slug: 'faq', text: 'FAQ' },
+  { depth: 2, slug: 'tools', text: 'Tools' },
+  { depth: 2, slug: 'social-networks', text: 'Social Networks' }
 ]
 ---
 
@@ -32,8 +35,21 @@ const headings = [
     }
   </ul>
 
+  {/* gossips */}
+  <h2 id='faq'>FAQ</h2>
+  {
+    data.faq.map((e) => (
+      <Collapse title={e.question} class='mb-2'>
+        {e.answer}
+      </Collapse>
+    ))
+  }
   {/* tools */}
   <h2 id='tools'>Tools</h2>
   <p>List of tools, technologies and programming languages I have worked with</p>
-  {data.tools.map((tool) => <ToolSection class='mb-5' title={tool.category} tools={tool.items} />)}
+  {data.tools.filter(item => item.items.length !== 0).map((tool) => <ToolSection class='mb-5' title={tool.category} tools={tool.items} />)}
+
+  {/* social-networks */}
+  <h2 id='social-networks'>Social Networks</h2>
+  <Substats stats={data.networks} />
 </PageLayout>

@@ -2,7 +2,7 @@
 import { render, type CollectionEntry } from 'astro:content'
 
 import { MediumZoom } from 'astro-pure/advanced'
-import { TOC } from 'astro-pure/components/pages'
+import { ArticleBottom, Copyright, TOC } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Collapse } from 'astro-pure/user'
 import PageLayout from '@/layouts/ContentLayout.astro'
@@ -10,6 +10,23 @@ import PageLayout from '@/layouts/ContentLayout.astro'
 import DocsContents from './DocsContents.astro'
 
 export const prerender = true
+
+const docsCollection = (await getBlogCollection('docs')) as CollectionEntry<'docs'>[]
+// group docs by id first part (setup, integrations, advanced, etc.)
+const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsCollection }, doc) => {
+  const id = doc.id.split('/')[0]
+  if (!acc[id]) acc[id] = [] as typeof docsCollection
+  acc[id].push(doc)
+  return acc
+}, {})
+
+var docsList = [] as CollectionEntry<'docs'>[]
+
+Object.keys(docsByCate).map((key) =>
+  docsByCate[key]
+    .sort((a, b) => a.data.order - b.data.order)
+    .map((doc) => docsList.push(doc as CollectionEntry<'docs'>))
+)
 
 export async function getStaticPaths() {
   const posts = sortMDByDate(await getBlogCollection('docs'))
@@ -26,6 +43,7 @@ type Props = {
 const { post } = Astro.props
 const { Content, headings } = await render(post)
 const { description, title } = post.data
+const { id, data } = post
 ---
 
 <PageLayout meta={{ description, title }} back='/docs'>
@@ -54,6 +72,34 @@ const { description, title } = post.data
   </Fragment>
 
   <Content />
+
+  <Fragment slot='bottom'>
+    {/* Copyright */}
+    <Copyright {data} />
+    {/* Article recommend */}
+    <ArticleBottom collections={docsList} {id} class='mt-3 sm:mt-6' />
+
+    <Collapse title='Table of Contents'>
+      <DocsContents />
+    </Collapse>
+
+    <script
+      is:inline
+      src='https://giscus.app/client.js'
+      data-repo='leoraclet/leoraclet.github.io'
+      data-repo-id='R_kgDOO1fDMg'
+      data-category='Announcements'
+      data-category-id='DIC_kwDOO1fDMs4Crjn0'
+      data-mapping='url'
+      data-strict='0'
+      data-reactions-enabled='1'
+      data-emit-metadata='1'
+      data-input-position='top'
+      data-theme='preferred_color_scheme'
+      data-lang='en'
+      crossorigin='anonymous'
+      async></script>
+  </Fragment>
 </PageLayout>
 <MediumZoom />
 

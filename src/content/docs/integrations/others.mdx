@@ -3,7 +3,7 @@ title: 'Other Integrations'
 description: 'Other integrations that help improve your site'
 ---
 
-import { Aside, Tabs, TabItem, Steps } from 'astro-pure/user'
+import { Aside, Steps, TabItem, Tabs } from 'astro-pure/user'
 
 <Aside>Docs are still in progress.</Aside>
 
@@ -34,8 +34,8 @@ This theme has integrated it in `BlogPost.astro` by default, which means any con
 import { MediumZoom } from 'astro-pure/advanced'
 ---
 
-<div class="prose">
-  <img src="/path/to/image.jpg" class="zoomable" />
+<div class='prose'>
+  <img src='/path/to/image.jpg' class='zoomable' />
 </div>
 
 <MediumZoom />
@@ -63,7 +63,6 @@ import { MediumZoom } from 'astro-pure/advanced'
 </TabItem>
 </Tabs>
 
-
 ## `@playform/compress`
 
 Checkout [playform/compress](https://github.com/PlayForm/Compress) for more.
@@ -74,7 +73,8 @@ Configure typography; configs are in `uno.config.ts`.
 
 ```js title="uno.config.ts"
 const typographyConfig = {
-  cssExtend: { // [!code highlight:3]
+  cssExtend: {
+    // [!code highlight:3]
     // ...
   }
 }
@@ -118,17 +118,17 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
    Modify your Astro configuration to use these plugins. Add the plugins to the markdown configuration section in your astro.config.mjs:
 
    ```js title="astro.config.mjs"
-   import { defineConfig } from 'astro/config';
-   import remarkMath from 'remark-math';
-   import rehypeKatex from 'rehype-katex';
+   import { defineConfig } from 'astro/config'
+   import rehypeKatex from 'rehype-katex'
+   import remarkMath from 'remark-math'
 
    export default defineConfig({
-      // ...
-      markdown: {
-         remarkPlugins: [remarkMath],
-         rehypePlugins: [rehypeKatex],
-      },
-   });
+     // ...
+     markdown: {
+       remarkPlugins: [remarkMath],
+       rehypePlugins: [rehypeKatex]
+     }
+   })
    ```
 
 3. Include KaTeX CSS
@@ -147,7 +147,8 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
    ---
    import config from '@/site-config'
    ---
-   <link rel="stylesheet" href={`${config.npmCDN}/katex@0.16.15/dist/katex.min.css`}>
+
+   <link rel='stylesheet' href={`${config.npmCDN}/katex@0.16.15/dist/katex.min.css`} />
    ```
 
 4. Some CSS code is recommended:
@@ -179,7 +180,7 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
 Common Pitfalls and Solutions:
 
 - CSS Styling Issues
-  
+
   Problem: LaTeX formulas might not render with the correct styles if the KaTeX CSS isn’t loaded.
 
   Solution: Confirm the KaTeX stylesheet link is correctly placed in the HTML head and is loading without issues. Check for network errors or restrictions that might prevent the CSS from loading.

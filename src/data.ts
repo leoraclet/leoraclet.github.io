@@ -1,5 +1,6 @@
 const me = {
   jobtitle: 'Engineering Student & Hacker',
+  motto: "Keep Learning, Keep Hacking",
   description:
     "Hi 👋 ! My name is Leo, and I'm a french engineering student in second year at Télécom Saint-Etienne, in France 🇫🇷 . I'm particularly interested in computer science and cybersecurity 🖥️",
   long_description:
@@ -13,7 +14,7 @@ const projectCategories = [
     slug: 'computing',
     items: [
       {
-        name: 'Game of Life',
+        name: '👾 Game of Life',
         description: 'A cellular automaton simulation',
         image: 'game-of-life.jpg',
         links: [
@@ -24,7 +25,7 @@ const projectCategories = [
         ]
       },
       {
-        name: 'Unycoin',
+        name: '🪙 Unycoin',
         description: 'A simple cryptocurrency implementation',
         image: 'bitcoin-ethereum.jpeg',
         links: [
@@ -35,7 +36,7 @@ const projectCategories = [
         ]
       },
       {
-        name: 'Fractals Explorer',
+        name: '❄️ Fractals Explorer',
         description: 'A real-time colored fractals explorer',
         image: 'burning_ship.png',
         links: [
@@ -53,8 +54,8 @@ const projectCategories = [
     slug: 'robotics',
     items: [
       {
-        name: 'Dynamixel Library',
-        description: 'A library for controlling Dynamixel motors',
+        name: '🦾 Dynamixel Library',
+        description: 'A library to control Dynamixel servos',
         image: '',
         links: [
           {
@@ -64,8 +65,8 @@ const projectCategories = [
         ]
       },
       {
-        name: 'Moving Base',
-        description: 'A project to control a moving base robot',
+        name: '🛞 Moving Base',
+        description: 'Code of control of an 4-homniwheel robot',
         image: '',
         links: [
           {
@@ -80,6 +81,18 @@ const projectCategories = [
     name: '🎓 Learning',
     description: 'Projects that are focused on learning and experimentation',
     slug: 'learning',
+    items: []
+  },
+  {
+    name: '⚡ Electronics',
+    description: 'Projects related to electronics and hardware',
+    slug: 'electronics',
+    items: []
+  },
+  {
+    name: '📦 Utilities',
+    description: 'Utility projects that help with various tasks',
+    slug: 'utilities',
     items: []
   },
   {
@@ -105,15 +118,23 @@ const projectCategories = [
 const education = [
   {
     title: '📐 Engineering Degree in Electronics and Telecommunications',
+    link: 'https://www.telecom-st-etienne.fr/en/',
     institution: '📍 Télécom Saint-Etienne',
     date: '2023 - Today',
-    achievements: ['President of the Robotics Club', 'Participated in the French Cup of Robotics']
+    achievements: [
+      'President of the Robotics Club during the 2024-2026 school year',
+      'Participated in the French Cup of Robotics in 2024 and 2025'
+    ]
   },
   {
-    title: '🥷 Integrated Preparatory Class',
+    title: '🥷 Integrated Preparatory Classes',
+    link: 'https://www.telecom-st-etienne.fr/en/',
     institution: '📍 Télécom Saint-Etienne',
     date: '2021 - 2023',
-    achievements: []
+    achievements: [
+      'Programmed a "Tretis"-like game in C#',
+      'Built in group a simple, autonomous line-following robot from scratch'
+    ]
   }
 ]
 
@@ -158,7 +179,7 @@ const events = [
     where: '🌎 Online',
     date: '2025',
     link: '#',
-    achievements: ['Rank: 67 / 2893', '5428 pts']
+    achievements: ['Rank: 67 / 2893', '5 428 pts']
   },
   {
     title: '👣 Tracs',
@@ -166,7 +187,7 @@ const events = [
     where: '🏛️ CentralSupelec',
     date: '2022',
     link: 'https://tracs.viarezo.fr/edition_results/show_student_ranking/2024/',
-    achievements: ['Rank: 73 / 107', '2353 pts']
+    achievements: ['Rank: 73 / 107 teams', '2 353 pts']
   },
   {
     title: '🦸 HeroCTF v6',
@@ -174,7 +195,7 @@ const events = [
     where: '🌎 Online',
     date: '2024',
     link: 'https://ctftime.org/team/190046',
-    achievements: ['40 / 670 teams', '@Z&roDivision£rr0r']
+    achievements: ['40 / 670 teams', '2 916 pts']
   },
   {
     title: '🏅 404CTF 3e',
@@ -182,7 +203,7 @@ const events = [
     where: '🌎 Online',
     date: '2024',
     link: 'https://www.404ctf.fr/ranking_2024.html',
-    achievements: ['Rank: 63 / ~3000', '10179 pts']
+    achievements: ['Rank: 63 / ~3000', '10 179 pts']
   },
   {
     title: '🦸 HeroCTF v4',
@@ -190,37 +211,42 @@ const events = [
     where: '🌎 Online',
     date: '2022',
     link: 'https://ctftime.org/team/190046',
-    achievements: ['53 / 632 teams', '@Z&roDivision£rr0r']
+    achievements: ['53 / 632 teams', '2 504 pts']
   }
 ]
 
 const experiences = [
   {
     title: '🤖 French Cup of Robotics 2024 & 2025',
+    link: '#',
     description:
       'Participated in the French Cup of Robotics with the robotics club of Télécom Saint-Etienne.',
     date: 'May 2024',
     achievements: [
-      'Developed a robot that competed in the cup',
-      'Collaborated with a team of 12 people'
+      'Developed a full-autonomous robot from scratch that competed in the cup',
+      'Collaborated with a team of 12 people',
+      'Introducing newly arrived first year students to Robotics'
     ]
   },
   {
     title: '🚢 Intern at Alternatives Energies',
+    link: 'https://www.alternativesenergies.com/en/',
     description: 'Built a data analytics web application for a maritime company.',
     date: 'May 2024 - Aug 2024',
     achievements: [
-      'Built a web application using Djnago and PostgreSQL',
-      'Set up a Debian server and deployed the application using Docker'
+      'Built a web application using Django and PostgreSQL',
+      'Set up a Debian server and deployed the application using Docker',
+      'Implemented custom Grafana dashboards for fast and efficient data visualization',
     ]
   },
   {
     title: '🔬 Intern at Hubert Curien Laboratory',
+    link: 'https://laboratoirehubertcurien.univ-st-etienne.fr/en/index.html',
     description:
       'Assisted in security research of post-quantum cryptography primitives on hardware.',
     date: 'Apr 2023 - Jul 2023',
     achievements: [
-      'Implemented in VHDL on FPGA post-quantum cryptography primitives',
+      'Implemented in VHDL and on FPGA, post-quantum cryptography primitives',
       'Wrote a Python script to interface with FPGA through the ChipWhisperer platform',
       'Conducted side-channel attacks on the implemented primitives'
     ]
@@ -241,7 +267,7 @@ const hobbies = [
   {
     name: 'Cybersecurity',
     description:
-      'I have a keen interest in cybersecurity, especially in cryptography, and I enjoy learning how our digital world works'
+      'I have a keen interest in cybersecurity, especially in cryptography, and I enjoy learning how our digital world works.'
   },
   {
     name: 'Reading',
@@ -424,6 +450,18 @@ const tools = [
         icon: import('@/assets/tools/obsidian.svg?raw')
       }
     ]
+  },
+  {
+    category: 'Hacking',
+    items: [
+
+    ]
+  },
+  {
+    category: 'Hardware',
+    items: [
+
+    ]
   }
 ]
 
@@ -431,10 +469,40 @@ const networks = [
   {
     platform: 'GitHub',
     icon: 'github',
+    color: '#181717',
     link: 'https://github.com/leoraclet',
     text: 'followers',
-    api: 'github/leoraclet'
+    api: 'github/leoraclet',
+    count: 3
+  }
+]
+
+const certifications = [
+  {
+    date: '2025-01-08',
+    content: 'TOEIC - 935/990 : Niveau B2/C1'
   },
+  {
+    date: '2024-05-28',
+    content: 'Top 100 - 404CTF 2024 3ème édition'
+  }
+]
+
+const faq = [
+  {
+    question: 'What is your favorite programming language ?',
+    answer:
+      "I enjoy working with Python and C++, but I also like to experiment with new languages and technologies. I'd like to try 🦀 Rust and Go in the future."
+  },
+  {
+    question: 'What do you love ?',
+    answer: 'I love hiking, traveling, reading, and exploring new technologies in cybersecurity.'
+  },
+  {
+    question: 'What is your favorite book ?',
+    answer:
+      "One of my favorite books series is 'Rules of Ascension' by David B. Coe. I also enjoy 'Crescent city ' by Sarah J. Maas"
+  }
 ]
 
 const data = {
@@ -447,7 +515,9 @@ const data = {
   networks,
   projectCategories,
   languages,
-  events
+  events,
+  certifications,
+  faq
 }
 
 export default data

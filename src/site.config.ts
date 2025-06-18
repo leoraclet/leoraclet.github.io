@@ -49,10 +49,10 @@ export const theme: ThemeUserConfig = {
   header: {
     menu: [
       { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
+      { title: 'Docs', link: '/docs/welcome' },
       { title: 'Projects', link: '/projects' },
       { title: 'Wiki', link: '/wiki' },
-      // { title: 'Links', link: '/links' },
+      { title: 'Links', link: '/links' },
       { title: 'About', link: '/about' }
     ]
   },
@@ -73,7 +73,7 @@ export const theme: ThemeUserConfig = {
     social: {
       github: 'https://github.com/leoraclet',
       discord: 'https://discordapp.com/users/454935749767200768',
-      email: "mailto:leo.raclet@gmail.com"
+      email: 'mailto:leo.raclet@gmail.com'
     }
   },
 
@@ -83,7 +83,7 @@ export const theme: ThemeUserConfig = {
     blogPageSize: 8,
     externalLinkArrow: true, // show external link arrow
     // Currently support weibo, x, bluesky
-    share: ['weibo', 'x', 'bluesky']
+    share: ['x']
   }
 }
 
@@ -92,11 +92,7 @@ export const integ: IntegrationUserConfig = {
   // See: https://astro-pure.js.org/docs/integrations/links
   links: {
     // Friend logbook
-    logbook: [
-      { date: '2024-07-01', content: 'Lorem ipsum dolor sit amet.' },
-      { date: '2024-07-01', content: 'vidit suscipit at mei.' },
-      { date: '2024-07-01', content: 'Quem denique mea id.' }
-    ],
+    logbook: [],
     // Yourself link info
     applyTip: [
       { name: 'Name', val: theme.title },
