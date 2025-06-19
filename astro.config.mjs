@@ -50,10 +50,11 @@ export default defineConfig({
     // sitemap(),
     // mdx(),
     AstroPureIntegration(config),
-    (await import('@playform/compress')).default({
-      SVG: false,
-      Exclude: ['index.*.js']
-    }),
+    // ! It appears that compressing introduces some issue when building the site.
+    // (await import('@playform/compress')).default({
+    //   SVG: false,
+    //   Exclude: ['index.*.js']
+    // }),
 
     // Temporary fix vercel adapter
     // static build method is not needed
@@ -99,9 +100,5 @@ export default defineConfig({
   },
   experimental: {
     contentIntellisense: true
-  },
-  vite: {
-    plugins: [
-    ]
   }
 })
