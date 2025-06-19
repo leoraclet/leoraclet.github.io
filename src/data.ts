@@ -119,7 +119,7 @@ const education = [
   {
     title: '📐 Engineering Degree in Electronics and Telecommunications',
     link: 'https://www.telecom-st-etienne.fr/en/',
-    institution: '📍 Télécom Saint-Etienne',
+    institution: 'Télécom Saint-Etienne',
     date: '2023 - Today',
     achievements: [
       'President of the Robotics Club during the 2024-2026 school year',
@@ -129,7 +129,7 @@ const education = [
   {
     title: '🥷 Integrated Preparatory Classes',
     link: 'https://www.telecom-st-etienne.fr/en/',
-    institution: '📍 Télécom Saint-Etienne',
+    institution: 'Télécom Saint-Etienne',
     date: '2021 - 2023',
     achievements: [
       'Programmed a "Tretis"-like game in C#',
