@@ -141,7 +141,7 @@ const education = [
 const skills = [
   {
     category: '💻 Programming',
-    items: ['JavaScript', 'Python', 'C++', 'HTML', 'CSS', 'Bash', 'OpenGL']
+    items: ['Python', 'C / C++', 'HTML', 'CSS', 'JavaScript', 'Bash', 'OpenGL']
   },
   {
     category: '☁️ Environments',
@@ -153,7 +153,7 @@ const skills = [
   },
   {
     category: '🧰 Tools',
-    items: ['VS Code', 'Neovim', 'Arduino IDE', 'Pycharm', 'Altium Designer', 'STM32CubeIDE']
+    items: ['VS Code', 'Quartus', 'Arduino IDE', 'Pycharm', 'Altium Designer', 'STM32CubeIDE']
   }
 ]
 

@@ -125,24 +125,7 @@ export const integ: IntegrationUserConfig = {
     }
   },
   // Comment system
-  waline: {
-    enable: false, // disable it will not load the whole library
-    // Server service link
-    // server: 'https://astro-theme-pure-waline.arthals.ink/',
-    // Refer https://waline.js.org/en/guide/features/emoji.html
-    emoji: ['bmoji', 'weibo'],
-    // Refer https://waline.js.org/en/reference/client/props.html
-    additionalConfigs: {
-      search: true,
-      pageview: true,
-      comment: true,
-      locale: {
-        reaction0: 'Like',
-        placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
-      },
-      imageUploader: false
-    }
-  }
+  waline: {}
 }
 
 export const terms: CardListData = {
