@@ -185,7 +185,7 @@ const events = [
     title: '👣 Tracs',
     description: '2024 edition',
     where: '🏛️ CentralSupelec',
-    date: '2022',
+    date: '2024',
     link: 'https://tracs.viarezo.fr/edition_results/show_student_ranking/2024/',
     achievements: ['Rank: 73 / 107 teams', '2 353 pts']
   },
@@ -221,7 +221,7 @@ const experiences = [
     link: '#',
     description:
       'Participated in the French Cup of Robotics with the robotics club of Télécom Saint-Etienne.',
-    date: 'May 2024',
+    date: '28 - 31 May 2024',
     achievements: [
       'Developed a full-autonomous robot from scratch that competed in the cup',
       'Collaborated with a team of 12 people',
@@ -480,11 +480,23 @@ const networks = [
 const certifications = [
   {
     date: '2025-01-08',
+    content: 'Top 67 - 404CTF 2025 4ème édition'
+  },
+  {
+    date: '2025-01-08',
     content: 'TOEIC - 935/990 : Niveau B2/C1'
   },
   {
     date: '2024-05-28',
-    content: 'Top 100 - 404CTF 2024 3ème édition'
+    content: 'Top 63 - 404CTF 2024 3ème édition'
+  },
+  {
+    date: '2023-10-19',
+    content: 'DUT GEII (Electrical Engineering and Industrial Computing)'
+  },
+  {
+    date: "2021-07-01",
+    content: "Baccalauréat Scientifique Mention Très Bien"
   }
 ]
 

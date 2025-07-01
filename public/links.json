@@ -63,6 +63,30 @@
           "intro": "My french engineering school",
           "link": "https://www.telecom-st-etienne.fr/",
           "avatar": "https://www.telecom-st-etienne.fr/wp-content/uploads/2025/01/Logo-plein.svg"
+        },
+        {
+          "name": "Alternatives Energies",
+          "intro": "Intégrateur de Systèmes Energie Propulsion Electrique et Hybride",
+          "link": "https://www.alternativesenergies.com/",
+          "avatar": "https://www.alternativesenergies.com/wp-content/uploads/2020/03/logo-alternatives-energies.png"
+        },
+        {
+          "name": "Laboratoire Hubert Curien",
+          "intro": "The Hubert Curien Laboratory is a joint research unit of the University Jean Monnet Saint-Etienne and CNRS, with the Institut d'Optique Graduate School as secondary institutional sponsor.",
+          "link": "https://laboratoirehubertcurien.univ-st-etienne.fr/en/index.html",
+          "avatar": "https://laboratoirehubertcurien.univ-st-etienne.fr/skins/labhcurien/resources//img/logo.png"
+        },
+        {
+          "name": "Brice Colombier",
+          "intro": "Was my internship tutor at Laboratoire Hubert Curien",
+          "link": "https://bcolombier.fr",
+          "avatar": "https://bcolombier.fr/favicon.ico"
+        },
+        {
+          "name": "Styx4D",
+          "intro": "Bureau of advice and research applied in geomorphology",
+          "link": "https://www.styx4d.com/",
+          "avatar": "https://image.jimcdn.com/app/cms/image/transf/dimension=137x10000:format=png/path/s03904724b1c05393/image/i277e133b9847c83f/version/1736863551/image.png"
         }
       ]
     },

@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions'
+// import { ClientRouter } from 'astro:transitions'
 
 import { prod } from 'astro-pure/server'
 import type { SiteMeta } from 'astro-pure/types'
@@ -89,7 +89,7 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 <link rel='stylesheet' href='/styles/global.css' />
 
 {/* View transitions */}
-<ClientRouter />
+<!-- <ClientRouter />
 <script is:inline>
   const style = document.createElement('style')
   style.textContent = `* { transition: none !important; }`
@@ -99,7 +99,7 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
       style.remove()
     }, 100)
   })
-</script>
+</script> -->
 
 {
   /* User script*/
