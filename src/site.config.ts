@@ -72,7 +72,7 @@ export const theme: ThemeUserConfig = {
     social: {
       github: 'https://github.com/leoraclet',
       discord: 'https://discordapp.com/users/454935749767200768',
-      email: 'mailto:leo.raclet@gmail.com'
+      email: 'mailto:leo.raclet@gmail.com',
     }
   },
 

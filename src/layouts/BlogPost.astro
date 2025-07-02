@@ -6,11 +6,10 @@ import type { CollectionEntry } from 'astro:content'
 import 'katex/dist/katex.min.css'
 
 import { MediumZoom } from 'astro-pure/advanced'
-import { ArticleBottom, /*Copyright,*/ Hero, TOC } from 'astro-pure/components/pages'
+import { ArticleBottom, Hero, TOC } from 'astro-pure/components/pages'
 import PageLayout from '@/layouts/ContentLayout.astro'
-import { integ } from '@/site-config'
-
 import Copyright from '@/components/Copyright.astro'
+import { integ } from '@/site-config'
 
 interface Props {
   post: CollectionEntry<'blog'>
@@ -54,28 +53,38 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
     {/* Article recommend */}
     <ArticleBottom collections={posts} {id} class='mt-3 sm:mt-6' />
 
-    <script
-      is:inline
-      src='https://giscus.app/client.js'
-      data-repo='leoraclet/leoraclet.github.io'
-      data-repo-id='R_kgDOO1fDMg'
-      data-category='Announcements'
-      data-category-id='DIC_kwDOO1fDMs4Crjn0'
-      data-mapping='url'
-      data-strict='0'
-      data-reactions-enabled='1'
-      data-emit-metadata='1'
-      data-input-position='top'
-      data-theme='transparent_dark'
-      data-lang='en'
-      crossorigin='anonymous'
-      async></script>
+    <div id='giscus-container' class='mt-10'></div>
   </Fragment>
 
   <slot name='bottom-sidebar' slot='bottom-sidebar' />
 </PageLayout>
 
 <script is:inline>
+  function loadGiscus() {
+    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    const giscusContainer = document.getElementById('giscus-container')
+    if (giscusContainer)
+      giscusContainer.innerHTML = '' // Clear existing iframes
+
+    const script = document.createElement('script')
+    script.src = 'https://giscus.app/client.js'
+    script.setAttribute('data-repo', 'leoraclet/leoraclet.github.io')
+    script.setAttribute('data-repo-id', 'R_kgDOO1fDMg')
+    script.setAttribute('data-category', 'Announcements')
+    script.setAttribute('data-category-id', 'DIC_kwDOO1fDMs4Crjn0')
+    script.setAttribute('data-mapping', 'url')
+    script.setAttribute('data-strict', '0')
+    script.setAttribute('data-reactions-enabled', '1')
+    script.setAttribute('data-emit-metadata', '1')
+    script.setAttribute('data-input-position', 'top')
+    script.setAttribute('data-theme', theme) // or dark, or dynamic
+    script.setAttribute('crossorigin', 'anonymous')
+    script.setAttribute('data-lang', 'en')
+    script.async = true
+
+    giscusContainer.appendChild(script)
+  }
+
   function updateGiscusTheme() {
     const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
     const iframe = document.querySelector('iframe.giscus-frame')
@@ -89,6 +98,13 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
   window.onload = () => {
     updateGiscusTheme()
   }
+
+  loadGiscus()
+  updateGiscusTheme()
+
+  // Runs on view transitions navigation
+  document.addEventListener('astro:after-swap', updateGiscusTheme)
+  document.addEventListener('astro:after-swap', loadGiscus)
 </script>
 
 {integ.mediumZoom.enable && <MediumZoom />}

@@ -126,7 +126,6 @@ const shares = [
     copyLink?.addEventListener('click', () => {
       navigator.clipboard.writeText(window.location.href)
       // Show toast
-      console.log('link copied')
       showToast({ message: 'Link copied!' })
     })
 
@@ -135,7 +134,6 @@ const shares = [
     const qrcodeContainer = document.getElementById('qrcode-container')
     if (!qrcodeContainer) throw new Error('qrcode container not found')
     getQRCode?.addEventListener('click', () => {
-      console.log('get qrcode')
       if (qrcodeContainer.ariaExpanded === 'true') {
         qrcodeContainer.ariaExpanded = 'false'
       } else {
