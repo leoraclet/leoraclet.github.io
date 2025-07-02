@@ -5,11 +5,9 @@ import type { CollectionEntry } from 'astro:content'
 // Plugin styles
 import 'katex/dist/katex.min.css'
 
-import { MediumZoom } from 'astro-pure/advanced'
 import { ArticleBottom, Hero, TOC } from 'astro-pure/components/pages'
 import PageLayout from '@/layouts/ContentLayout.astro'
 import Copyright from '@/components/Copyright.astro'
-import { integ } from '@/site-config'
 
 interface Props {
   post: CollectionEntry<'blog'>
@@ -63,8 +61,9 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
   function loadGiscus() {
     const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
     const giscusContainer = document.getElementById('giscus-container')
-    if (giscusContainer)
-      giscusContainer.innerHTML = '' // Clear existing iframes
+    if (!giscusContainer) return;
+
+    giscusContainer.innerHTML = '' // Clear existing iframes
 
     const script = document.createElement('script')
     script.src = 'https://giscus.app/client.js'
@@ -106,5 +105,3 @@ const primaryColor = data.heroImage?.color ?? 'hsl(var(--primary) / var(--un-tex
   document.addEventListener('astro:after-swap', updateGiscusTheme)
   document.addEventListener('astro:after-swap', loadGiscus)
 </script>
-
-{integ.mediumZoom.enable && <MediumZoom />}

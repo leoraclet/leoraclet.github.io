@@ -132,7 +132,7 @@ const shares = [
     // QRCode
     const getQRCode = document.getElementById('get-qrcode')
     const qrcodeContainer = document.getElementById('qrcode-container')
-    if (!qrcodeContainer) throw new Error('qrcode container not found')
+    if (!qrcodeContainer) return;
     getQRCode?.addEventListener('click', () => {
       if (qrcodeContainer.ariaExpanded === 'true') {
         qrcodeContainer.ariaExpanded = 'false'
