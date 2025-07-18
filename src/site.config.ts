@@ -106,8 +106,8 @@ export const integ: IntegrationUserConfig = {
   // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
   quote: {
     // https://github.com/lukePeavey/quotable
-    server: 'https://api.quotable.io/quotes/random?maxLength=60',
-    target: `(data) => data[0].content || 'Error'`
+    server: 'https://proxy.corsfix.com/?https://zenquotes.io/api/today',
+    target: `(data) => data[0].q || 'Error'`
   },
   // UnoCSS typography
   // See: https://unocss.dev/presets/typography

@@ -166,7 +166,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
                 heading={p.name}
                 subheading={p.description}
                 imagePath={'/src/assets/projects/' + p.image}
-                class='border-foreground/25 shadow-md duration-300 transition-all'
+                class='border-foreground/25 shadow-md duration-300 transition-all hover:border-foreground/75'
               />
             ))
           }
@@ -175,7 +175,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             heading='More projects'
             subheading='Check out more projects'
             imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
-            class='border-foreground/25 shadow-md duration-300 transition-all'
+            class='border-foreground/25 shadow-md duration-300 transition-all hover:border-foreground/75'
           />
         </div>
       </Section>
@@ -237,6 +237,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         }
       </Section>
     </div>
-    <Quote class='mt-12' />
+    <Quote class='mt-12 mb-5' />
+    <span class='text-sm text-muted-foreground'>
+      Inspirational quotes provided by <a href='https://zenquotes.io/' target='_blank'
+        >ZenQuotes API</a
+      ></span
+    >
   </main>
 </PageLayout>

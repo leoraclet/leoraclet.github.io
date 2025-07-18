@@ -2,7 +2,7 @@
 
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import AstroPureIntegration from 'astro-pure'
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
@@ -40,9 +40,7 @@ export default defineConfig({
   // ---
 
   image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp'
-    }
+    service: passthroughImageService(),
   },
 
   integrations: [
