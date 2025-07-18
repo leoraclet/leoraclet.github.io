@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets'
 import data from '@/data'
 
-import { Quote } from 'astro-pure/advanced'
 import { PostPreview } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
@@ -63,7 +62,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           ></span>
           <span class='size-2 rounded-full bg-green-400'></span>
         </span>
-        <p class='font-medium text-muted-foreground'>Contact Me</p>
+        <p class='font-medium text-muted-foreground'>Contact Me !</p>
       </a>
     </section>
 
@@ -237,11 +236,18 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         }
       </Section>
     </div>
-    <Quote class='mt-12 mb-5' />
-    <span class='text-sm text-muted-foreground'>
-      Inspirational quotes provided by <a href='https://zenquotes.io/' target='_blank'
-        >ZenQuotes API</a
-      ></span
-    >
+    <quote-component class={'not-prose inline-block mt-12'}>
+      <div
+        class='flex flex-row items-center gap-x-3 rounded-full border px-4 py-2 text-sm shadow-sm'
+      >
+        <span class='relative flex items-center justify-center'>
+          <span
+            class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
+          ></span>
+          <span class='size-2 rounded-full bg-green-400'></span>
+        </span>
+        <p id='quote-sentence' class='font-medium text-muted-foreground'>Hacking Right Now ...</p>
+      </div>
+    </quote-component>
   </main>
 </PageLayout>

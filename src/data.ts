@@ -149,11 +149,15 @@ const skills = [
   },
   {
     category: '⚙️ Technologies',
-    items: ['Git', 'Docker', 'PostgreSQL', 'Grafana', 'Git']
+    items: ['Git', 'Github', 'Docker', 'PostgreSQL', 'Grafana', 'Bun']
   },
   {
     category: '🧰 Tools',
-    items: ['VS Code', 'Quartus', 'Arduino IDE', 'Pycharm', 'Altium Designer', 'STM32CubeIDE']
+    items: ['VSCode', 'Quartus', 'Arduino IDE', 'Pycharm', 'Altium Designer', 'STM32CubeIDE']
+  },
+  {
+    category: '📚 Frameworks',
+    items: ['SFML', 'SDL', 'Django', 'Astro', 'Svelte', 'DaisyUI']
   }
 ]
 
