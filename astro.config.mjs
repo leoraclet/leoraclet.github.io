@@ -6,8 +6,7 @@ import { defineConfig, passthroughImageService } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
-// Local integrations
-// Local rehype & remark plugins
+// Local integrations Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
 // Shiki
 import {
@@ -27,16 +26,10 @@ export default defineConfig({
   // base: '/docs',
   trailingSlash: 'never',
 
-  // Adapter
-  // https://docs.astro.build/en/guides/deploy/
-  // 1. Vercel (serverless)
-  // adapter: vercel(),
-  // output: 'server',
-  // 2. Vercel (static)
-  // adapter: vercelStatic(),
-  // 3. Local (standalone)
-  // adapter: node({ mode: 'standalone' }),
-  // output: 'server',
+  // Adapter https://docs.astro.build/en/guides/deploy/
+  // 1. Vercel (serverless) adapter: vercel(), output: 'server',
+  // 2. Vercel (static) adapter: vercelStatic(),
+  // 3. Local (standalone) adapter: node({ mode: 'standalone' }), output: 'server',
   // ---
 
   image: {
@@ -44,18 +37,12 @@ export default defineConfig({
   },
 
   integrations: [
-    // astro-pure will automatically add sitemap, mdx & unocss
-    // sitemap(),
-    // mdx(),
+    // astro-pure will automatically add sitemap, mdx & unocss sitemap(), mdx(),
     AstroPureIntegration(config),
-    // ! It appears that compressing introduces some issue when building the site.
-    // (await import('@playform/compress')).default({
-    //   SVG: false,
-    //   Exclude: ['index.*.js']
-    // }),
+    // ! It appears that compressing introduces some issue when building the site. (await
+    // import('@playform/compress')).default({ SVG: false, Exclude: ['index.*.js'] }),
 
-    // Temporary fix vercel adapter
-    // static build method is not needed
+    // Temporary fix vercel adapter static build method is not needed
   ],
   // root: './my-project-directory',
 

@@ -130,6 +130,30 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         )
       }
 
+      <!-- Projects -->
+      <Section title='🚀 Projects'>
+        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+          {
+            data.projectHome.map((p) => (
+              <ProjectCard
+                href={p.links[0].href}
+                heading={p.name}
+                subheading={p.description}
+                imagePath={'/src/assets/projects/' + p.image}
+                class='border-foreground/25 shadow-md duration-300 transition-all hover:border-foreground/75'
+              />
+            ))
+          }
+          <ProjectCard
+            href='/projects'
+            heading='More projects'
+            subheading='Check out more projects'
+            imagePath='/src/assets/projects/something.jpg'
+            class='border-foreground/25 shadow-md duration-300 transition-all hover:border-foreground/75'
+          />
+        </div>
+      </Section>
+
       <!-- Education -->
       <Section title='🎓 Education'>
         {
@@ -153,30 +177,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             </Card>
           ))
         }
-      </Section>
-
-      <!-- Projects -->
-      <Section title='🚀 Projects'>
-        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-          {
-            data.projectCategories[0].items.map((p) => (
-              <ProjectCard
-                href={p.links[0].href}
-                heading={p.name}
-                subheading={p.description}
-                imagePath={'/src/assets/projects/' + p.image}
-                class='border-foreground/25 shadow-md duration-300 transition-all hover:border-foreground/75'
-              />
-            ))
-          }
-          <ProjectCard
-            href='/projects'
-            heading='More projects'
-            subheading='Check out more projects'
-            imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
-            class='border-foreground/25 shadow-md duration-300 transition-all hover:border-foreground/75'
-          />
-        </div>
       </Section>
 
       <!-- Skills -->
@@ -210,7 +210,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       </Section>
 
       <!-- Certifications -->
-      <Section title='🏆 Certifs'>
+      <Section title='⌛ Timeline'>
         {
           data.certifications.map((event, index) => (
             <li class='group relative flex list-none gap-x-3 rounded-full ps-0 sm:gap-x-2'>

@@ -7,6 +7,7 @@ tags:
   - Markdown
 heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
 language: 'English'
+draft: true
 ---
 
 ## Basic Syntax

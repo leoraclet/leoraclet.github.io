@@ -7,12 +7,70 @@ const me = {
     "Hi 👋 ! My name is Leo, and I'm a french engineering student in second year at Télécom Saint-Etienne, in France 🇫🇷 . I'm particularly interested in computer science and cybersecurity 🖥️. Meanwhile, I also develop things on my free time, mostly in C / C++ and Python, but I always use and learn new tools and technologies."
 }
 
+const projectHome = [
+  {
+    name: '👾 Game of Life',
+    description: 'A cellular automaton simulation',
+    image: 'game-of-life.jpg',
+    links: [
+      {
+        type: 'github',
+        href: 'https://github.com/leoraclet/game-of-life'
+      }
+    ]
+  },
+  {
+    name: '🪙 Unycoin',
+    description: 'A simple cryptocurrency implementation',
+    image: 'bitcoin-ethereum.jpeg',
+    links: [
+      {
+        type: 'github',
+        href: 'https://github.com/leoraclet/unycoin'
+      }
+    ]
+  },
+  {
+    name: '❄️ Fractals Explorer',
+    description: 'A real-time colored fractals explorer',
+    image: 'burning_ship.png',
+    links: [
+      {
+        type: 'github',
+        href: 'https://github.com/leoraclet/fractals'
+      }
+    ]
+  }
+]
+
 const projectCategories = [
   {
     name: '🖥️ Computing',
     description: 'Projects related to computing and algorithms',
     slug: 'computing',
     items: [
+      {
+        name: '✍️ Django SaaS Template',
+        description: 'A template for Django-based SaaS applications with Docker',
+        image: 'default.jpg',
+        links: [
+          {
+            type: 'github',
+            href: 'https://github.com/leoraclet/django-saas-template'
+          }
+        ]
+      },
+      {
+        name: '🐧 NixOS Configuration',
+        description: 'My NixOS Linux configuration, using Hyprland',
+        image: 'default.jpg',
+        links: [
+          {
+            type: 'github',
+            href: 'https://github.com/leoraclet/nixos-config'
+          }
+        ]
+      },
       {
         name: '👾 Game of Life',
         description: 'A cellular automaton simulation',
@@ -56,22 +114,22 @@ const projectCategories = [
       {
         name: '🦾 Dynamixel Library',
         description: 'A library to control Dynamixel servos',
-        image: '',
+        image: 'dynamixel.png',
         links: [
           {
             type: 'github',
-            href: 'https://github.com/Projet-et-Tech/Dynamixel'
+            href: 'https://github.com/leoraclet/dynamixel'
           }
         ]
       },
       {
-        name: '🛞 Moving Base',
+        name: '🛞 Wheeled Base',
         description: 'Code of control of an 4-homniwheel robot',
-        image: '',
+        image: 'default.jpg',
         links: [
           {
             type: 'github',
-            href: 'https://github.com/Projet-et-Tech/Moteur/tree/master'
+            href: 'https://github.com/leoraclet/wheeled-base'
           }
         ]
       }
@@ -81,7 +139,30 @@ const projectCategories = [
     name: '🎓 Learning',
     description: 'Projects that are focused on learning and experimentation',
     slug: 'learning',
-    items: []
+    items: [
+      {
+        name: '🔱 Hacking',
+        description: 'My CTF Tools and Archives ',
+        image: 'default.jpg',
+        links: [
+          {
+            type: 'github',
+            href: 'https://github.com/leoraclet/hacking'
+          }
+        ]
+      },
+      {
+        name: '🃏 SuperMemo',
+        description: 'Anki-like Flashcard application build with Dear ImGui',
+        image: 'default.jpg',
+        links: [
+          {
+            type: 'github',
+            href: 'https://github.com/leoraclet/super-memo'
+          }
+        ]
+      },
+    ]
   },
   {
     name: '⚡ Electronics',
@@ -101,13 +182,13 @@ const projectCategories = [
     slug: 'unfinished',
     items: [
       {
-        name: 'Django Docker Template',
-        description: 'A template for Django applications using Docker',
-        image: '',
+        name: '⛏️ Minecraft Clone',
+        description: 'A minecraft made from scratch in C++ with SFML',
+        image: 'default.jpg',
         links: [
           {
             type: 'github',
-            href: 'https://github.com/leoraclet/django-docker-template'
+            href: 'https://github.com/leoraclet/minecraft-alike'
           }
         ]
       }
@@ -530,6 +611,7 @@ const data = {
   tools,
   networks,
   projectCategories,
+  projectHome,
   languages,
   events,
   certifications,
