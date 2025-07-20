@@ -564,7 +564,11 @@ const networks = [
 
 const certifications = [
   {
-    date: '2025-01-08',
+    date: '2025-08-20',
+    content: 'Moving to Canada 🇨🇦'
+  },
+  {
+    date: '2025-06-01',
     content: 'Top 67 - 404CTF 2025 4ème édition'
   },
   {

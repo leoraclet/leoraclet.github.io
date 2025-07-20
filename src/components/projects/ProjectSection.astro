@@ -44,10 +44,12 @@ const projectIconSet: Record<string, iconsType> = {
         }
 
         return (
-          <div class='relative overflow-hidden rounded-xl border border-foreground/25 shadow-md duration-300 hover:border-foreground/75'>
+          <div class='relative overflow-hidden rounded-xl border border-foreground/25 shadow-md
+          duration-300 hover:border-foreground/75 group transition-all'>
+            {/* Background Image */}
             {imagePath && (
               <Image
-                class='absolute end-0 z-0 m-0 h-full w-8/10 object-cover opacity-50 hover:opacity-90 duration-300 transition-opacity'
+                class='absolute end-0 z-0 m-0 h-full w-8/10 object-cover opacity-50 group-hover:opacity-90 duration-300 transition-opacity'
                 src={images[imagePath]()}
                 alt={project.name}
                 loading='lazy'
