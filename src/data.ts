@@ -103,6 +103,17 @@ const projectCategories = [
             href: 'https://github.com/leoraclet/fractals'
           }
         ]
+      },
+      {
+        name: '💬 Ptibot',
+        description: 'My little friendly Discord bot, in Python ',
+        image: 'robot-chatbot-icon.jpg',
+        links: [
+          {
+            type: 'github',
+            href: 'https://github.com/leoraclet/ptibot'
+          }
+        ]
       }
     ]
   },
@@ -203,8 +214,8 @@ const education = [
     institution: 'Télécom Saint-Etienne',
     date: '2023 - Today',
     achievements: [
-      'President of the Robotics Club during the 2024-2026 school year',
-      'Participated in the French Cup of Robotics in 2024 and 2025'
+      'President of the Robotics Club during the 2024-2025 school year',
+      'Attended the French Cup of Robotics in 2024 and 2025'
     ]
   },
   {
@@ -214,7 +225,7 @@ const education = [
     date: '2021 - 2023',
     achievements: [
       'Programmed a "Tretis"-like game in C#',
-      'Built in group a simple, autonomous line-following robot from scratch'
+      'Built in group of 4 a simple, autonomous line-following robot from scratch'
     ]
   }
 ]
