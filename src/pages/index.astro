@@ -29,9 +29,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 
       <div class='flex flex-col items-center gap-y-2'>
         <h1 class='text-3xl font-bold'>
-          <a href='/src/assets/cv.pdf' target='_blank' class='transition-all duration-300' download
-            >{config.author}</a
-          >
+          <a href='/src/assets/cv_en.pdf' class='transition-all duration-300' title="See my Resume !">{config.author}</a>
         </h1>
         <p class='text-muted-foreground text-lg italic'>“{data.me.motto}”</p>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-2'>

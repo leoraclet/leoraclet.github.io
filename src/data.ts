@@ -52,7 +52,7 @@ const projectCategories = [
       {
         name: '✍️ Django SaaS Template',
         description: 'A template for Django-based SaaS applications with Docker',
-        image: 'default.jpg',
+        image: 'django-saas-template.png',
         links: [
           {
             type: 'github',
@@ -63,7 +63,7 @@ const projectCategories = [
       {
         name: '🐧 NixOS Configuration',
         description: 'My NixOS Linux configuration, using Hyprland',
-        image: 'default.jpg',
+        image: 'nixos-config.png',
         links: [
           {
             type: 'github',
@@ -136,7 +136,7 @@ const projectCategories = [
       {
         name: '🛞 Wheeled Base',
         description: 'Code of control of an 4-homniwheel robot',
-        image: 'default.jpg',
+        image: 'wheeled-base.png',
         links: [
           {
             type: 'github',
@@ -154,7 +154,7 @@ const projectCategories = [
       {
         name: '🔱 Hacking',
         description: 'My CTF Tools and Archives ',
-        image: 'default.jpg',
+        image: 'hacking.png',
         links: [
           {
             type: 'github',
@@ -165,7 +165,7 @@ const projectCategories = [
       {
         name: '🃏 SuperMemo',
         description: 'Anki-like Flashcard application build with Dear ImGui',
-        image: 'default.jpg',
+        image: 'super-memo.png',
         links: [
           {
             type: 'github',
@@ -195,7 +195,7 @@ const projectCategories = [
       {
         name: '⛏️ Minecraft Clone',
         description: 'A minecraft made from scratch in C++ with SFML',
-        image: 'default.jpg',
+        image: 'minecraft.png',
         links: [
           {
             type: 'github',
