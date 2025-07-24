@@ -185,7 +185,19 @@ const projectCategories = [
     name: '📦 Utilities',
     description: 'Utility projects that help with various tasks',
     slug: 'utilities',
-    items: []
+    items: [
+      {
+        name: '📜 Handsome LaTeX',
+        description: 'LaTeX template for your outstanding documents ',
+        image: 'handsome-latex.png',
+        links: [
+          {
+            type: 'github',
+            href: 'https://github.com/leoraclet/handsome-latex'
+          }
+        ]
+      }
+    ]
   },
   {
     name: ' 😴 Unfinished',
