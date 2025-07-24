@@ -1,16 +1,18 @@
-<div align="center"><img src="./public/favicon/android-chrome-192x192.png"></div>
+<div align="center">
+  <img src="./public/favicon/android-chrome-192x192.png">
+</div>
 <br>
 <h1 align="center">Portfolio</h1>
-
 <div align="center">
 
-![license](https://img.shields.io/github/license/leoraclet/leoraclet.github.io)
-![language](https://img.shields.io/github/languages/top/leoraclet/leoraclet.github.io)
-![lastcommit](https://img.shields.io/github/last-commit/leoraclet/leoraclet.github.io) <br>
-![Language](https://img.shields.io/badge/Language-JSX-1d50de)
-![Libraries](https://img.shields.io/badge/Framework-Astro-fa8925)
-![Size](https://img.shields.io/badge/Size-69Mo-f12222) ![Open
-Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
+  ![License](https://img.shields.io/github/license/leoraclet/leoraclet.github.io)
+  ![Top Language](https://img.shields.io/github/languages/top/leoraclet/leoraclet.github.io)
+  ![Last Commit](https://img.shields.io/github/last-commit/leoraclet/leoraclet.github.io)
+  <br>
+  ![Language](https://img.shields.io/badge/Language-JSX-1d50de)
+  ![Framework](https://img.shields.io/badge/Framework-Astro-fa8925)
+  ![Size](https://img.shields.io/badge/Size-69Mo-f12222)
+  ![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
 </div>
 
@@ -24,55 +26,60 @@ Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 - [🚀 Install \& Run](#-install--run)
 - [📜 License](#-license)
 
-
-
 ## 🌟 Showcase
-
-![screenshot](./public/portfolio.png)
+![Screenshot of the Portfolio](./public/portfolio.png)
 
 ## ❤️ Thanks
 
-A big thank to [**CWorId**](https://github.com/cworld1) for his beautiful [**Astro
-template**](https://github.com/cworld1/astro-theme-pure) that I took time to configure and customise
-to my needs.
-
-**You can go check out his work !**
+A special thank you to [**CWorId**](https://github.com/cworld1) for his stunning [**Astro template**](https://github.com/cworld1/astro-theme-pure), which I took the time to configure and customize to suit my needs. Be sure to check out his work !
 
 ## 📖 About
 
-This repository hosts the source code for my [Portfolio](https://leoraclet.github.io/).
+This repository contains the source code for my [Portfolio](https://leoraclet.github.io/).
+
+> [!IMPORTANT]
+>
+> I have reimplemented several core components of **Astro Pure** to address the impacts on multiple components when enabling client-side routing.
+
 
 ## 📦 Structure
 
 **Directories**
 
-- [**`src`**](./src/) – Main source directory
-  - [**`assets`**](./src/assets/) – Contains images, icons, and other static assets
-  - [**`components`**](./src/components/) – Reusable custom components
-  - [**`content`**](./src/content/) – Blog posts written in Markdown
-  - [**`layout`**](./src/layouts/) – Reusable layout components for content pages
-  - [**`pages`**](./src/pages/) – Defines the structure and routing of site pages
-  - [**`plugins`**](./src/plugins/) – Lightweight enhancements for blog content
-
+- [**`src`**](./src/): Primary directory containing the source code
+  - [**`assets`**](./src/assets/): Houses images, icons, and other static resources
+  - [**`components`**](./src/components/): Collection of reusable custom components
+  - [**`content`**](./src/content/): Contains blog posts authored in Markdown
+  - [**`layout`**](./src/layouts/): Directory for reusable layout components used across content pages
+  - [**`pages`**](./src/pages/): Establishes the structure and routing for site pages
+  - [**`plugins`**](./src/plugins/): Includes lightweight enhancements for blog content
 
 **Files**
- - [**deploy.yml**](./.github/workflows/deploy.yml) - Automatic worflow to deploy on Github pages
-   when Push.
+
+- [**`deploy.yml`**](./.github/workflows/deploy.yml): Automated workflow for deploying to GitHub Pages upon push.
+- [**`LICENSE`**](./LICENSE): Contains the licensing information for the project.
+- [**`README.md`**](./README.md): Offers an overview and detailed documentation of the project.
+- [**`astro.config.mjs`**](./astro.config.mjs): Configuration settings for the Astro framework.
+- [**`bun.lock`**](./bun.lock): Bun lockfile that maintains consistent dependency versions.
+- [**`eslint.config.mjs`**](./eslint.config.mjs): Configuration settings for ESLint, the tool used for linting.
+- [**`package.json`**](./package.json): Holds project metadata and lists dependencies.
+- [**`prettier.config.mjs`**](./prettier.config.mjs): Configuration settings for Prettier, the code formatting tool.
+- [**`tsconfig.json`**](./tsconfig.json): Configuration settings for TypeScript.
+- [**`uno.config.ts`**](./uno.config.ts): Configuration settings for UnoCSS.
+- [**`.gitignore`**](./.gitignore): Lists files and directories to be ignored by Git.
+- [**`.prettierignore`**](./.prettierignore): Specifies files to be ignored by Prettier during formatting.
+
 
 ## 📚 Libraries
-
 > [!NOTE]
->
-> Those are only the main libraries, but you can find the rest in [`packages.json`](./package.json)
+> These are only the main libraries; you can find the rest of the dependencies in [`package.json`](./package.json).
 
-- [**Astro**](https://astro.build/) - The web framework for content-driven websites
-- [**Astro-pure**]() - Astro portfolio template
+- [**Astro**](https://astro.build/): The web framework for content-driven websites.
+- [**Astro-pure**](https://github.com/cworld1/astro-theme-pure): Astro portfolio template.
 
 ## 🚀 Install & Run
 
-First, ensure you have [**bun**](https://bun.com/) installed on your system.
-
-Then, clone the repo
+First, ensure you have [**bun**](https://bun.com/) installed on your system. Then, clone the repository:
 
 ```bash
 git clone https://github.com/leoraclet/leoraclet.github.io
@@ -85,13 +92,13 @@ Install dependencies
 bun install
 ```
 
-And now you can run the developement server using
+You can now run the development server using:
 
 ```bash
 bun run dev
 ```
 
-You can also build and preview the production server using
+You can also build and preview the production server using:
 
 ```bash
 bun run build
