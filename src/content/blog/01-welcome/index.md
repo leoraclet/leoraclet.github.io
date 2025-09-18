@@ -7,7 +7,7 @@ tags:
 - "2025"
 ---
 
-## Welcome  — Let's Talk Cybersecurity & Code
+## Let's Talk Cybersecurity & Code
 
 Hey there, and welcome to my corner of the web !
 
@@ -27,8 +27,8 @@ document it all — the successes, the mistakes, and the lessons in between.
 
 ## Why I'm Doing This ?
 
-Writing helps me understand concepts more deeply and stay organized — and hopefully, some of these
-posts will help others too. Whether you're a beginner or deep into your infosec journey, I hope
+Writing will help me understand concepts more deeply and, I hope, stay organized — and hopefully, some of these
+posts will help others too. Whether you're a beginner or deep into your computer science journey, I hope
 you’ll find something useful, interesting, or even just relatable.
 
 Thanks for stopping by — and feel free to reach out if you want to connect, collaborate, or just

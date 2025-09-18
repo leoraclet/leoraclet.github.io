@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { formatDate, readingTime } from "@lib/utils";
+import { formatDate, readingTime, truncateText } from "@lib/utils";
 
 type Props = {
   entry: CollectionEntry<"projects"> | CollectionEntry<"blog">;
@@ -8,7 +8,7 @@ type Props = {
 
 const { entry } = Astro.props;
 const { collection, data, body } = entry;
-const { title, summary, date } = data;
+const { title, summary, date, tags } = data;
 
 const demoUrl = collection === "projects" ? data.demoUrl : null;
 const repoUrl = collection === "projects" ? data.repoUrl : null;
@@ -68,6 +68,19 @@ const repoUrl = collection === "projects" ? data.repoUrl : null;
   <div class="mt-1">
     {summary}
   </div>
+  <ul class="flex flex-wrap mt-2 gap-1">
+    {
+      tags.map(
+        (
+          tag: string // this line has an error; Parameter 'tag' implicitly has an 'any' type.ts(7006)
+        ) => (
+          <li class="text-sm uppercase py-1 px-3 rounded-full bg-black/0 dark:bg-white/20 text-black/85 dark:text-white/75 border border-gray-300 hover:border-gray-500 hover:bg-black/5 transition ease-in-out">
+            # {truncateText(tag, 20)}
+          </li>
+        )
+      )
+    }
+  </ul>
   {
     (demoUrl || repoUrl) && (
       <div class="mt-4 flex flex-wrap gap-2">

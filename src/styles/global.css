@@ -63,7 +63,7 @@ header.scrolled {
 }
 
 article {
-  @apply prose dark:prose-invert max-w-full pb-12;
+  @apply prose dark:prose-invert max-w-full pb-6;
 }
 
 .page-heading {
@@ -223,7 +223,7 @@ pre [data-line] {
 }
 
 code {
-  @apply text-sm md:text-base !leading-loose;
+  @apply !text-sm md:text-base !leading-loose;
 }
 
 pre > code {
@@ -255,19 +255,15 @@ code[data-line-numbers] > [data-line]::before {
 }
 
 h3 code {
-  @apply !text-lg md:!text-xl;
+  @apply !text-lg md:!text-lg;
 }
 
 pre {
-  @apply !px-0 rounded-none;
+  @apply !px-0 rounded-2xl border-2 border-gray-400;
 }
 
 [data-rehype-pretty-code-title] {
-  @apply bg-zinc-700 text-zinc-200 rounded-t-lg py-2 px-3 font-semibold text-sm;
-}
-
-figcaption + pre {
-  @apply !rounded-t-none;
+  @apply pl-5 pr-2 before:inline-block before:size-1 before:bg-green-500 before:rounded-full before:absolute before:top-[45%] before:left-2 bg-gray-100 dark:bg-black border border-gray-400 text-black dark:text-white rounded-lg py-1 px-4 font-normal text-sm w-fit relative ml-5 -mb-3 z-10;
 }
 
 figure {
@@ -276,5 +272,5 @@ figure {
 pre,
 code,
 figure {
-  @apply overflow-x-auto px-2 py-1;
+  @apply overflow-x-auto px-2 py-2 ;
 }

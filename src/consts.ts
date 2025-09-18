@@ -10,13 +10,18 @@ export const SITE: Site = {
 // Work Page
 export const WORK: Page = {
   TITLE: "Work Experiences",
-  DESCRIPTION: "Places I have worked at.",
+  DESCRIPTION: "Professional Experiences at companies and schools",
+}
+
+export const EDUCATION: Page = {
+  TITLE: "Education",
+  DESCRIPTION: "Education, schools and diplomas",
 }
 
 // Blog Page
 export const BLOG: Page = {
   TITLE: "Blog",
-  DESCRIPTION: "Writing on topics I am passionate about.",
+  DESCRIPTION: "Writings on topics I'm passionate about.",
 }
 
 // Projects Page
@@ -41,17 +46,17 @@ export const LINKS: Links = [
     TEXT: "Projects",
     HREF: "/projects",
   },
-  // {
-  //   TEXT: "Education",
-  //   HREF: "/education",
-  // },
   {
     TEXT: "Work",
     HREF: "/work",
   },
   {
-    TEXT: "Wiki",
-    HREF: "/wiki"
+    TEXT: "Education",
+    HREF: "/education",
+  },
+  {
+    TEXT: "About",
+    HREF: "/#about",
   },
 ]
 

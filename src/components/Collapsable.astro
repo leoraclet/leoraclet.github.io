@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+}
+
+let { title = "Hidden" } = Astro.props;
+---
+
+<details
+  open
+  class="animate group rounded-lg border border-black/15 dark:border-white/20"
+>
+  <summary
+    class="cursor-pointer rounded-t-lg px-3 py-1.5 font-medium transition-colors group-open:bg-black/5 hover:bg-black/5 dark:group-open:bg-white/5 hover:dark:bg-white/5"
+    >{title}</summary
+  >
+  <div class="px-6">
+    <slot />
+  </div>
+</details>
