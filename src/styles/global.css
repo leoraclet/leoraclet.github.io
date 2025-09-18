@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --copy-btn-margin: 10px;
-}
-
 @layer base {
   @font-face {
     font-family: "Atkinson";
@@ -25,7 +21,6 @@
 }
 
 html {
-  overflow-y: scroll;
   color-scheme: light;
   background-color: white;
   font-family: "Atkinson", sans-serif;
@@ -94,7 +89,7 @@ article {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .animate.show {
@@ -159,13 +154,13 @@ article img {
 }
 
 .copy-cnt {
-  @apply absolute w-full;
+  @apply absolute w-full hidden;
   top: var(--copy-btn-margin);
 }
 
 .copy-btn {
-  @apply w-[30px] fixed;
-  left: calc(100% - var(--copy-btn-margin));
+  @apply w-[20px] fixed;
+  left: calc(98% - var(--copy-btn-margin));
   transform: translateX(-100%);
 }
 
@@ -174,7 +169,7 @@ article img {
 }
 
 /* Card transition */
-/* .fade-move-enter-active,
+.fade-move-enter-active,
 .fade-move-exit-active {
   transition: all 300ms ease;
 }
@@ -183,4 +178,103 @@ article img {
 .fade-move-exit-to {
   opacity: 0;
   transform: translateY(10px);
-} */
+}
+
+h1, h2, h3, h4, h5 {
+  @apply scroll-my-20;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply bg-zinc-700 text-zinc-200 rounded-t-lg py-2 px-3 font-semibold text-sm;
+}
+
+pre [data-line] {
+  @apply px-4 border-l-2 border-l-transparent;
+}
+
+[data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
+
+[data-highlighted-chars] {
+  @apply bg-zinc-600/50 rounded;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-chars-id] {
+  @apply shadow-none p-1 border-b-2;
+}
+
+[data-chars-id] span {
+  @apply !text-inherit;
+}
+
+[data-chars-id='v'] {
+  @apply !text-pink-300 bg-rose-800/50 border-b-pink-600 font-bold;
+}
+
+[data-chars-id='s'] {
+  @apply !text-yellow-300 bg-yellow-800/50 border-b-yellow-600 font-bold;
+}
+
+[data-chars-id='i'] {
+  @apply !text-purple-200 bg-purple-800/50 border-b-purple-600 font-bold;
+}
+
+code {
+  @apply text-sm md:text-base !leading-loose;
+}
+
+pre > code {
+  counter-reset: line;
+}
+
+code[data-theme*=' '],
+code[data-theme*=' '] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  code[data-theme*=' '],
+  code[data-theme*=' '] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
+}
+
+code[data-line-numbers] {
+  counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-4 mr-4 text-right text-gray-500;
+}
+
+h3 code {
+  @apply !text-lg md:!text-xl;
+}
+
+pre {
+  @apply !px-0 rounded-none;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply bg-zinc-700 text-zinc-200 rounded-t-lg py-2 px-3 font-semibold text-sm;
+}
+
+figcaption + pre {
+  @apply !rounded-t-none;
+}
+
+figure {
+    @apply mb-6 mt-1;
+}
+pre,
+code,
+figure {
+  @apply overflow-x-auto px-2 py-1;
+}

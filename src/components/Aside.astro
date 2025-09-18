@@ -1,0 +1,89 @@
+---
+// https://github.com/withastro/starlight/blob/main/packages/starlight/user-components/Aside.astro
+import { AstroError } from 'astro/errors'
+
+import { Icon } from "astro-icon/components";
+
+const asideVariants = ['info', 'tip', 'caution', 'danger'] as const
+const icons = {
+  info: 'tabler/info-circle',
+  tip: 'tabler/bulb',
+  caution: 'tabler/alert-triangle',
+  danger: 'tabler/flame'
+} as const
+
+interface Props {
+  type?: (typeof asideVariants)[number]
+  title?: string
+}
+
+let { type = 'info', title } = Astro.props
+
+if (!asideVariants.includes(type)) {
+  throw new AstroError(
+    'Invalid `type` prop passed to the `<Aside>` component.\n',
+    `Received: ${JSON.stringify(type)}\n` +
+      `Expected one of ${asideVariants.map((i) => JSON.stringify(i)).join(', ')}`
+  )
+}
+
+if (!title) {
+  title = type.toUpperCase()
+}
+---
+
+<style>
+  .aside > .aside-container {
+    --un-bg-opacity: 0.07;
+
+    &.aside-tip {
+      --primary: 234 60% 60%;
+    }
+    &.aside-caution {
+      --primary: 41 90% 50%;
+    }
+    &.aside-danger {
+      --primary: 339 90% 60%;
+    }
+
+    .aside-content {
+      & > :first-child {
+        margin-top: 0;
+      }
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+</style>
+
+<aside aria-label={title} class='aside my-3 overflow-hidden rounded-xl border'>
+  <div
+    class:list={['border-l-8 border-primary px-4 py-3',
+      {
+      "prose-code:bg-blue-700/20 border-blue-700 bg-blue-700/10 text-green-950":
+        type === "tip",
+    },
+    {
+      "prose-code:bg-yellow-400/20 border-yellow-400 bg-yellow-400/10 text-yellow-950":
+        type === "caution",
+    },
+    {
+      "prose-code:bg-red-400/20 border-red-400 bg-red-400/10 text-red-950":
+        type === "danger",
+    },
+    {
+      "prose-code:bg-sky-400/20 border-sky-400 bg-sky-400/10 text-sky-950":
+        type === "info",
+    },
+    ]}
+  >
+    <p class='not-prose flex items-center gap-x-2 font-bold' aria-hidden='true'>
+      <Icon name={icons[type]} />
+      {title}
+    </p>
+    <div class='aside-content mt-2'>
+      <slot />
+    </div>
+  </div>
+</aside>

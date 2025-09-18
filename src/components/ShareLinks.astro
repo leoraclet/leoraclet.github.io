@@ -1,0 +1,28 @@
+---
+import { SHARE_LINKS } from "@/consts";
+import { SITE } from "@consts";
+
+const URL = Astro.url;
+---
+
+{
+  SHARE_LINKS.length > 0 && (
+    <div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start order-1 sm:order-2 sm:justify-end">
+      <span class="italic">Share it on:</span>
+      <div class="text-center flex flex-wrap gap-1 items-center justify-center">
+        {SHARE_LINKS.map((SOCIAL) => (
+          <a
+            href={`${SOCIAL.HREF + URL}`}
+            target="_blank"
+            aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+            class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"
+          >
+            <svg class="size-full fill-current stroke-current">
+              <use href={`/social.svg#${SOCIAL.ICON}`} />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  )
+}

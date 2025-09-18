@@ -18,26 +18,46 @@ const projects = (await getCollection("projects"))
   .slice(0,3)
 
 const stack = [
-  { 
-    text: "Astro", 
-    icon: "astro", 
-    href: "https://astro.build" 
+  {
+    text: "Astro",
+    icon: "astro",
+    href: "https://astro.build"
   },
-  { 
-    text: "Javascript", 
-    icon: "javascript", 
-    href: "https://www.javascript.com" 
+  {
+    text: "Typescript",
+    icon: "typescript",
+    href: "https://www.typescriptlang.org"
   },
-  { 
-    text: "Typescript", 
-    icon: "typescript", 
-    href: "https://www.typescriptlang.org" 
+  {
+    text: "Tailwind",
+    icon: "tailwind",
+    href: "https://tailwindcss.com"
   },
-  { 
-    text: "Tailwind", 
-    icon: "tailwind", 
-    href: "https://tailwindcss.com" 
-  },
+  { text: "VSCode", icon: "vscode", href: "https://code.visualstudio.com/" },
+  { text: "Neovim", icon: "neovim", href: "https://neovim.io/" },
+  { text: "Arduino IDE", icon: "arduino", href: "https://www.arduino.cc/en/software" },
+  { text: "PyCharm", icon: "pycharm", href: "https://www.jetbrains.com/pycharm/" },
+  { text: "Altium Designer", icon: "altium", href: "https://www.altium.com/altium-designer/" },
+  // { text: "STM32CubeIDE", icon: "cubeide", href: "https://www.st.com/en/development-tools/stm32cubeide.html" },
+  { text: "Python", icon: "python", href: "https://www.python.org" },
+  { text: "C++", icon: "cpp", href: "" },
+  { text: "JavaScript", icon: "javascript", href: "" },
+  { text: "HTML", icon: "html", href: "" },
+  { text: "CSS", icon: "css", href: "" },
+  { text: "Bash", icon: "bash", href: "" },
+  { text: "OpenGL", icon: "opengl", href: "" },
+  { text: "Nixos 24.05", icon: "nixos", href: "https://nixos.org/" },
+  { text: "Windows 11", icon: "windows11", href: "https://news.microsoft.com/windows11-general-availability/" },
+  { text: "Arch Linux", icon: "archlinux", href: "https://www.archlinux.org/" },
+  { text: "Raspberry Pi OS", icon: "raspberrypi", href: "https://www.raspberrypi.org/software/raspberry-pi-os/" },
+  { text: "Docker", icon: "docker", href: "https://www.docker.com/" },
+  { text: "PostgreSQL", icon: "postgresql", href: "https://www.postgresql.org/" },
+  { text: "Grafana", icon: "grafana", href: "https://grafana.com/" },
+  { text: "Git", icon: "git", href: "https://git-scm.com/" },
+  { text: "Django", icon: "django", href: "https://www.djangoproject.com/" },
+  { text: "Firefox", icon: "firefox", href: "https://www.mozilla.org/en-US/firefox" },
+  { text: "ChatGPT", icon: "chatgpt", href: "https://chat.openai.com/" },
+  { text: "Obsidian", icon: "obsidian", href: "https://obsidian.md/" }
 ]
 ---
 
@@ -66,7 +86,7 @@ const stack = [
   </div>
 
   <script is:inline src="/js/bg.js"></script>
-  
+
   <!-- HERO -->
   <section class="relative h-screen w-full">
     <div id="planetcont" class='animate absolute inset-0 top-1/4 overflow-hidden'>
@@ -83,10 +103,10 @@ const stack = [
             Hello, I am ...
           </p>
           <p class='animated text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white'>
-            Astro Sphere
+            N£utr0nys
           </p>
           <p class='animated text-sm md:text-base lg:text-lg opacity-75'>
-            Currently designing products for humans.
+            Passionate Hacker and Developper
           </p>
           <div id="ctaButtons" class='animated flex flex-wrap gap-4 justify-center mt-5'>
             <a href='/blog' class='py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend'>
@@ -95,30 +115,63 @@ const stack = [
             <a href='/work' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
               View my work
             </a>
+            <a href='#about' class='group not-prose flex items-center py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
+              About Me
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-1 -rotate-90 stroke-current group-hover:stroke-black group-hover:dark:stroke-white">
+                <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+                <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
+              </svg>
+            </a>
+          </div>
+          <div class="py-8 order-1 sm:order-2 flex justify-center">
+            <div class="flex flex-wrap gap-1 items-center justify-center">
+              {
+                SOCIALS.map((SOCIAL) => (
+                  <a
+                    href={SOCIAL.HREF}
+                    target="_blank"
+                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                    class="group size-12 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend"
+                  >
+                    <svg class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend">
+                      <use href={`/social.svg#${SOCIAL.ICON}`} />
+                    </svg>
+                  </a>
+                ))
+              }
+              </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="relative bg-white dark:bg-black">
-    <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+  <div id="about" class="relative bg-white dark:bg-black scroll-my-20">
+    <div class="mx-auto max-w-screen-md p-5 space-y-10 pb-16">
 
       <!-- About Section -->
       <section class="animate">
-        <article>
-          <p>I am a <b><i>software engineer</i></b>, <b><i>ui/ux designer</i></b>, <b><i>product planner</i></b>, <b><i>mentor</i></b>, <b><i>student</i></b>, <b><i>minimalist</i></b>, <b><i>eternal optimist</i></b>, <b><i>crypto enthusiast</i></b> and <b><i>sarcasm connoisseur</i></b>.</p>
-          <p>I love to both build and break things. I am motivated by challenging projects with self-guided research and dynamic problem solving. My true passion is crafting creative front end designs with unique takes on color, typography and motion.</p>
-          <p>During my career</p>
-          <p>I have built products ranging from marketing and ecommerce websites to complex enterprise apps with focus on delivering fast, elegant code along with delightful user interfaces.</p>
-          <p>Now</p>
-          <p>I currently work as a software engineer at StreamlineFS, where I do product planning, design and development.</p>
+        <article class="text-lg">
+          <p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>french student</b> in third year of engineering at Télécom Saint-Etienne, in <b>France</b> 🇫🇷 . I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
+          <p>
+            I love <strong>building</strong> and <strong>breaking</strong> things.
+            Challenging projects with deep research and creative problem-solving keep me going.
+            My biggest passion? <strong>Learning</strong> - always.
+            Right now, I'm really into <strong>hacking</strong> and <strong>CTFs</strong>.
+          </p>
+
+          <p>
+            In my free time, I code personal projects (mostly <strong>C/C++</strong> and <strong>Python</strong>),
+            but I'm always up for trying new tools and tech.
+          </p>
+          <h3>What I'm doing now</h3>
+          <p>Finishing my last year of engineering school in 🇨🇦 <strong>Canada</strong>.</p>
         </article>
       </section>
 
       <!-- Blog Preview Section -->
       <section class="animate">
-        <div class="space-y-4">
+        <div class="space-y-2">
           <div class="flex justify-between">
             <p class="font-semibold text-black dark:text-white">
               Recent posts
@@ -129,7 +182,7 @@ const stack = [
               </span>
             </a>
           </div>
-          <ul class="space-y-4">
+          <ul class="space-y-2">
             {posts.map((post) => (
               <li>
                 <ArrowCard entry={post} />
@@ -142,12 +195,13 @@ const stack = [
       <!-- Tech Stack Section -->
       <section class="animate">
         <div class="space-y-4">
-          <p class="font-semibold text-black dark:text-white">
-            Website build with
+          <p class="font-semibold text-lg text-black dark:text-white">
+            Throughout the development of my projects, I have gained experience with a variety of technologies and tools, across different platforms.
           </p>
+          <p>Here is a curated list of them :</p>
           <div class="flex flex-wrap items-center gap-2 mt-5">
             {stack.map(item => (
-              <StackCard 
+              <StackCard
                 text={item.text}
                 icon={item.icon}
                 href={item.href}
@@ -155,10 +209,10 @@ const stack = [
             ))}
           </div>
           <div>
-            Performing reactivity and statefulness, special guest
-            <a href="https://www.solidjs.com/" target="_blank" class="w-fit group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+            To know more about it, go checkout my
+            <a href="https://github.com/leoraclet" target="_blank" class="w-fit group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
               <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                SolidJS
+                Github
               </span>
             </a>
           </div>
@@ -167,7 +221,7 @@ const stack = [
 
       <!-- Project Preview Section -->
       <section class="animate">
-        <div class="space-y-4">
+        <div class="space-y-2">
           <div class="flex justify-between">
             <p class="font-semibold text-black dark:text-white">
               Recent projects
@@ -178,7 +232,7 @@ const stack = [
               </span>
             </a>
           </div>
-          <ul class="space-y-4">
+          <ul class="space-y-2">
             {projects.map((project) => (
               <li>
                 <ArrowCard entry={project} />
