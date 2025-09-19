@@ -1,5 +1,5 @@
 ---
-title: "Dynamixel Library"
+title: "⚙️ Dynamixel Library"
 summary: "A library to control Dynamixel servos"
 date: "2024-09-16"  # Replace with actual date if available
 draft: false

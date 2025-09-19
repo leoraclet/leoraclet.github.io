@@ -1,5 +1,5 @@
 ---
-title: "Unycoin"
+title: "🪙 Unycoin"
 summary: "A simple cryptocurrency implementation"
 date: "2024-09-16"  # Replace with actual date if available
 draft: false

@@ -1,5 +1,5 @@
 ---
-title: "Fractals Explorer"
+title: "❄️ Fractals Explorer"
 summary: "A real-time colored fractals explorer"
 date: "2024-09-16"  # Replace with actual date if available
 draft: false

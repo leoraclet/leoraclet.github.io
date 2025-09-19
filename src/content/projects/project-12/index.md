@@ -1,5 +1,5 @@
 ---
-title: "Minecraft Clone"
+title: "⛏️ Minecraft Clone"
 summary: "A Minecraft made from scratch in C++ with SFML"
 date: "2024-09-16"  # Replace with actual date if available
 draft: true  # Marked as draft since it's unfinished

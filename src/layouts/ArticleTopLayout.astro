@@ -62,13 +62,13 @@ const repoUrl = collection === "projects" ? data.repoUrl : null;
       {readingTime(body)}
     </div>
   </div>
-  <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">
+  <h1 class="text-3xl py-2 font-semibold text-black dark:text-white mt-2">
     {title}
   </h1>
   <div class="mt-1">
     {summary}
   </div>
-  <ul class="flex flex-wrap mt-2 gap-1">
+  <ul class="flex flex-wrap mt-4 gap-1">
     {
       tags.map(
         (

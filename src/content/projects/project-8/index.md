@@ -1,5 +1,5 @@
 ---
-title: "Wheeled Base"
+title: "🛞 Wheeled Base"
 summary: "Code of control of an 4-homniwheel robot"
 date: "2024-09-16"  # Replace with actual date if available
 draft: false

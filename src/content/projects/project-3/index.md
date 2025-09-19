@@ -1,5 +1,5 @@
 ---
-title: "Game of Life"
+title: "🛡️ Game of Life"
 summary: "A cellular automaton simulation"
 date: "2024-09-16"  # Replace with actual date if available
 draft: false

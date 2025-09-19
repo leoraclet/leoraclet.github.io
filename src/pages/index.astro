@@ -38,7 +38,6 @@ const stack = [
   { text: "Arduino IDE", icon: "arduino", href: "https://www.arduino.cc/en/software" },
   { text: "PyCharm", icon: "pycharm", href: "https://www.jetbrains.com/pycharm/" },
   { text: "Altium Designer", icon: "altium", href: "https://www.altium.com/altium-designer/" },
-  // { text: "STM32CubeIDE", icon: "cubeide", href: "https://www.st.com/en/development-tools/stm32cubeide.html" },
   { text: "Python", icon: "python", href: "https://www.python.org" },
   { text: "C++", icon: "cpp", href: "" },
   { text: "JavaScript", icon: "javascript", href: "" },
@@ -85,6 +84,8 @@ const stack = [
     </div>
   </div>
 
+  <a href="#about" class="z-10 group absolute link-outline animate-bounce bottom-16 md:bottom-14 lg:bottom-40 w-full flex items-center flex-col"><span class="group-hover:text-marrsgreen dark:group-hover:text-carrigreen">Scroll</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="dark:fill-bglight group-hover:fill-marrsgreen dark:group-hover:fill-carrigreen"><path d="M11.975 22H12c3.859 0 7-3.14 7-7V9c0-3.841-3.127-6.974-6.981-7h-.06C8.119 2.022 5 5.157 5 9v6c0 3.86 3.129 7 6.975 7zM7 9a5.007 5.007 0 0 1 4.985-5C14.75 4.006 17 6.249 17 9v6c0 2.757-2.243 5-5 5h-.025C9.186 20 7 17.804 7 15V9z"></path><path d="M11 6h2v6h-2z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="dark:fill-bglight group-hover:fill-marrsgreen dark:group-hover:fill-carrigreen"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg></a>
+
   <script is:inline src="/js/bg.js"></script>
 
   <!-- HERO -->
@@ -115,9 +116,9 @@ const stack = [
             <a href='/work' class='py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
               View my work
             </a>
-            <a href='#about' class='group not-prose flex items-center py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
+            <a href='/about' class='group not-prose flex items-center py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend'>
               About Me
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-1 -rotate-90 stroke-current group-hover:stroke-black group-hover:dark:stroke-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-1 rotate-180 stroke-current group-hover:stroke-black group-hover:dark:stroke-white">
                 <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
                 <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out" />
               </svg>
@@ -144,34 +145,29 @@ const stack = [
         </div>
       </div>
     </div>
+
   </section>
 
   <div id="about" class="relative bg-white dark:bg-black scroll-my-20">
-    <div class="mx-auto max-w-screen-md p-5 space-y-10 pb-16">
+    <div class="mx-auto max-w-screen-md p-5 space-y-10">
 
       <!-- About Section -->
       <section class="animate">
-        <article class="text-lg">
+        <article class="text-lg text-justify">
           <p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>french student</b> in third year of engineering at Télécom Saint-Etienne, in <b>France</b> 🇫🇷 . I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
           <p>
-            I love <strong>building</strong> and <strong>breaking</strong> things.
-            Challenging projects with deep research and creative problem-solving keep me going.
-            My biggest passion? <strong>Learning</strong> - always.
-            Right now, I'm really into <strong>hacking</strong> and <strong>CTFs</strong>.
-          </p>
-
-          <p>
             In my free time, I code personal projects (mostly <strong>C/C++</strong> and <strong>Python</strong>),
-            but I'm always up for trying new tools and tech.
+            but I'm always up for trying new tools and technologies.
           </p>
-          <h3>What I'm doing now</h3>
-          <p>Finishing my last year of engineering school in 🇨🇦 <strong>Canada</strong>.</p>
+          <p>
+            My <b>biggest</b> secret ? I love to ..... <b><i><a href="/about" class="text-md hover:text-red-500 transition duration-300"> more</a></i></b>
+          </p>
         </article>
       </section>
 
       <!-- Blog Preview Section -->
       <section class="animate">
-        <div class="space-y-2">
+        <div class="space-y-4">
           <div class="flex justify-between">
             <p class="font-semibold text-black dark:text-white">
               Recent posts
@@ -186,6 +182,29 @@ const stack = [
             {posts.map((post) => (
               <li>
                 <ArrowCard entry={post} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- Project Preview Section -->
+      <section class="animate">
+        <div class="space-y-2">
+          <div class="flex justify-between">
+            <p class="font-semibold text-black dark:text-white">
+              Recent projects
+            </p>
+            <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                All projects
+              </span>
+            </a>
+          </div>
+          <ul class="space-y-2">
+            {projects.map((project) => (
+              <li>
+                <ArrowCard entry={project} />
               </li>
             ))}
           </ul>
@@ -216,29 +235,6 @@ const stack = [
               </span>
             </a>
           </div>
-        </div>
-      </section>
-
-      <!-- Project Preview Section -->
-      <section class="animate">
-        <div class="space-y-2">
-          <div class="flex justify-between">
-            <p class="font-semibold text-black dark:text-white">
-              Recent projects
-            </p>
-            <a href="/projects" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                All projects
-              </span>
-            </a>
-          </div>
-          <ul class="space-y-2">
-            {projects.map((project) => (
-              <li>
-                <ArrowCard entry={project} />
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
