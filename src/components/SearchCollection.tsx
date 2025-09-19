@@ -20,10 +20,11 @@ export default function SearchCollection({ entry_name, data, tags }: Props) {
   const [descending, setDescending] = createSignal(false);
 
   const fuse = new Fuse(coerced, {
-    keys: ["slug", "data.title", "data.summary", "data.tags"],
+    keys: ["slug", "data.title", "data.summary", "data.tags", "data.body"],
     includeMatches: true,
     minMatchCharLength: 2,
     threshold: 0.4,
+    ignoreLocation: true,
   })
 
   createEffect(() => {

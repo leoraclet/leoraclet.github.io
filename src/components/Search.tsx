@@ -13,10 +13,11 @@ export default function Search({ data }: Props) {
   const [results, setResults] = createSignal<CollectionEntry<"blog">[]>([])
 
   const fuse = new Fuse(data, {
-    keys: ["slug", "data.title", "data.summary", "data.tags"],
+    keys: ["slug", "data.title", "data.summary", "data.tags", "data.body"],
     includeMatches: true,
     minMatchCharLength: 2,
     threshold: 0.4,
+    ignoreLocation: true,
   })
 
   createEffect(() => {
