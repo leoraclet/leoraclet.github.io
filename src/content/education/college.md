@@ -5,5 +5,6 @@ dateStart: "2023"
 dateEnd: "Present"
 ---
 
-- Copper telecommunications, antennas, and optical fibers – Modulation and coding
-- Programmable logic circuits – Embedded system
+- Competed in the **French Cup of Robotics** (2024 & 2025)
+- **Led** my school’s robotics club as President
+- Currently in my final year in **🇨🇦 Canada**, specializing in **Cybersecurity**

@@ -4,13 +4,14 @@ import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
 import Aside from "@components/Aside.astro";
+import TableOfContents from "@components/TableOfContents.astro";
 import { ABOUT } from "@consts";
 
 const collection = await getCollection("about");
 const about = await Promise.all(
   collection.map(async (item) => {
-    const { Content } = await item.render();
-    return { ...item, Content };
+    const { Content, headings } = await item.render();
+    return { ...item, Content, headings };
   })
 );
 ---
@@ -30,6 +31,7 @@ const about = await Promise.all(
   <BottomLayout>
     {
       about.map((entry) => (
+        entry.headings.length > 0 && <TableOfContents headings={entry.headings} />
         <article class="animate prose dark:prose-invert">
           <entry.Content />
         </article>

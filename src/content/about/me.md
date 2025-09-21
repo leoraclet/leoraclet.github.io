@@ -1,10 +1,22 @@
-#
+<br>
+<div class="text-lg text-justify">
+<p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>french student</b> in final year of engineering at Télécom Saint-Etienne, in <b>France</b> 🇫🇷 . I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
+<p>
+In my free time, I code personal projects (mostly <strong>C/C++</strong> and <strong>Python</strong>),
+but I'm always up for trying new tools and technologies.
+</p>
+<p>
+My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consistenly try to understands how the world around me works.
+</p>
+<div>
 
-## Infos
+## More infos
 
+- **Goal**: Aspiring *Cybersecurity Specialist* and *Bug Hunter*
 - **Country**: 🇫🇷 France
 - **Studies**: Computer Science
-- **Personnal Wiki**: Visit [Hack&Learn](https://leoraclet.github.io/wiki)
+- **Personnal Wiki**: Visit 👉 [Hack&Learn](https://leoraclet.github.io/wiki)
+- Lifelong learner — always exploring **everything**
 
 ## Technical Skills and Interests
 
@@ -45,4 +57,8 @@ Actively using [GitHub](https://github.com/) and [Docker](https://www.docker.com
 
 ## Hobbies
 
-**Programming**: I'm mostly a self-taught programmer since my 11 years old and I'm always trying to learn new things.
+**Hiking**: I love hiking in the mountains and beautiful places to enjoy nature’s beauty. The amazing views are my favorite part.
+
+**Traveling**: Growing up, I was fortunate to travel extensively with my family, and I’d love to continue exploring the world. I’ve already explored China, England, Scotland, Italy, and much of France.
+
+**Programming**: I’ve been self-teaching programming since I was 11, and I’m always eager to learn new things.
