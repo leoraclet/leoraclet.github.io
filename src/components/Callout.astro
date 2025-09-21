@@ -23,21 +23,21 @@ const icon = (() => {
 
 <div
   class:list={[
-    "aside prose-p:my-0 my-3 rounded-md border-l-4 px-4 py-3",
+    "aside prose-p:my-0 my-3 rounded-md border-l-4 px-4 py-3 dark:text-white",
     {
-      "prose-code:bg-green-400/20 border-green-400 bg-green-400/10 text-green-950":
+      "prose-code:bg-green-400/20 border-green-400 dark:bg-green-400/20 bg-green-400/10 text-green-950 dark:text-green-300":
         type === "tip",
     },
     {
-      "prose-code:bg-yellow-400/20 border-yellow-400 bg-yellow-400/10 text-yellow-950":
+      "prose-code:bg-yellow-400/20 border-yellow-400 dark:bg-yellow-400/20 bg-yellow-400/10 text-yellow-950 dark:text-yellow-300":
         type === "caution",
     },
     {
-      "prose-code:bg-red-400/20 border-red-400 bg-red-400/10 text-red-950":
+      "prose-code:bg-red-400/20 border-red-400 dark:bg-red-400/20 bg-red-400/10 text-red-950 dark:text-red-300":
         type === "danger",
     },
     {
-      "prose-code:bg-sky-400/20 border-sky-400 bg-sky-400/10 text-sky-950":
+      "prose-code:bg-sky-400/20 border-sky-400 dark:bg-sky-400/20 bg-sky-400/10 text-sky-950 dark:text-sky-300":
         type === "info",
     },
   ]}

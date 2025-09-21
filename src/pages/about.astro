@@ -1,9 +1,18 @@
 ---
+import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
 import Aside from "@components/Aside.astro";
 import { ABOUT } from "@consts";
+
+const collection = await getCollection("about");
+const about = await Promise.all(
+  collection.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
 ---
 
 <PageLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
@@ -15,9 +24,16 @@ import { ABOUT } from "@consts";
       <div class="mt-1">
         {ABOUT.DESCRIPTION}
       </div>
+      <Aside type="info">🏗️ Page under construction ... Work in progress</Aside>
     </div>
   </TopLayout>
   <BottomLayout>
-    <Aside type="info">🏗️ Page under construction ... Work in progress</Aside>
+    {
+      about.map((entry) => (
+        <article class="animate prose dark:prose-invert">
+          <entry.Content />
+        </article>
+      ))
+    }
   </BottomLayout>
 </PageLayout>
