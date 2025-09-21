@@ -1,5 +1,5 @@
 <br>
-<div class="text-lg text-justify">
+<div class="text-md text-justify">
 <p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>french student</b> in final year of engineering at Télécom Saint-Etienne, in <b>France</b> 🇫🇷 . I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
 <p>
 In my free time, I code personal projects (mostly <strong>C/C++</strong> and <strong>Python</strong>),
@@ -8,7 +8,7 @@ but I'm always up for trying new tools and technologies.
 <p>
 My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consistenly try to understands how the world around me works.
 </p>
-<div>
+</div>
 
 ## More infos
 
@@ -23,6 +23,8 @@ My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consis
 List of things I'm not so bad at
 
 ### Cybersecurity
+
+To learn more, go checkout my <a class="text-md hover:text-red-500 transition duration-300" target="_blank" href="https://ctftime.org/user/210334">CTFtime Profile</a>
 
 #### Events
 
@@ -60,5 +62,7 @@ Actively using [GitHub](https://github.com/) and [Docker](https://www.docker.com
 **Hiking**: I love hiking in the mountains and beautiful places to enjoy nature’s beauty. The amazing views are my favorite part.
 
 **Traveling**: Growing up, I was fortunate to travel extensively with my family, and I’d love to continue exploring the world. I’ve already explored China, England, Scotland, Italy, and much of France.
+
+**Reverse Engineering**: I’m fascinated by reverse engineering—even though I’m still a beginner, I’m getting more comfortable with it every day. Soon, I hope to understand how people crack softwares and games !
 
 **Programming**: I’ve been self-teaching programming since I was 11, and I’m always eager to learn new things.

@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import SimpleArrowCard from "@components/SimpleArrowCard";
+import { ARCHIVES } from "@consts";
+
+const allPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const postsByYear = allPosts.reduce(
+  (acc: Record<number, typeof allPosts>, post) => {
+    const postYear = post.data.date.getFullYear();
+    if (!acc[postYear]) acc[postYear] = [];
+    acc[postYear].push(post);
+    return acc;
+  },
+  {}
+);
+
+// Convert to array of { year, posts } for easier template rendering
+// Sort by year (newest first)
+const allPostsByYear = Object.entries(postsByYear).sort(
+  ([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA)
+);
+---
+
+<PageLayout title={ARCHIVES.TITLE} description={ARCHIVES.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate">
+      <h1 class="text-3xl font-semibold text-black dark:text-white mt-2">
+        {ARCHIVES.TITLE}
+      </h1>
+      <div class="mt-1">
+        {ARCHIVES.DESCRIPTION}
+      </div>
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    {allPosts.length === 0 && <p>No posts yet.</p>}
+
+    <section id="content" class="animate" aria-label="Blog post list">
+      {
+        allPostsByYear.map(([year, posts]) => (
+          <div class="relative mt-20">
+            <h2
+              class="text-year absolute -start-6 -top-16 -z-10 text-9xl font-bold text-transparent"
+              style="-webkit-text-stroke-width:2px;-webkit-text-stroke-color:hsl(var(--foreground)/var(--opacity))"
+            >
+              <samp>{year}</samp>
+            </h2>
+            <p class="px-5 text-muted-foreground">
+              {posts.length} post{posts.length > 1 && "s"}
+            </p>
+            <ul class="flex flex-col text-start">
+              {posts.map((p) => (
+                <SimpleArrowCard entry={p} />
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+  </BottomLayout>
+</PageLayout>

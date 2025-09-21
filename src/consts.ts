@@ -26,6 +26,12 @@ export const ABOUT: Page = {
 }
 
 // Blog Page
+export const ARCHIVES: Page = {
+  TITLE: "Archives",
+  DESCRIPTION: "A list of all the years of creating my posts.",
+}
+
+// Blog Page
 export const BLOG: Page = {
   TITLE: "Blog",
   DESCRIPTION: "Writings on topics I'm passionate about.",

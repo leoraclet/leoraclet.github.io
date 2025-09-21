@@ -74,7 +74,12 @@ export default function SearchCollection({ entry_name, data, tags }: Props) {
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
       {/* Control Panel*/}
       <div class="col-span-3 sm:col-span-1">
-        <div class="sticky top-24 mt-7">
+          {coerced[0].collection === "blog" && (<div class='flex justify-between flex-row mb-2 stroke-neutral-400 dark:stroke-neutral-500 hover:stroke-neutral-600 hover:dark:stroke-neutral-300 text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 hover:dark:text-neutral-300'>
+            <a href="/archives" class="text-sm uppercase">
+              View all posts by years →
+            </a>
+          </div>)}
+        <div class="sticky top-24">
           {/* Search Bar */}
           <SearchBar onSearchInput={onSearchInput} query={query} setQuery={setQuery} placeholderText={`Search ${entry_name}`} />
           {/* Tag Filters */}

@@ -20,6 +20,16 @@
   }
 }
 
+:root {
+  --foreground: 240 10% 3.9%;
+  --opacity: 0.1;
+}
+
+.dark {
+  --foreground: 0 0% 100%;
+  --opacity: 0.2;
+}
+
 html {
   color-scheme: light;
   background-color: white;
