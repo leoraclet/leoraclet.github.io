@@ -20,22 +20,20 @@ function getRandom(max) {
 }
 
 function initBG() {
-  const particlesSmall = generateParticles(1000);
   const particlesMedium = generateParticles(500);
   const particlesLarge = generateParticles(250);
-  const particles1 = document.getElementById('particles1');
   const particles2 = document.getElementById('particles2');
   const particles3 = document.getElementById('particles3');
 
-  if (particles1) {
-    particles1.style.cssText = `
-      width: 1px;
-      height: 1px;
-      border-radius: 50%;
-      box-shadow: ${particlesSmall};
-      animation: animStar 50s linear infinite;
-      `;
-  }
+  // if (particles1) {
+  //   particles1.style.cssText = `
+  //     width: 1px;
+  //     height: 1px;
+  //     border-radius: 50%;
+  //     box-shadow: ${particlesSmall};
+  //     animation: animStar 25s linear infinite;
+  //     `;
+  // }
 
   if (particles2) {
     particles2.style.cssText = `
@@ -43,7 +41,7 @@ function initBG() {
       height: 1.5px;
       border-radius: 50%;
       box-shadow: ${particlesMedium};
-      animation: animateParticle 100s linear infinite;
+      animation: animateParticle 50s linear infinite;
       `;
   }
 
@@ -53,7 +51,7 @@ function initBG() {
       height: 2px;
       border-radius: 50%;
       box-shadow: ${particlesLarge};
-      animation: animateParticle 150s linear infinite;
+      animation: animateParticle 75s linear infinite;
       `;
   }
 
