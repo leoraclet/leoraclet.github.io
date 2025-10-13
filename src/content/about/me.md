@@ -1,12 +1,13 @@
 <br>
 <div class="text-md text-justify">
-<p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>french student</b> in final year of engineering at Télécom Saint-Etienne, in <b>France</b> 🇫🇷 . I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
+<p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>French 🇫🇷</b> developer, cybersecurity enthusiast and lifelong learner, always pushing my limits to understand our World. I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
 <p>
 In my free time, I code personal projects (mostly <strong>C/C++</strong> and <strong>Python</strong>),
-but I'm always up for trying new tools and technologies.
+but I'm always up for trying new tools and technologies. I'm also consistently training my hacking skills online.
 </p>
 <p>
-My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consistenly try to understands how the world around me works.
+My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consistenly try to understands how everything around me works.
+And I 💙 **Open Source** !
 </p>
 </div>
 
@@ -16,7 +17,7 @@ My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consis
 - **Country**: 🇫🇷 France
 - **Studies**: Computer Science
 - **Personnal Wiki**: Visit 👉 [Hack&Learn](https://leoraclet.github.io/wiki)
-- Lifelong learner — always exploring **everything**
+- **Lifelong learner** — always exploring ✈️
 
 ## Technical Skills and Interests
 
@@ -36,11 +37,11 @@ To learn more, go checkout my <a class="text-md hover:text-red-500 transition du
 
 #### Interests
 
-- OSINT
-- Cryptography / Cryptanalysis
+- Cryptography & Cryptanalysis
 - Steganography
 - Reverse Engineering
 - Hardware
+- OSINT
 
 ### Technologies
 
