@@ -7,7 +7,7 @@ but I'm always up for trying new tools and technologies. I'm also consistently t
 </p>
 <p>
 My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consistenly try to understands how everything around me works.
-And I 💙 **Open Source** !
+And I 💙 <b>Open Source</b> !
 </p>
 </div>
 
