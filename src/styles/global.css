@@ -99,7 +99,7 @@ article {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .animate.show {
@@ -269,11 +269,11 @@ h3 code {
 }
 
 pre {
-  @apply !px-0 rounded-2xl border-2 border-gray-400;
+  @apply !px-0 rounded-2xl border-2 border-gray-400 dark:border-gray-600;
 }
 
 [data-rehype-pretty-code-title] {
-  @apply pl-5 pr-2 before:inline-block before:size-1 before:bg-green-500 before:rounded-full before:absolute before:top-[45%] before:left-2 bg-gray-100 dark:bg-black border border-gray-400 text-black dark:text-white rounded-lg py-1 px-4 font-normal text-sm w-fit relative ml-5 -mb-3 z-10;
+  @apply pl-5 pr-2 before:inline-block before:size-1 before:bg-green-500 before:rounded-full before:absolute before:top-[45%] before:left-2 bg-gray-100 dark:bg-black border border-gray-400 dark:border-gray-600 text-black dark:text-white rounded-lg py-1 px-4 font-normal text-sm w-fit relative ml-5 -mb-3 z-10;
 }
 
 figure {
@@ -282,7 +282,7 @@ figure {
 pre,
 code,
 figure {
-  @apply overflow-x-auto px-2 py-2 ;
+  @apply overflow-x-auto py-2 ;
 }
 
 a {

@@ -1,4 +1,3 @@
-<br>
 <div class="text-md text-justify">
 <p>Hi 👋 ! My name is <b>Leo</b>, and I'm a <b>French 🇫🇷</b> developer, cybersecurity enthusiast and lifelong learner, always pushing my limits to understand our World. I'm particularly interested in <b>computer science</b> and <b>cybersecurity</b> 🖥️ </p>
 <p>
@@ -7,7 +6,7 @@ but I'm always up for trying new tools and technologies. I'm also consistently t
 </p>
 <p>
 My <b>biggest</b> secret ? I love to Learn, everything and anytime, and I consistenly try to understands how everything around me works.
-And I 💙 <b>Open Source</b> !
+Also I 💙 <b>Open Source</b> !
 </p>
 </div>
 
@@ -20,8 +19,6 @@ And I 💙 <b>Open Source</b> !
 - **Lifelong learner** — always exploring ✈️
 
 ## Technical Skills and Interests
-
-List of things I'm not so bad at
 
 ### Cybersecurity
 

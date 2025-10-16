@@ -1,11 +1,11 @@
 ---
 company: "French Cup of Robotics"
 role: "President of my school's robotic club"
-dateStart: "05/28/2024"
-dateEnd: "05/31/2024"
+dateStart: "04/28/2024"
+dateEnd: "05/31/2025"
 ---
 
-- Participated in the **French Cup of Robotics** with the robotics club of** Télécom Saint-Etienne**
-- Developed a full-autonomous robot from scratch that competed in the cup
-- Collaborated with a team of 12 people
-- Introduced newly arrived first year students to Robotics
+- Competed in the French Cup of Robotics as a member of the Télécom Saint-Etienne Robotics Club.
+- Designed and developed a fully autonomous robot from scratch for the competition.
+- Collaborated in a team of 12 members to achieve project goals.
+- Mentored first-year students, introducing them to robotics and guiding their integration into the team.
