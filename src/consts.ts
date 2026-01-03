@@ -51,10 +51,10 @@ export const SEARCH: Page = {
 
 // Links
 export const LINKS: Links = [
-  {
-    TEXT: "Blog",
-    HREF: "/blog",
-  },
+//   {
+//     TEXT: "Blog",
+//     HREF: "/blog",
+//   },
   {
     TEXT: "Projects",
     HREF: "/projects",
@@ -139,4 +139,3 @@ export const SHARE_LINKS: Socials = [
     ICON: "email",
   },
 ]
-

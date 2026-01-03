@@ -10,12 +10,12 @@ Also I 💙 <b>Open Source</b> !
 </p>
 </div>
 
-## More infos
+## More information
 
 - **Goal**: Aspiring *Cybersecurity Specialist* and *Bug Hunter*
 - **Country**: 🇫🇷 France
 - **Studies**: Computer Science
-- **Personnal Wiki**: Visit 👉 [Hack&Learn](https://leoraclet.github.io/wiki)
+- **Personal Wiki**: Visit 👉 [Hack&Learn](https://leoraclet.github.io/wiki)
 - **Lifelong learner** — always exploring ✈️
 
 ## Technical Skills and Interests
@@ -26,6 +26,7 @@ To learn more, go checkout my <a class="text-md hover:text-red-500 transition du
 
 #### Events
 
+- [**Hackfest**](https://ctftime.org/event/2922): Onsite CTF, 2025 (**13th** / 55) with team **UQ'Hack**
 - [**404CTF**](https://www.404ctf.fr/ranking_2025.html): Online CTF, 2025 (**67th** / 2893)
 - [**TRACS**](https://tracs.viarezo.fr/edition_results/show_student_ranking/2024/): My first onsite CTF, 2024 (**73th** / 104)
 - [**HeroCTF v6**](https://ctftime.org/event/2496): Online CTF, 2024 (**40th** / 670)
@@ -42,14 +43,14 @@ To learn more, go checkout my <a class="text-md hover:text-red-500 transition du
 
 ### Technologies
 
-I mainly use theses tools and technologies in my daily ***– online –*** life.
+I mainly use these tools and technologies in my daily ***– online –*** life.
 
 #### Languages
 
 - **Python**: Scripting & [Django](https://www.djangoproject.com/) web apps
-- **C**: Embeded programms with [STM32](https://www.st.com/) & [Arduino](https://www.arduino.cc/)
+- **C**: Embedded programming with [STM32](https://www.st.com/) & [Arduino](https://www.arduino.cc/)
 - **JavaScript**: Frontend powred by [Astro](https://astro.build/)
-- **C++**: GUI apps using [SDL](https://www.libsdl.org/) , [SFML](https://www.sfml-dev.org/) , [OpenGL](https://www.opengl.org/) & [Dear ImGUI](https://github.com/ocornut/imgui)
+- **C++**: GUI apps using [SDL](https://www.libsdl.org/), [SFML](https://www.sfml-dev.org/), [OpenGL](https://www.opengl.org/) & [Dear ImGUI](https://github.com/ocornut/imgui)
 
 #### DevOps
 
@@ -61,6 +62,6 @@ Actively using [GitHub](https://github.com/) and [Docker](https://www.docker.com
 
 **Traveling**: Growing up, I was fortunate to travel extensively with my family, and I’d love to continue exploring the world. I’ve already explored China, England, Scotland, Italy, and much of France.
 
-**Reverse Engineering**: I’m fascinated by reverse engineering—even though I’m still a beginner, I’m getting more comfortable with it every day. Soon, I hope to understand how people crack softwares and games !
+**Reverse Engineering**: I’m fascinated by reverse engineering—even though I’m still a beginner, I’m getting more comfortable with it every day. Soon, I hope to understand how people crack pieces of software and games !
 
 **Programming**: I’ve been self-teaching programming since I was 11, and I’m always eager to learn new things.
