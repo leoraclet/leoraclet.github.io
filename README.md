@@ -1,10 +1,10 @@
 
-# Blog & Portfolio
+# My online portfolio
 
-  ![License](https://img.shields.io/github/license/leoraclet/leoraclet.github.io)
-  ![Framework](https://img.shields.io/badge/Framework-Astro-fa8925)
-  ![Size](https://img.shields.io/badge/Size-69Mo-f12222)
-  ![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
+![License](https://img.shields.io/github/license/leoraclet/leoraclet.github.io)
+![Framework](https://img.shields.io/badge/Framework-Astro-fa8925)
+![Size](https://img.shields.io/badge/Size-69Mo-f12222)
+![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 
 ## ❤️ Thanks
 
