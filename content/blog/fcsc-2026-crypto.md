@@ -110,7 +110,7 @@ assert this is fine
 
 What is interesting is that the first check adds a constraint that forces the numbers to be equal (i.e., `this` = `fine`). So the question now becomes: what must this number be ?
 
-After experimenting with the second `assert` test, I found that it passes only when `y(this)` and `y(fine)` refer to the same object in memory. How can this occur ?
+After experimenting with the second `assert` test, I found out that it passes only when `y(this)` and `y(fine)` refer to the same object in memory. How can this occur ?
 
 {{< details title="Spoiler" closed="true" >}}
 
@@ -448,7 +448,16 @@ I probably should have read the description more carefully this time. That being
 
 Our goal is to find prime numbers $p$ and $q$ such that the corresponding private key $d$ is "small". If you know a bit about RSA, you should know that this happens when the chosen $e$ is very large (about the same order as $n$), which is how challenges that aim to introduce [Wiener's attack](https://en.wikipedia.org/wiki/Wiener%27s_attack) are created.
 
-The main difficulty here is that, as we can see in the first line of the check function, $e$ can't be too big, so we can't use the easy way. Let's get back to the basics.
+The main difficulty here is that, as we can see in the first lines of the check function, $e$ can't be too big, so we can't use the easy way.
+
+```python {linenos=table,linenostart=6,hl_lines=[2],filename="little-d-big-trouble.py"}
+def correctness(p, q, e, d):
+    if e.bit_length() > 256:
+        print("Error: e is too big.")
+        return False
+```
+
+**Let's get back to the basics.**
 
 We want $d$ to be small, and we know that $d$ is calculated as
 
@@ -458,9 +467,9 @@ $$
 
 with $\phi(n) = (p - 1)(q - 1)$.
 
-It means that in most cases, $d$ is of the order of $(p - 1)(q - 1) \approx n = p \cdot q$, but because of the challenge, we need to verify $p, q \ge 2^{512} \quad \Longleftrightarrow \quad n \ge 2^{1024} $ and $d \lesssim p$. So this not gonna cut it with what we've said before.
+It means that in most cases, $d$ is of the order of $(p - 1)(q - 1) \approx n = p \cdot q$, but because of the challenge, we need to loosely verify $p, \ q \ge 2^{512} \ \Longleftrightarrow \ n \ge 2^{1024} $ and $d \lesssim p$. So this is not going to cut it with what we've said before.
 
-At this point, I was stuck. I was until, while reading for the $100$th time the [RSA Wikipedia](https://en.wikipedia.org/wiki/RSA_cryptosystem) page, I finally realised that the following informations, which I already knew, would be relevant this time. The private key can also be computed as
+At this point, I was stuck. I was until, while reading for the $100$-th time the [RSA Wikipedia](https://en.wikipedia.org/wiki/RSA_cryptosystem) page, I finally realized that the following information, which I already knew, would be relevant this time. The private key can also be computed as
 
 $$
 d = e^{-1} \mod lcm(p - 1, q - 1)
@@ -536,7 +545,6 @@ while True:
 **`FCSC{<i_dont_remember>}`**
 
 ## Fully Homomorphic RSA
-
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
@@ -639,8 +647,8 @@ c_{f1} &= c_f \cdot A^e &\mod n \\
 \end{aligned}
 $$
 
-4. Calculate $c_b = B^e \mod n$
-5. Then, send $(c_{f1}, c_b)$ to the service and use `hom_sum` to compute
+1. Calculate $c_b = B^e \mod n$
+2. Then, send $(c_{f1}, c_b)$ to the service and use `hom_sum` to compute
 
 $$
 \begin{aligned}
@@ -653,7 +661,7 @@ $$
 
 with $m_{f2} = f(m_f)$ and $f(x) = Ax + B$
 
-6. Now, we're in the exact case described by the attack, that we can then use to recover $m_f$ using the two following encrypted messages
+1. Now, we're in the exact case described by the attack, that we can then use to recover $m_f$ using the two following encrypted messages
 
 $$
 \begin{aligned}
@@ -694,8 +702,9 @@ def gcd(a, b):
         a, b = b, a % b
     return a.monic()
 
-# Maybe the following implementation of the attack is much faster than mine because
-# of the custom `fast_gcd_polynomial` ? Haven't tried it anyway
+# This implementation of the attack might be much faster than mine because
+# of the custom `fast_gcd_polynomial` ?
+# I should give it a try to see how fast it is
 # https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/related_message.py
 
 def franklinreiter(C1, C2, e, N, a, b):
@@ -749,20 +758,25 @@ if __name__ == '__main__':
 
 ## Not Solved
 
-In this section, there will be **post-CTF** write-ups about challenges I attempted but didn't solve during the competition. For each, I am now writing a detailed solution, given the time to think more and the hints, solutions, and ideas from people who solved them and didn't make a write-up.
+In this section, there will be **post-CTF** write-ups about challenges I attempted but didn't solve during the competition. For each, I am now writing a detailed solution, given the time to think more and the hints, solutions, and ideas from people who solved them and didn't make a write-up but talked about it on Discord.
 
-This means what you'll read here is ultimately a combination of both my personnal progress during the CTF and the solutions given on the [Discord channel](https://discord.com/channels/570360372209385473/703244010101276742). Big thanks to all the people who contributed to my knowledge.
+This means what you'll read here is ultimately a combination of both my personnal progress during the CTF (and after) and the solutions given on the [Discord channel](https://discord.com/channels/570360372209385473/703244010101276742).
+
+I will mention under each following write-up the people or solutions that helped me understand better and wrote what you'll read. Thanks to them ✨.
 
 Those challenges are :
 
-- [~~I love permutations~~](#i-love-permutations)
-- [~~dixvision~~](#dixvision)
+- [I love permutations](#i-love-permutations)
 - [Shor](#shor)
-- [~~À une vache près~~](#à-une-vache-près)
+<!--- [~~dixvision~~](#dixvision)-->
+<!--- [~~À une vache près~~](#à-une-vache-près)-->
 
 ---
 
-### ~~I love permutations~~
+### I love permutations
+
+> [!important]
+> The solution exposed here and the explanations are based on [this writeup](https://discord.com/channels/570360372209385473/706896953820315678/1492922641210802217), from [**@Maxime**](https://discord.com/users/134230546380226561), posted on the [Discord server](https://discord.gg/rwZY6hh8z8) of the event.
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
@@ -843,62 +857,208 @@ if __name__ == "__main__":
         print("Please check your inputs.")
 ```
 
-**Solving**
+When connecting to the service, we're given th encrypted **flag** and the ability to perform **6** encryptions using the same key for chosen ciphertexts of our own.
 
-> [!important] TODO
+```python {linenos=table,linenostart=43,hl_lines=[5],filename="i-love-permutations.py"}
+ILP = i_love_permutations()
+flag = open("flag.txt", "rb").read().strip()
+assert len(flag) == 32
 
-**`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
-
-### ~~dixvision~~
-
-| Points | Difficulty | Solves |
-| :----: | :--------: | :----: |
-| **420**    |  ★ ★      | **33**     |
-
-**Description**
-
-> ![division](/images/dixvision.png)
->
-> **`nc challenges.fcsc.fr 2155`**
-
-**Code**
-
-The service’s source code was provided :
-
-```python {linenos=table,filename="dixvision.py"}
-try:
-    a = int(input("a = "))
-    b = int(input("b = "))
-    assert a > 0 and b > 0
-
-    for i in range(10):
-        for j in range(10):
-            ai = a + i
-            bj = b + j
-            assert bj % ai != 0
-
-    a_prod = 1
-    b_prod = 1
-    for i in range(10):
-        a_prod *= a + i
-        b_prod *= b + i
-    assert b_prod % a_prod == 0
-
-    print(open("flag.txt").read())
-except:
-    print("Nope!")
+print(f"Flag hex : {ILP.encrypt(flag[:16]).hex() + ILP.encrypt(flag[16:32]).hex()}")
 ```
 
 **Solving**
 
-> [!important] TODO
+Let's define:
 
-**`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
+- $P_0$: the permutation generated by the seed $0$
+- $P_k$: a random unknown permutation generated from the key
+- $R = 101$: the number of rounds for the encryption process
+- $M = (l, r)$: our message, with $l$ and $r$ respectively the left and right branch
+- $E(x)$: our encryption function
+- $E_f$: our encrypted flag
+- $n=64$: the size of the permutations
+
+The key point here is to observe that for a carefully crafted message $M_c = (l, 0)$, with the right branch filled with $0$, we have:
+
+$$
+E(M_c) = (l \cdot (P_k P_0)^R, 0)
+$$
+
+with $\sigma = (P_k P_0)^R$ an unknown permutation, and $P_k$ the *key-based* permutation we're looking for.
+
+> [!important] Remark
+> Those permutations applies to the bit representation and ordering of the numbers with are workking with.
+
+From there, if we can recover the permutation $\sigma$ on its own, we can then take the $R$-th root to find $P_k P_0$, and since we know $P_0$, we finally have $P_k$, which allows us to revert the encryption of the flag.
+
+**This is where I was stuck during the CTF.** I knew that by constructing the $l$ part of the message in a special way, I would be able to recover $\sigma$, but I didn't know how.
+
+The trick is to create 6 messages $M_i = (l_i, 0)$ with $i \in [0, 5]$ and
+
+$$
+l_i = \sum_{j=0}^{64} \left(\left\lfloor \frac{j}{2^i} \right\rfloor \mod 2\right) \cdot 2^j
+$$
+
+> [!note] Meaning
+> This formula is just a fancy mathematical way to say that we set the value of the $j$-th bit of $l_i$ to the value of the $i$-th bit of $j$.
+
+Because of this formulation, we know that if
+
+$$
+\begin{aligned}
+E_i &= l_i \cdot (P_k P_0)^R \\
+&= l_i \cdot \sigma \\
+\end{aligned}
+$$
+
+then we have
+
+$$
+\begin{equation}
+\sigma = \left\{ \sum^{5}_{i=0} \left[\left(\left\lfloor \frac{E_i}{2^j} \right\rfloor \mod 2\right) \cdot 2^i \right] \mid j \in \{0, 1, \cdots, 64\} \right\}
+\tag{3}
+\end{equation}
+$$
+
+{{< details title="Proof" closed="true" >}}
+
+Here is the proof for (3) :
+
+**To be continued ...**
+
+{{< /details >}}
+
+We can now take the $R$-th root of this permutation, and because $R = 101$ is prime, we have a unique solution. I didn't find many resources on how to do that, so you can read those Stack Exchange Math discussions ([1](https://math.stackexchange.com/questions/581258/finding-the-square-root-of-a-permutation), [2](https://math.stackexchange.com/questions/266569/how-to-find-the-square-root-of-a-permutation) and [3](https://math.stackexchange.com/questions/1119744/easiest-way-of-finding-a-root-of-permutation)) or read the [Sage's source code](https://github.com/sagemath/sage/blob/develop/src/sage/combinat/permutation.py#L5606) of the function I will use.
+
+Now that we have $\beta = P_k P_0$ such that $\beta^R = \sigma$, we can calculate
+
+$$
+P_k = \beta \cdot P_0^{-1}
+$$
+
+since we know the permutation $P_0$.
+
+Finally, we can recover our unencrypted flag $M_f$ by running the encryption algorithm backward, as we now know $P_k$, meaning we can undo it.
+
+---
+
+> [!tip]
+> For future reference, I'm using [Sage's built-in permutation objects](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/permutation.html#sage.combinat.permutation.Permutation.nth_roots) to find the $101$-th root of the full $101$ rounds permutation.
+
+Here is the final solve script using Sage :
+
+```python {linenos=table,file="solve-i-love-permutations"}
+# SOLUTION BASED ON
+# https://discord.com/channels/570360372209385473/706896953820315678/1492922641210802217
+
+class i_love_permutations:
+    # [...]
+    # Previously defined
+
+class i_love_permutations_decrypt(i_love_permutations):
+    def decrypt(self, m):
+        l = self.branch_to_bits(m[: self.n // 8])
+        r = self.branch_to_bits(m[self.n // 8 :])
+        for _ in range(101):
+            l = apply_permutation(l, reverse_key_permutation)
+            l = reverse_shuffle(l, self.bits_to_branch(r))
+            r = apply_permutation(r, reverse_key_permutation)
+            r = reverse_shuffle(r, self.bits_to_branch(l))
+        return self.bits_to_branch(l) + self.bits_to_branch(r)
+
+
+# Connect to remote service
+io = remote("challenges.fcsc.fr", 2153)
+io.recvline()
+flag_hex = io.recvuntil(b"Flag hex : ").decode().strip()
+
+##########################################
+# HELPERS
+##########################################
+
+def send_message(m):
+    io.sendlineafter(b">>>", b"ff" * 8 + m)
+    io.recvuntil(b"Encryption: ")
+    return io.recvline().decode().strip()
+
+
+def bits_to_hex(b):
+    result = []
+    for i in range(0, len(b), 8):
+        byte = sum(int(b[i + j]) << j for j in range(8))
+        result.append(f"{byte:02x}")
+    return "".join(result)
+
+
+def hex_to_bits(h):
+    result = []
+    for byte in bytes.fromhex(h):
+        for i in range(8):
+            result.append(str((byte >> i) & 1))
+    return result
+
+
+def apply_permutation(l, perm):
+    return [l[perm[i]] for i in range(len(l))]
+
+
+def reverse_permutation(p):
+    reverse_p = [0] * len(p)
+    for i, x in enumerate(p):
+        reverse_p[x] = i
+    return reverse_p
+
+
+def reverse_shuffle(l, seed):
+    r = list(range(len(l)))
+    random.seed(seed)
+    random.shuffle(r)
+
+    return apply_permutation(l, reverse_permutation(r))
+
+##########################################
+# SOLVING
+##########################################
+
+n = 64
+shuffles = []
+
+for i in range(6):
+    msg = []
+    for x in range(n):
+        msg.append(f"{x:06b}"[i])
+    hex_message = bits_to_hex(msg)
+    response = send_message(hex_message.encode())
+    response_final_bits = hex_to_bits(response[16:])
+    shuffles.append(response_final_bits)
+
+perm_101 = []
+for j in range(n):
+    perm_index = "".join([shuffles[i][j] for i in range(6)])
+    perm_101.append(int(perm_index, 2))
+
+perm = Permutation([e + 1 for e in perm_101])
+sigma = [int(e) - 1 for e in list(perm.nth_roots(101))[0]]
+
+
+key_permutation = apply_permutation(reverse_shuffle(list(range(n)), b"\x00" * 8), sigma)
+reverse_key_permutation = reverse_permutation(key_permutation)
+
+
+ILP = i_love_permutations_decrypt()
+print(
+    ILP.decrypt((bytes.fromhex(flag_hex[:32]))).decode()
+    + ILP.decrypt((bytes.fromhex(flag_hex[32:]))).decode()
+)
+```
+
+**`FCSC{af56d1a25c88e9ebe515958e32}`**
 
 ### Shor
 
-> [!note]
-> I didn't solve this challenge during the CTF, but managed to do so now after a simple message from **@nikost** on the Discord server of the event, which revealed the solution to me. Shoutout to him !
+> [!important]
+> I didn't solve this challenge during the CTF, but managed to do so now after a simple message from [**@nikost**](https://discord.com/users/207100382625660928) on the Discord server of the event, which revealed the solution to me.
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
@@ -964,7 +1124,10 @@ c = 1221539470196805333827507108310523371656374057647940822641461476819803275320
 What is this number $c$ ? If we read the Wikipedia page, as it is the result of the quantum order-finding subroutine, it should be the order $r$, such that
 
 $$
+\begin{equation}
 a^r \equiv 1 \mod N
+\tag{1}
+\end{equation}
 $$
 
 But if you try these values, you'll see that this is not the case, so $c$ can't be the order. So what is it ?
@@ -983,7 +1146,7 @@ $$
 \frac{j}{r} = \frac{c}{2^{2n}}
 $$
 
-Since we know from the source code that $N$ is generated as a 2048-bit integer, we can assume that the algorithm was implemented as stated and so that $n = 2048$.
+Since we know from the source code that $N$ is generated from the product of two 1024-bits prime numbers, we can assume that the algorithm was implemented as stated and thus that $n = 1024$.
 
 Okay, now let's do this using Sage
 
@@ -1025,7 +1188,7 @@ and it doesn't work ...
 
 After the CTF ended, I was looking through the crypto channel on Discord to find some insights and saw this message (in French):
 
-![A good message indeed](/images/discord-screen-nikost.png "nikost message")
+![A good message indeed](/images/discord-screen-nikost.png "@nikost message")
 
 And indeed, you really do have $\phi(N) = \left\lfloor \frac{N}{r} \right\rfloor \cdot r$, because if you now try to recover the factors using [this method](/docs/cryptography/public-key/rsa/#known-eulers-totient), you successfully get back $p$ and $q$.
 
@@ -1039,23 +1202,59 @@ assert 1 < p < N   # True
 assert p * q == N  # True
 ```
 
-which finally solve our challenge.
+which finally solves our challenge ...
 
-But hey, let's be honest, I don't know why $\phi(N) = \left\lfloor \frac{N}{r} \right\rfloor \cdot r$ is correct. So is there another way ? **YES**
+But hey, let's be honest, I don't have *any* idea why $\phi(N) = \left\lfloor \frac{N}{r} \right\rfloor \cdot r$ is correct. So is there another way ? **YES**
 
 For this specific example, we can actually find that $\phi(N) = 2r$, which means that in many cases, $\phi(N)$ must be a multiple of $r$. But why ?
 
-If we take one last look at what is written on the Wikipedia page, we can read under the previously mentioned section :
+One part of the answer lies in the [Euler's theorem](https://en.wikipedia.org/wiki/Euler%27s_theorem), which states that if $a$ and $n$ are coprime, then
+
+$$
+\begin{equation}
+a^{k \cdot \phi(n)} \equiv 1 \mod n \quad \forall k \in \mathbb{N}^*
+\tag{2}
+\end{equation}
+$$
+
+Now, because $a$ should be coprime to $n$ for shor's algorithm, and following from equation (1), we should have, for $k = 1$
+
+$$
+\phi(n) = r
+$$
+
+If we take one last look at what is written on the Wikipedia page, we can read the last part of our answer under the previously mentioned section :
 
 > However, while $b$ and $c$ are coprime, it may be the case that $j$ and $r$ are not coprime. Because of that, $b$ and $c$ may have **lost some factors** that were in $j$ and $r$.
 
 {{< details title="What does it mean ?" closed="true" >}}
 
-What this means is that we found our $r$. However, due to the method we used (continued fractions), we lost a leading factor (2 in our case) of the "true" value of $r$.
+What this means is that we found our $r$. However, due to the method we used (continued fractions), we lost a leading factor ($2$ in our case) of the "true" value of $r$.
 
+We now have $r = k \cdot r^{'}$ with $r^{'}$ the actual order we found, which gives us
+
+$$
+\phi(n) = k \cdot r^{'}
+$$
+
+In the end, for a given $r$ such that $a^r \equiv 1 \mod n$, we must try to factor with multiples and factors of $r$ if it doesn't work with $r$ directly.
 {{< /details >}}
 
 So there it is. Now the strategy is to loop over many multiples until we find the correct one. It shouldn't be too long, as this one is often small, and if it takes too much time, then retry from the beginning with new values.
+
+{{< details title="One final point" closed="true" >}}
+
+In a normal case of shor's algortihm implementation, because $k \neq 1$, then we have from (2)
+
+$$
+k \cdot \phi(n) = r
+$$
+
+which means that $r$ is a multiple of $\phi(n)$.
+
+To factor $n$ from there, you should, as first discussed in [this paper](https://eprint.iacr.org/2017/083.pdf) and as implemented in [this attack](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/factorization/shor.py), try to divide $r$ by it's divisors to find $\phi(n)$
+
+{{< /details >}}
 
 ---
 
@@ -1074,7 +1273,17 @@ def solve(c, n):
             m = 0
             while True:
                 m += 1
-                phi = j * m
+                phi = r * m
+                p_plus_q = N + 1 - phi
+                p = abs(-p_plus_q + isqrt(p_plus_q**2 - 4*N)) // 2
+                if 1 < p < n and n % p == 0:
+                    return p
+
+                # If m divides r, we try the quotient
+                if r % m != 0:
+                    continue
+
+                phi = r // m
                 p_plus_q = N + 1 - phi
                 p = abs(-p_plus_q + isqrt(p_plus_q**2 - 4*N)) // 2
                 if 1 < p < n and n % p == 0:
@@ -1098,6 +1307,52 @@ while True:
     conn.close()
 
 ```
+
+**`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
+<!--
+### ~~dixvision~~
+
+| Points | Difficulty | Solves |
+| :----: | :--------: | :----: |
+| **420**    |  ★ ★      | **33**     |
+
+**Description**
+
+> ![division](/images/dixvision.png)
+>
+> **`nc challenges.fcsc.fr 2155`**
+
+**Code**
+
+The service’s source code was provided :
+
+```python {linenos=table,filename="dixvision.py"}
+try:
+    a = int(input("a = "))
+    b = int(input("b = "))
+    assert a > 0 and b > 0
+
+    for i in range(10):
+        for j in range(10):
+            ai = a + i
+            bj = b + j
+            assert bj % ai != 0
+
+    a_prod = 1
+    b_prod = 1
+    for i in range(10):
+        a_prod *= a + i
+        b_prod *= b + i
+    assert b_prod % a_prod == 0
+
+    print(open("flag.txt").read())
+except:
+    print("Nope!")
+```
+
+**Solving**
+
+> [!warning] TODO
 
 **`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
 
@@ -1125,9 +1380,14 @@ for x in count(2**255):
             exit()
 ```
 
+> [!note]
+> I would have **never** been able to solve this challenge, because for most of the time I was trying to do it using only pen, paper, and my math knowledge, which was clearly *not enough* now kwnowing the solution.
+
 **Solving**
 
-> [!important] TODO
+The key to solve this challenge was to find, read and understand [this paper](https://www.sciencedirect.com/science/article/pii/S0022314X09002534), then implement from scratch a solution based on explained principles.
+
+> [!warning] TODO
 
 **`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
 
@@ -1135,4 +1395,4 @@ for x in count(2**255):
 
 It was my first time parcticipating at [FCSC CTF](https://fcsc.fr/) and I must stay I was suprised by the level of diffuclty of the challenges. I'm a bit frustated because I spent a lot time on some challenges which I didn't solve in the end but discovered I was close to the solution after reading others. Guess I'll have to train more and become better 😆.
 
-Anyway, it was quite enjoyable and educational. Looking forward to next year to try my chance again to qualify for [ECSC](https://ecsc.eu/), as I'm still young enough to be a candidate for the two years to come !
+Anyway, it was quite enjoyable and educational. Looking forward to next year to try my chance again to qualify for [ECSC](https://ecsc.eu/), as I'm still young enough to be a candidate for the two years to come !-->

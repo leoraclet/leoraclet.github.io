@@ -1,5 +1,7 @@
 ---
 title: Learning Notes
+cascade:
+  comments: false
 ---
 
 Here, you'll find many notes on topics of interest to me. Mostly cybersecurity-related, but I hope to add some robotics and more general computer science content as well.

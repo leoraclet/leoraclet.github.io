@@ -119,17 +119,18 @@ params:
       # hover | always
       display: hover
   comments:
-    enable: false
+    enable: true
     type: giscus
     giscus:
-      repo: <repository>
-      repoId: <repository ID>
-      category: <category>
-      categoryId: <category ID>
+      repo: leoraclet/leoraclet.github.io
+      repoId: R_kgDOO1fDMg
+      category: Announcements
+      categoryId: DIC_kwDOO1fDMs4Crjn0
       mapping: pathname
-      strict: 0
+      strict: 1
       reactionsEnabled: 1
       emitMetadata: 0
+      loading: lazy
       inputPosition: top
   math:
     engine: mathjax
