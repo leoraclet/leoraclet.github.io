@@ -1,5 +1,6 @@
 ---
 toc: false
+comments: false
 ---
 
 <!-- markdownlint-disable MD033 -->
