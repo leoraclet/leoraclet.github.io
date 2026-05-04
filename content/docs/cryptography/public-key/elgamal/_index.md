@@ -47,3 +47,4 @@ with $m$ being the deciphered message.
 ## Resources
 
 - [ElGamal encryption](https://en.wikipedia.org/wiki/ElGamal_encryption)
+- [ElGamal Cryptosystem](https://fr.wikipedia.org/wiki/Cryptosyst%C3%A8me_de_ElGamal)

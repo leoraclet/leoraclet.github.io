@@ -33,7 +33,7 @@ Those challenges are :
 
 **Description**
 
-> ![This is fine !](/images/this-is-fine.jpg)
+> ![This is fine !](/images/blog/fcsc-2026-crypto-wu/this-is-fine.jpg)
 
 **Code**
 
@@ -150,7 +150,7 @@ for y in L:
 
 **Description**
 
-> ![Code breaker](/images/code-breaker.jpg)
+> ![Code breaker](/images/blog/fcsc-2026-crypto-wu/code-breaker.jpg)
 
 **Code**
 
@@ -360,7 +360,7 @@ print(unpad(AES.new(key, AES.MODE_CBC, iv=iv).decrypt(ciphertext), 16))
 >
 > Testez votre chance en soumettant un de ces cas extrêment rares.
 >
-> ![Little d - Big trouble](/images/little-d-big-trouble.jpg)
+> ![Little d - Big trouble](/images/blog/fcsc-2026-crypto-wu/little-d-big-trouble.jpg)
 >
 > **`nc challenges.fcsc.fr 2155`**
 
@@ -446,7 +446,7 @@ I probably should have read the description more carefully this time. That being
 
 **Solving**
 
-Our goal is to find prime numbers $p$ and $q$ such that the corresponding private key $d$ is "small". If you know a bit about RSA, you should know that this happens when the chosen $e$ is very large (about the same order as $n$), which is how challenges that aim to introduce [Wiener's attack](https://en.wikipedia.org/wiki/Wiener%27s_attack) are created.
+Our goal is to find prime numbers $p$ and $q$ such that the corresponding private key $d$ is "small". If you know a bit about RSA, you should know that this happens when the chosen $e$ is very large (about the same order as $N$), which is how challenges that aim to introduce [Wiener's attack](https://en.wikipedia.org/wiki/Wiener%27s_attack) are created.
 
 The main difficulty here is that, as we can see in the first lines of the check function, $e$ can't be too big, so we can't use the easy way.
 
@@ -638,7 +638,7 @@ Well, having faced RSA cryptanalysis quite a few times, I remembered it was some
 The key point here, as mentioned in my notes, is that $b \neq 0$, which is what the function `hom_sum` will be useful for. So here is the plan :
 
 1. Choose two numbers $A$, $B < n$
-2. Connect to the service, retrieve $c_f$, $e$ and $n$.
+2. Connect to the service, retrieve $c_f$, $e$ and $N$.
 3. Using the public key $(n, e)$, compute
 
 $$\begin{aligned}
@@ -768,8 +768,6 @@ Those challenges are :
 
 - [I love permutations](#i-love-permutations)
 - [Shor](#shor)
-<!--- [~~dixvision~~](#dixvision)-->
-<!--- [~~À une vache près~~](#à-une-vache-près)-->
 
 ---
 
@@ -786,7 +784,7 @@ Those challenges are :
 
 > Moi, j'aime les permutations. Alors j'ai décidé de créer mon propre chiffrement par bloc.
 >
-> ![I love permutations](/images/i-love-permutations.png)
+> ![I love permutations](/images/blog/fcsc-2026-crypto-wu/i-love-permutations.png)
 >
 > **`nc challenges.fcsc.fr 2153`**
 
@@ -1188,7 +1186,7 @@ and it doesn't work ...
 
 After the CTF ended, I was looking through the crypto channel on Discord to find some insights and saw this message (in French):
 
-![A good message indeed](/images/discord-screen-nikost.png "@nikost message")
+![A good message indeed](/images/blog/fcsc-2026-crypto-wu/discord-screen-nikost.png "@nikost message")
 
 And indeed, you really do have $\phi(N) = \left\lfloor \frac{N}{r} \right\rfloor \cdot r$, because if you now try to recover the factors using [this method](/docs/cryptography/public-key/rsa/#known-eulers-totient), you successfully get back $p$ and $q$.
 
@@ -1206,21 +1204,69 @@ which finally solves our challenge ...
 
 But hey, let's be honest, I don't have *any* idea why $\phi(N) = \left\lfloor \frac{N}{r} \right\rfloor \cdot r$ is correct. So is there another way ? **YES**
 
+{{< details title="Addendum - Explanations" closed="true" >}}
+
+As told to me just after the release of this post by none other than **@nikost** himself (again), here is the explanation of why it works.
+
+We have
+
+$$
+\begin{aligned}
+\phi(N) &= (p - 1)(q - 1) \\
+&= pq - p - q + 1 \\
+&= N - p - q + 1
+\end{aligned}
+$$
+
+So
+
+$$
+\frac{N}{r} = \frac{\phi(N)}{r} + \frac{p + q - 1}{r}
+$$
+
+Now, because of something we will discuss below, $\phi(N)$ is a multiple of $r$, thus we have $r \cdot \phi(N) = k$ and
+
+$$
+k = \frac{\phi(N)}{r}
+$$
+
+is an integer.
+
+Moreover, because with **very high** probability for a randomly chosen base $a$, we have $r \gg p + q - 1$, it means that
+
+$$
+0 < \frac{p + q - 1}{r} < 1
+$$
+
+In the end, it all comes down to
+
+$$
+\begin{aligned}
+\left\lfloor \frac{N}{r} \right\rfloor \cdot r
+&= \left\lfloor \frac{\phi(N)}{r} + \frac{p + q - 1}{r} \right\rfloor \cdot r \\
+&= \left\lfloor \frac{\phi(N)}{r} \right\rfloor \cdot r \\
+&= \frac{\phi(N)}{r} \cdot r \\
+&= \phi(N)
+\end{aligned}
+$$
+
+{{< /details >}}
+
 For this specific example, we can actually find that $\phi(N) = 2r$, which means that in many cases, $\phi(N)$ must be a multiple of $r$. But why ?
 
-One part of the answer lies in the [Euler's theorem](https://en.wikipedia.org/wiki/Euler%27s_theorem), which states that if $a$ and $n$ are coprime, then
+One part of the answer lies in the [Euler's theorem](https://en.wikipedia.org/wiki/Euler%27s_theorem), which states that if $a$ and $N$ are coprime, then
 
 $$
 \begin{equation}
-a^{k \cdot \phi(n)} \equiv 1 \mod n \quad \forall k \in \mathbb{N}^*
+a^{k \cdot \phi(N)} \equiv 1 \mod n \quad \forall k \in \mathbb{N}^*
 \tag{2}
 \end{equation}
 $$
 
-Now, because $a$ should be coprime to $n$ for shor's algorithm, and following from equation (1), we should have, for $k = 1$
+Now, because $a$ should be coprime to $N$ for shor's algorithm, and following from equation (1), we should have, for $k = 1$
 
 $$
-\phi(n) = r
+\phi(N) = r
 $$
 
 If we take one last look at what is written on the Wikipedia page, we can read the last part of our answer under the previously mentioned section :
@@ -1234,7 +1280,7 @@ What this means is that we found our $r$. However, due to the method we used (co
 We now have $r = k \cdot r^{'}$ with $r^{'}$ the actual order we found, which gives us
 
 $$
-\phi(n) = k \cdot r^{'}
+\phi(N) = k \cdot r^{'}
 $$
 
 In the end, for a given $r$ such that $a^r \equiv 1 \mod n$, we must try to factor with multiples and factors of $r$ if it doesn't work with $r$ directly.
@@ -1252,7 +1298,7 @@ $$
 
 which means that $r$ is a multiple of $\phi(n)$.
 
-To factor $n$ from there, you should, as first discussed in [this paper](https://eprint.iacr.org/2017/083.pdf) and as implemented in [this attack](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/factorization/shor.py), try to divide $r$ by it's divisors to find $\phi(n)$
+To factor $N$ from there, you should, as first discussed in [this paper](https://eprint.iacr.org/2017/083.pdf) and as implemented in [this attack](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/factorization/shor.py), try to divide $r$ by it's divisors to find $\phi(n)$
 
 {{< /details >}}
 
@@ -1309,90 +1355,9 @@ while True:
 ```
 
 **`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
-<!--
-### ~~dixvision~~
-
-| Points | Difficulty | Solves |
-| :----: | :--------: | :----: |
-| **420**    |  ★ ★      | **33**     |
-
-**Description**
-
-> ![division](/images/dixvision.png)
->
-> **`nc challenges.fcsc.fr 2155`**
-
-**Code**
-
-The service’s source code was provided :
-
-```python {linenos=table,filename="dixvision.py"}
-try:
-    a = int(input("a = "))
-    b = int(input("b = "))
-    assert a > 0 and b > 0
-
-    for i in range(10):
-        for j in range(10):
-            ai = a + i
-            bj = b + j
-            assert bj % ai != 0
-
-    a_prod = 1
-    b_prod = 1
-    for i in range(10):
-        a_prod *= a + i
-        b_prod *= b + i
-    assert b_prod % a_prod == 0
-
-    print(open("flag.txt").read())
-except:
-    print("Nope!")
-```
-
-**Solving**
-
-> [!warning] TODO
-
-**`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
-
-### ~~À une vache près~~
-
-| Points | Difficulty | Solves |
-| :----: | :--------: | :----: |
-| **493**  |  ★ ★ ★   | **3** |
-
-**Description**
-
-> ![À une vache près](/images/a-une-vache-pres.jpg)
-
-**Code**
-
-Here is the provided source file :
-
-```python
-from itertools import count
-
-for x in count(2**255):
-    for y in range(1, x**5 + 1):
-        if 0 < abs(y**2 - x**5) < 2**423:
-            print(f"FCSC{{{x:x}}}")
-            exit()
-```
-
-> [!note]
-> I would have **never** been able to solve this challenge, because for most of the time I was trying to do it using only pen, paper, and my math knowledge, which was clearly *not enough* now kwnowing the solution.
-
-**Solving**
-
-The key to solve this challenge was to find, read and understand [this paper](https://www.sciencedirect.com/science/article/pii/S0022314X09002534), then implement from scratch a solution based on explained principles.
-
-> [!warning] TODO
-
-**`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
 
 ## End word
 
 It was my first time parcticipating at [FCSC CTF](https://fcsc.fr/) and I must stay I was suprised by the level of diffuclty of the challenges. I'm a bit frustated because I spent a lot time on some challenges which I didn't solve in the end but discovered I was close to the solution after reading others. Guess I'll have to train more and become better 😆.
 
-Anyway, it was quite enjoyable and educational. Looking forward to next year to try my chance again to qualify for [ECSC](https://ecsc.eu/), as I'm still young enough to be a candidate for the two years to come !-->
+Anyway, it was quite enjoyable and educational. Looking forward to next year to try my chance again to qualify for [ECSC](https://ecsc.eu/), as I'm still young enough to be a candidate for the two years to come !

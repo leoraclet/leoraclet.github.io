@@ -71,6 +71,11 @@ from sage.all import *
 ls = int(legendre_symbol(c2, p) // max(legendre_symbol(h, p), legendre_symbol(c1, p)))
 ```
 
+### Fault Attack
+
+- [ElGamal ECC](https://ctf-wiki.mahaloz.re/crypto/asymmetric/discrete-log/ecc/)
+- [Fault Attacks on ElGamal-Type Cryptosystems](https://staff.fim.uni-passau.de/kreuzer/papers/ElGamal_FaultAttack-preprint.pdf)
+
 ### Oracle
 
 #### Padding oracle

@@ -1,4 +1,4 @@
 ---
-title: Historic Ciphers
-linkTitle: Historic
+title: Historical Ciphers
+linkTitle: Historical
 ---
