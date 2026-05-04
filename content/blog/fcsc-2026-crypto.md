@@ -1224,7 +1224,7 @@ $$
 \frac{N}{r} = \frac{\phi(N)}{r} + \frac{p + q - 1}{r}
 $$
 
-Now, because of something we will discuss below, $\phi(N)$ is a multiple of $r$, thus we have $r \cdot \phi(N) = k$ and
+Now, because of something we will discuss below, $\phi(N)$ is a multiple of $r$, thus we have $k \cdot \phi(N) = r$ and
 
 $$
 k = \frac{\phi(N)}{r}
