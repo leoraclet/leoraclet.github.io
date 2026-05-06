@@ -1,0 +1,3 @@
+img:where(.dark, .dark *) {
+    filter: invert();
+}

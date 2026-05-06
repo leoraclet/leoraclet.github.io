@@ -8,6 +8,12 @@ tags:
 - crypto
 - blog
 - writeup
+- rsa
+- shor
+- permutations
+- grs
+- roots
+- polynomials
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -33,7 +39,7 @@ Those challenges are :
 
 **Description**
 
-> ![This is fine !](/images/blog/fcsc-2026-crypto-wu/this-is-fine.jpg)
+> ![This is fine !](./fcsc-2026-crypto-wu/this-is-fine.jpg)
 
 **Code**
 
@@ -150,7 +156,7 @@ for y in L:
 
 **Description**
 
-> ![Code breaker](/images/blog/fcsc-2026-crypto-wu/code-breaker.jpg)
+> ![Code breaker](./fcsc-2026-crypto-wu/code-breaker.jpg)
 
 **Code**
 
@@ -360,7 +366,7 @@ print(unpad(AES.new(key, AES.MODE_CBC, iv=iv).decrypt(ciphertext), 16))
 >
 > Testez votre chance en soumettant un de ces cas extrêment rares.
 >
-> ![Little d - Big trouble](/images/blog/fcsc-2026-crypto-wu/little-d-big-trouble.jpg)
+> ![Little d - Big trouble](./fcsc-2026-crypto-wu/little-d-big-trouble.jpg)
 >
 > **`nc challenges.fcsc.fr 2155`**
 
@@ -784,7 +790,7 @@ Those challenges are :
 
 > Moi, j'aime les permutations. Alors j'ai décidé de créer mon propre chiffrement par bloc.
 >
-> ![I love permutations](/images/blog/fcsc-2026-crypto-wu/i-love-permutations.png)
+> ![I love permutations](./fcsc-2026-crypto-wu/i-love-permutations.png)
 >
 > **`nc challenges.fcsc.fr 2153`**
 
@@ -1186,7 +1192,7 @@ and it doesn't work ...
 
 After the CTF ended, I was looking through the crypto channel on Discord to find some insights and saw this message (in French):
 
-![A good message indeed](/images/blog/fcsc-2026-crypto-wu/discord-screen-nikost.png "@nikost message")
+![A good message indeed](./fcsc-2026-crypto-wu/discord-screen-nikost.png "@nikost message")
 
 And indeed, you really do have $\phi(N) = \left\lfloor \frac{N}{r} \right\rfloor \cdot r$, because if you now try to recover the factors using [this method](/docs/cryptography/public-key/rsa/#known-eulers-totient), you successfully get back $p$ and $q$.
 

@@ -14,10 +14,6 @@ prev: /docs/cryptography/public-key/dhke
 <!-- markdownlint-disable MD041 -->
 <!-- markdownlint-disable MD013 -->
 
-## Summary
-
-> [!warning] Work in progress
-
 ## Small prime
 
 If the prime $p$ is small enough, then the DLP is not hard enough and can thus be solved in little time with existing algorithms.
@@ -55,9 +51,9 @@ def smooth_p(bit_length=256):
 ```
 
 > [!tip]
-> In the case of $p-1$ being a [powersmooth number](https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers), you can use [Pollard's $p-1$](https://en.wikipedia.org/wiki/Pollard%27s_p_%E2%88%92_1_algorithm) algorithm that is specifically designed for such numbers.
+> In the case of $p-1$ being a [powersmooth number](https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers), you can use [Pollard's p-1](https://en.wikipedia.org/wiki/Pollard%27s_p_%E2%88%92_1_algorithm) algorithm that is specifically designed for such numbers.
 
-## Small Subgroup Confinement Attack
+## Small Subgroup Attack
 
 This attack exploits the same vulnerability created by a smooth prime number. You can thus refer to the previous attacks to take advantage of it.
 

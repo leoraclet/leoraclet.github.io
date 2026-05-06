@@ -32,7 +32,7 @@ Here you'll find all my notes related to cryptography and cryptanalysis in the c
 
 Here are the more general tools I always use and recommend when starting to do things about cryptography :
 
-- [Python](https://www.python.org/)
+- [**Python**](https://www.python.org/) - Programming language with packages
   - [gmpy2](https://gmpy-skirpichev.readthedocs.io/en/latest/)
   - [sympy](https://docs.sympy.org/latest/index.html)
   - [cryptography](https://cryptography.io/en/latest/)
@@ -41,10 +41,17 @@ Here are the more general tools I always use and recommend when starting to do t
   - [z3-solver](https://github.com/Z3Prover/z3)
   - [Scipy](https://scipy.org/)
   - [Numpy](https://numpy.org/)
-- [Sage (SageMath)](https://www.sagemath.org/)
-- [fplll](https://github.com/fplll/fplll)
-- [Pari/GP](https://pari.math.u-bordeaux.fr/)
-- [Magma](https://magma.maths.usyd.edu.au/magma/)
+- [**SageMath**](https://www.sagemath.org/) - Free open-source mathematics software system.
+- [**fplll**](https://github.com/fplll/fplll) - Lattice algorithms using floating-point arithmetic.
+- [**Pari/GP**](https://pari.math.u-bordeaux.fr/) - Computer algebra system designed for fast computations in number theory.
+- [**Magma**](https://magma.maths.usyd.edu.au/magma/) - Computational Algebra System.
+- [**flatter**](https://github.com/keeganryan/flatter) - Fast lattice reduction.
+- [**msolve**](github.com/algebraic-solving/msolve) - Library for Polynomial System Solving through Algebraic Methods.
+
+**Online**
+
+- [**Boxentriq**](https://www.boxentriq.com/analysis/cipher-identifier) - Cipher Identifier.
+- [**CyberChef**](https://gchq.github.io/CyberChef/) - The Cyber Swiss Army Knife.
 
 ## Flake Environment
 
@@ -86,6 +93,8 @@ You can find other packages to install on the [Nix package repository](https://s
             python313Packages.cypari
             python313Packages.mpmath
             python313Packages.fpylll
+            flatter
+            msolve
             magma
             pari
             fplll
@@ -99,4 +108,8 @@ You can find other packages to install on the [Nix package repository](https://s
 
 ## Resources
 
-> [!warning] Work in progress ...
+- [bi0s Wiki](https://teambi0s.gitlab.io/bi0s-wiki/)
+- [OpenToAllCTF](https://github.com/OpenToAllCTF/Tips)
+- [HackTricks](https://book.hacktricks.xyz/)
+- [CryptoHack – Courses](https://cryptohack.org/courses/)
+- [Recovering cryptographic keys from partial information, by example](https://eprint.iacr.org/2020/1506.pdf)

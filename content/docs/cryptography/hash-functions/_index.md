@@ -21,9 +21,18 @@ There are a lot of hash functions. Here are the most popular ones you will encou
 
 - [Hashcat](https://hashcat.net/hashcat/) - Hash / password cracker
 - [John The Ripper](https://www.openwall.com/john/) - Another password cracker
-- [Free Password Hash Cracker](https://crackstation.net/) - Rainbow table
+
+**Online**
+
+- [CyberChef](https://gchq.github.io/CyberChef/#input=ZXhhbXBsZQ)
+- [Crackstation - Free Password Hash Cracker](https://crackstation.net/) - Rainbow table
 - [MD5Hashing.net](https://md5hashing.net/) - MD5 Cracker
 - [DCode - Hash Identifier](https://www.dcode.fr/hash-identifier) - Hash identifier
+
+**Wordlists**
+
+- [rockyou.txt](https://github.com/zacheller/rockyou)
+- [SecList](https://github.com/danielmiessler/SecLists)
 
 ## Resources
 

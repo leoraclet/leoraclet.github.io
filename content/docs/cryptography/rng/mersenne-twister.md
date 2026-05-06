@@ -19,6 +19,10 @@ The [**Mersenne Twister**](https://en.wikipedia.org/wiki/Mersenne_Twister) is a 
 
 ### Known partial 16-bits
 
+### Only 2 known Outputs
+
+- [TetCTF 2020 - (Crypto) 2020th Write-up](https://github.com/bachpc/TetCTF-2020/blob/master/2020th/2020th.ipynb)
+
 ## Resources
 
 - [Python Random Number Generator (MT19937) Attacks](https://jia.je/ctf-writeups/misc/pyrand.html)

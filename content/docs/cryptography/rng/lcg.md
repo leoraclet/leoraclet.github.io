@@ -6,6 +6,8 @@ tags:
 - cryptography
 - lcg
 - rng
+- prng
+- random
 ---
 
 A [**linear congruential generator**](https://en.wikipedia.org/wiki/Linear_congruential_generator) (LCG) is an algorithm that yields a sequence of pseudo-randomized numbers. This one one of the oldest and best-known [pseudorandom number generator](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) algorithms.
@@ -343,6 +345,14 @@ assert seed == lcg.seed  # True
 ## Attacks
 
 ### Truncated LCG
+
+- [On Stern’s Attack Against Secret Truncated Linear Congruential Generators](https://link.springer.com/content/pdf/10.1007/11506157_5.pdf)
+
+### Parameter recovery
+
+> [!important] TODO
+
+### State recovery
 
 > [!important] TODO
 

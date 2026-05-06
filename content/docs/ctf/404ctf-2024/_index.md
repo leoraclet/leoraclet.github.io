@@ -2,8 +2,6 @@
 title: 404CTF 2024
 ---
 
-Welcome 👋,
-
 This page documents my results from the **404CTF 2024**.
 The **3rd edition of the 404CTF** took place from **April 20, 2024**, to **May 12, 2024** (22 days total).
 

@@ -15,6 +15,7 @@ tags:
 - [Stegcloak](https://stegcloak.surge.sh/)
 - [StegoLSB](https://github.com/ragibson/Steganography)
 - [Stegsnow](https://darkside.com.au/snow/)
+- [Hide a message in an emoji](https://emoji.paulbutler.org/?mode=encode)
 
 ## Resources
 

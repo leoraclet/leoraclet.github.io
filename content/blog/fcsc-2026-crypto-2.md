@@ -29,7 +29,7 @@ This is the second post on the [FCSC CTF](https://fcsc.fr/), check out the [firs
 
 **Description**
 
-> ![division](/images/blog/fcsc-2026-crypto-wu/dixvision.png)
+> ![division](./fcsc-2026-crypto-wu/dixvision.png)
 >
 > **`nc challenges.fcsc.fr 2155`**
 
@@ -75,7 +75,7 @@ except:
 
 **Description**
 
-> ![À une vache près](/images/blog/fcsc-2026-crypto-wu/a-une-vache-pres.jpg)
+> ![À une vache près](./fcsc-2026-crypto-wu/a-une-vache-pres.jpg)
 
 **Code**
 

@@ -6,13 +6,15 @@ tags:
 - cryptography
 - lfsr
 - rng
+- random
+- prng
 ---
 
 A [**linear-feedback shift register**](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) (LFSR) is a shift register whose input bit is a linear function of its previous state. It is sometimes used as a pseudorandom number generator in some cryptographic applications.
 
 ## Galois LFSR
 
-A Galois LFSR, also referred to as a binary LFSR, is a specific type of LFSR that operates in $\mathbb{GF}_2$. Here is a simple diagram illustrating how it works.
+A Galois LFSR, also referred to as a binary LFSR, is a specific type of LFSR that operates in $\mathbb{F}_2$. Here is a simple diagram illustrating how it works.
 
 ![Galois LFSR illustration](./lfsr.png)
 
@@ -267,13 +269,14 @@ def lfsr_next(state, taps):
 @jit(parallel=True)
 def corre(out, taps, seed_bit_size, corr_pct):
     """
-    Test all possible seeds and calcualte for each 
-    the correlation % with he given bit stream
-    :param out: Ouput bit stream
+    Test all possible seeds and calcualte for each the
+    correlation % with he given bit stream
+
+    :param out: Output bit stream
     :param taps: LFSR tap positions
     :param seed_bit_size: As its name suggest, the bit size of the state of
                           targeted LFSR
-    :param corr_pct: THe correlation % we expect
+    :param corr_pct: The correlation % we expect
     """
     for seed in prange(0, 2**seed_bit_size):
         if seed % (2**seed_bit_size // 10) == 0:
@@ -287,6 +290,8 @@ def corre(out, taps, seed_bit_size, corr_pct):
                 matches += 1
             s = lfsr_next(s, _t)
         corr = matches / len(out)
+
+        # The hight printed correlation % will the correct seed
         if corr > corr_pct - ((corr_pct - 0.5) // 4):
             print(corr, state)
 

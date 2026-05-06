@@ -17,6 +17,7 @@ tags:
 - [steghide](https://steghide.sourceforge.net/)
 - [stegsolve](http://www.caesum.com/handbook/Stegsolve.jar)
 - [iSteg](https://github.com/rafiibrahim8/iSteg)
+- [TweakPNG](https://entropymine.com/jason/tweakpng/)
 
 
 **Online tools**
@@ -26,6 +27,9 @@ tags:
 - [Aperi'Solve](https://www.aperisolve.com/)
 - [Steganographic Decoder](https://futureboy.us/stegano/decinput.html)
 - [Steganography Online](https://stylesuxx.github.io/steganography/)
+- [Hexadecimal -> image](https://codepen.io/abdhass/full/jdRNdj)
+- [QRCode Reader - Aspose](https://products.aspose.app/barcode/fr/recognize/qr)
+- [Inlite](https://online-barcode-reader.inliteresearch.com/)
 
 ## Techniques
 

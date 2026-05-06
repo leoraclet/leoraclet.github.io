@@ -16,7 +16,14 @@ prev: /docs/cryptography/public-key/rsa
 
 ## Summary
 
-> [!warning] Work in progress
+All the attacks presented below are grouped by category according to their type, what they target, or where the flaw lies. Here are the main ones :
+
+- [Choice of primes](#choice-of-primes)
+- [Public Exponent](#public-exponent)
+- [Small private exponent](#small-private-exponent)
+- [Bad implementations](#bad-implementations)
+- [Oracles](#oracles)
+- [Signature forgery](#signature-forgery)
 
 ## Choice of primes
 
@@ -32,7 +39,12 @@ d \equiv e^{-1} \pmod{N - 1}
 $$
 
 ```python {linenos=table,filename="n_is_prime.py"}
-d = pow(e, -1, N - 1)
+import gmpy2
+
+N = 101
+
+if gmpy2.is_prime(N):
+    d = pow(e, -1, N - 1)
 ```
 
 ### P = Q
@@ -244,6 +256,10 @@ p = gmpy2.sqrt(N + 1) - 1
 q = n // p
 assert p * q == N
 ```
+
+### Powersmooth primes
+
+If one of the prime factors of $N$ is a [powersmooth](https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers) number, then one can use the [Pollard's p − 1 algorithm](https://en.wikipedia.org/wiki/Pollard%27s_p_%E2%88%92_1_algorithm) to efficiently factorize it.
 
 ### Low Hamming weight
 
@@ -1025,6 +1041,8 @@ $$
 
 ### Chosen suffix for odd e
 
+- [The 9 Lives of Bleichenbacher’s CAT: New Cache Attacks on TLS Implementations](https://eprint.iacr.org/2018/1173.pdf)
+
 If the public exponent $e$ is odd and small enough, you can forge a signature $S$ such that $S^e < N$ ends with a chosen suffix.
 
 ```python {linenos=table,filename="suffix_sig_forgery.py"}
@@ -1067,7 +1085,3 @@ $$
 - [Practical Cryptanalysis of ISO/IEC 9796-2 and EMV Signatures](https://eprint.iacr.org/2009/203.pdf)
 
 > [!important] TODO ...
-
-## Resources
-
-- 

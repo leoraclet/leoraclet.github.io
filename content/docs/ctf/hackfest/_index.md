@@ -1,3 +1,3 @@
 ---
-title: Hackfest CTF 2025
+title: HackfestCTF 2025
 ---

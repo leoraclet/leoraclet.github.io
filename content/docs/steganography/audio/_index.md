@@ -17,5 +17,8 @@ tags:
 - [Audacity](https://www.audacityteam.org/)
 - [Deep Sound](https://github.com/Jpinsoft/DeepSound)
 - [XXY OSCILLOSCOPE](https://dood.al/oscilloscope/)
+- [Universal Radio Hacker](https://github.com/jopohl/urh)
+- [GNU Radio](https://wiki.gnuradio.org/index.php/InstallingGR)
+- [Inspectrum](https://github.com/miek/inspectrum)
 
 ## Resources

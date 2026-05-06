@@ -424,8 +424,7 @@ $$
 ### CTF
 
 - [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool)
-
-> [!warning] To complete
+- [RSA Calculator](https://www.tausquared.net/pages/ctf/rsa.html)
 
 ## Resources
 

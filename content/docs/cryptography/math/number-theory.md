@@ -7,13 +7,20 @@ tags:
 - math
 ---
 
-## Greatest Common Divisor (GCD)
+## Divisibility
 
-The **Greatest Common Divisor** (GCD), sometimes known as the highest common factor, is the largest number which divides two positive integers $(a,b)$.
 
-We say that for any two integers $a$,$b$, if $gcd(a,b)=1$ then $a$ and $b$ are coprime integers.
+A number $a$ is said to be divisible by $b$ if there is another integer $c$ such that $a=b \cdot c$. In this case, $b$ is said to be a **factor** of $a$.
 
-If $a$ and $b$ are prime, they are also coprime. If $a$ is prime and $b<a$ then $a$ and $b$ are coprime.
+This is denoted by $a \mid b$ if $a$ divides $b$, and $a \nmid b$ if it does not.
+
+### Greatest Common Divisor
+
+The [**Greatest Common Divisor**](https://en.wikipedia.org/wiki/Greatest_common_divisor) (GCD), sometimes known as the highest common factor, is the largest number which divides two positive integers $(a,b)$.
+
+We say that for any two integers $a$ and $b$, if $gcd(a,b)=1$ then $a$ and $b$ are coprime.
+
+If $a$ and $b$ are prime, they are also coprime. If $a$ is prime and $b<a$, then $a$ and $b$ are coprime.
 
 You can easily compute the GCD in Python using [Euclid's Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
 
@@ -24,14 +31,14 @@ def gcd(a, b):
     return a
 ```
 
-## Extended GCD (EGCD / XGCD)
+### Extended GCD
 
 > [!note] [Bézout's identity](https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity)
 > Let $a$ and $b$ be positive integers, and $d$ their GCD such that $d = gcd(a, b)$.
 >
 > Then there exist integers $x$ and $y$ such that $ax + by = d$. Moreover, the integers of the form $az + bt$ are exactly the multiples of $d$.
 
-We can use the [extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm) to find the coefficients $x$ and $y$ of this identity.
+We can use the [extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm) to find the $x$ and $y$ coefficients.
 
 ## Continued Fractions
 
