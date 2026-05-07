@@ -269,6 +269,14 @@ In this section we present a method to factorize a modulus $N$ that is the produ
 
 > [!important] TODO
 
+### Pseudoprimes
+
+Because checking if a number is prime is a very expensive task, most algorithms used today are, for speed and practical reasons, [probabilistic](https://en.wikipedia.org/wiki/Primality_test#Probabilistic_tests). This means that these algorithms determine if a number is prime or not with a certain probability of false positives. One of the most common algorithms to do so is the [Miller-Rabin Primality Test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test).
+
+Now, if you know the bases chosen to run this algorithm, you can actually generate a pseudoprime number of the form $p_1 \cdot p_2 \cdot p_3$ which passes the test for the given bases. This technique, among others, was first described in the paper [Prime and Prejudice: Primality Testing Under Adversarial Conditions](https://eprint.iacr.org/2018/749.pdf).
+
+You can find [here](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/pseudoprimes/miller_rabin.py) an implementation of this attack.
+
 ## Public Exponent
 
 This section covers attacks that are based on bad choices or uses of the public exponent $e$ used in the target system.

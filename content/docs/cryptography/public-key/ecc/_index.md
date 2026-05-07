@@ -1,5 +1,5 @@
 ---
-title: Elliptic Curve Cryptography
+title: Elliptic-curve cryptography
 linkTitle: ECC
 tags:
 - cybersecurity
@@ -11,6 +11,16 @@ tags:
 For the moment, this [GitHub repository](https://github.com/elikaski/ECC_Attacks) covers nearly all the essentials of Elliptic Curve Cryptography and its associated attacks.
 
 I will only add here information that are not explicitly covered by this repo.
+
+## Parameters
+
+| Name | Description |
+| :--: | :---------- |
+| $p$ | The prime defining the curve's field $\mathbb{F}_p$ |
+| $a$ | The coefficient for $x$ in the equation $y^2 = x^3 + ax + b$ |
+| $b$ | The constant term of the equation |
+| $G$ | A point on the curve that generates a subgroup of large prime order $n$ |
+| $n$ | Integer order of $G$, means that $nG=\mathcal{O}$, where $\mathcal{O}$ is the identity element |
 
 ## Parameters recovery
 

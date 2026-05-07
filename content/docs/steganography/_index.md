@@ -19,9 +19,18 @@ tags:
 All there is to know about steganography / steganalysis
 {{< /hextra/hero-subtitle >}}
 
+## Categories
+
+{{< cards >}}
+  {{< card link="./audio" title="Audio Steganography" >}}
+  {{< card link="./image" title="Image Steganography" >}}
+  {{< card link="./text" title="Text Steganography" >}}
+{{< /cards >}}
+
+
 ## Tools
 
-- [Exfitool](https://exiftool.org/)
+- [Exiftool](https://exiftool.org/)
 - [Binwalk](https://github.com/ReFirmLabs/binwalk)
 - [ImHex](https://github.com/WerWolv/ImHex)
 
@@ -64,7 +73,11 @@ All there is to know about steganography / steganalysis
             stegseek
             stegsolve
             zsteg
+            inspectrum
+            gnuradio
+            urh
             outguess
+            pngcheck
           ];
         };
       }

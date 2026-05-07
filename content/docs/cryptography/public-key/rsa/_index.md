@@ -14,19 +14,31 @@ next: /docs/cryptography/public-key/rsa/attacks
 
 ## Textbook definition
 
-This section describes the basic (*textbook*) RSA implementation and details the three basic primitives of any public-key cryptosystem : 
+This section describes the *textbook* (i.e no padding) RSA implementation and details the three basic primitives of any public-key cryptosystem :
 
 - [Key generation](#keys-generation)
 - [Encryption](#encryption)
 - [Decryption](#decryption)
 
-## Keys generation
+### Parameters
+
+| Name | Description |
+| :--: | :---------- |
+| $p, q$ | The prime factors of $N$ |
+| $N$ | The public modulus: $N=p \cdot q$ |
+| $e$ | The public exponent coprime to $N$ |
+| $\phi(N)$ | Euler's totient of $N$: $\phi(N) = (p - 1)(q - 1)$ |
+| $d$ | The private exponent:  $d = e^{-1} \mod \phi(N)$ |
+| $M$ | The message to encrypt |
+| $C$ | The encrypted message: $C = M^e \mod N$ |
+
+### Key generation
 
 1. Choose two large prime numbers $p$ and $q$.
 2. Compute $N = p \cdot q$
 3. Compute Euler's Totient $\phi(N) = (p - 1)(q - 1)$
 4. Choose any integer $e$ such that $1 < e < \phi(N)$ and $gcd(e, \phi(N)) = 1$
-5. Compute $d$,s the modular multiplicative inverse of $e$, such that $ed = 1 \mod \phi(N)$
+5. Compute $d$, the modular multiplicative inverse of $e$, such that $ed = 1 \mod \phi(N)$
 
 ### Encryption
 
@@ -44,7 +56,9 @@ $$
 M = C^d \mod N
 $$
 
-### Example (Python)
+---
+
+Here is a simple implentation in Python
 
 ```python {linenos=table,filename="rsa.py"}
 p, q = 61, 56
@@ -168,14 +182,13 @@ N + 1 - \phi &= pq + 1 - (p - 1)(q - 1) \\
 \end{aligned}
 $$
 
-Knowing this brings us back [up there](#known-pq-or-p-q).
+Knowing this brings us back to [this case](#known-pq-or-p-q).
 
 > [!tip] Another possibility
 > Since you know $e$ and $\phi$, you could simply calculate $d = e^{-1} \mod \phi$
 
 ### Known private exponent
 
-- [known_d.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/known_d.py)
 - [Calculate primes p and q from private exponent (d), public exponent (e) and the modulus (n)](https://stackoverflow.com/questions/2921406/calculate-primes-p-and-q-from-private-exponent-d-public-exponent-e-and-the)
 
 Suppose you know $d$ and $e$, then you have:
@@ -200,21 +213,31 @@ $$
       - You found $p$ and $q = \frac{N}{p}$
 
 ```python {linenos=table,filename="known_d.py"}
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/known_d.py
+
 from math import gcd
 from random import randrange
 
-k = e * d - 1
-t = 0
-while k % (2 ** t) == 0:
-    t += 1
+def attack(N, e, d):
+    """
+    Recovers the prime factors from a modulus if the public exponent and private exponent are known.
+    :param N: the modulus
+    :param e: the public exponent
+    :param d: the private exponent
+    :return: a tuple containing the prime factors
+    """
+    k = e * d - 1
+    t = 0
+    while k % (2 ** t) == 0:
+        t += 1
 
-while True:
-    g = randrange(1, N)
-    for s in range(1, t + 1):
-        x = pow(g, k // (2 ** s), N)
-        p = gcd(x - 1, N)
-        if 1 < p < N and N % p == 0:
-            print(p, N // p)
+    while True:
+        g = randrange(1, N)
+        for s in range(1, t + 1):
+            x = pow(g, k // (2 ** s), N)
+            p = gcd(x - 1, N)
+            if 1 < p < N and N % p == 0:
+                return p, N // p
 ```
 
 #### Another method

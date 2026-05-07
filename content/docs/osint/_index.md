@@ -34,5 +34,3 @@ linkTitle: OSINT
 - [The Harvester](https://github.com/laramies/theHarvester)
 - [Moriarty](https://github.com/AzizKpln/Moriarty-Project)
 - [Trape](https://github.com/jofpin/trape)
-
-### AI

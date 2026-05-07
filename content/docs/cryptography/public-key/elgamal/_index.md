@@ -13,6 +13,18 @@ The [**ElGamal encryption**](https://en.wikipedia.org/wiki/ElGamal_encryption) s
 
 ## Textbook definition
 
+### Parameters
+
+| Name | Description |
+| :--: | :---------- |
+| $p$ | The prime modulus |
+| $g$ | A generator of the multiplicative group of integers modulo $p$ |
+| $x$ | The private key: $1 < x < p - 1$ |
+| $h$ | The public key: $h=g^x \mod p$ |
+| $y$ | A randomly chosen nonce for each message / communication |
+| $m$ | The message to encrypt |
+| $(c_1, c_2)$ | The encrypted message |
+
 ### Keys generation
 
 1. Choose a large prime $p$.

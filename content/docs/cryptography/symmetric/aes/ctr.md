@@ -39,7 +39,8 @@ def attack(c, pos, p, p_):
 
 ### Nonce reuse
 
-```python {linenos=table,filename=""}
+```python {linenos=table,filename="ctr_nonce_reuse"}
+
 ```
 
 ### CRIME style attack

@@ -5,6 +5,9 @@ linkTitle: Caesar
 
 The [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher) is one of the simplest, oldest, and most widely known encryption techniques used in cryptography. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions along the alphabet.
 
+> [!note]
+> Note that this cipher is a special case of [Affine Cipher](../affine)
+
 ---
 
 Here is a simple Python implementation.
@@ -71,9 +74,7 @@ for shift in range(26):
     print(decrypt(ciphertext, shift))
 ```
 
-### Frequency Analysis
-
 ## Resources
 
 - [Caesar Cipher Decoder](https://www.dcode.fr/caesar-cipher)
-- []()
+- [Wikipedia - Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
