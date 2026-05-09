@@ -143,15 +143,33 @@ For a practical implementation of this attack, refer to this [GitHub repository]
 When the primes $p$ and $q$ are close to each other, [Fermat’s factorization method](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method) can be used to efficiently factor $N$.
 
 ```python {linenos=table,filename="fermat_factor.py"}
-def fermat_factor(n):
-    tmin = floor(sqrt(n)) + 1
 
-    for a in range(tmin, n):
-        b = sqrt(a * a - n)
-        if floor(b) == b:
-            return [a + b, a - b]
+# https://github.com/jvdsn/crypto-attacks/blob/master/shared/__init__.py
+def is_square(x):
+    """
+    Returns the square root of x if x is a perfect square, or None otherwise.
+    :param x: x
+    :return: the square root of x or None
+    """
+    y = isqrt(x)
+    return y if y ** 2 == x else None
 
-    return [0, 0]
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/factorization/fermat.py
+def factorize(N):
+    """
+    Recovers the prime factors from a modulus using Fermat's factorization method.
+    :param N: the modulus
+    :return: a tuple containing the prime factors, or None if the factors were not found
+    """
+    a = isqrt(N)
+    b = a * a - N
+    while b < 0 or not is_square(b):
+        a += 1
+        b = a * a - N
+
+    p = a - isqrt(b)
+    q = N // p
+    return p, q if p * q == N else None
 ```
 
 #### Cherkaoui-Semmouni
@@ -170,6 +188,7 @@ When $N$ is the product of many primes (around 30 or more), the [Elliptic Curve 
 ```python {linenos=table,filename="many_primes.py"}
 # Uses Sage's built-in ECM implementation
 # Reference: https://doc.sagemath.org/html/en/reference/interfaces/sage/interfaces/ecm.html
+from sage.all import *
 
 def many_primes(n):
     ecm = ECM()
@@ -367,10 +386,13 @@ $$
 
 with $i \in [0, e-1]$
 
+You can find an implementation of this attack [right there](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/non_coprime_exponent.py).
+
 ## Small private exponent
 
 ### Wiener’s Attack
 
+- [extended_wiener_attack.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/extended_wiener_attack.py)
 - [Wikipedia - Wiener's attack](https://en.wikipedia.org/wiki/Wiener%27s_attack)
 
 When $e$ is **very large**, the corresponding $d$ becomes small (since $ed \equiv 1 \pmod{\phi(N)}$). This makes the system vulnerable to [**Wiener’s attack**](https://en.wikipedia.org/wiki/Wiener%27s_attack).
@@ -416,9 +438,7 @@ where $q_{m+1}$ and $q_m$ are the $(m+1)$th and $m$th convergents of the continu
 This approach allows us to exploit the relationship even when $d$ exceeds $N^{1/4}$ by a few bits.
 
 ```python {linenos=table,filename="wiener_variant.py"}
-#########################################################################
 # https://github.com/ashutosh1206/Crypton/tree/master/RSA-encryption/Attack-Wiener-variant
-#########################################################################
 
 from sage.all import *
 
@@ -460,6 +480,7 @@ The Boneh and Durfee attack further improves upon the exploitation of small priv
 For a practical implementation, see:
 
 - [**boneh_durfee.sage**](https://github.com/mimoo/RSA-and-LLL-attacks/blob/master/boneh_durfee.sage)
+- [**boneh_durfee.py**](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/boneh_durfee.py)
 
 ### Others
 
@@ -504,16 +525,7 @@ Let us formulate our $f(x)$ in such situations:
 
 $f(x) = (m + x)^e - c$. Here, $m$ is the part of the message known to us, $c$ is the corresponding ciphertext of the entire message, $e$ is the public key exponent, and $x$ is a **polynomial over the ring of integers** modulo $N$.
 
-We can now write:
-
-```python {linenos=table,filename="stereotyped_message.py"}
-P.<x> = PolynomialRing(Zmod(N))
-beta = 1
-dd = f.degree()    # Degree of the polynomial
-epsilon = beta/7
-XX = ceil(N**((beta**2/dd) - epsilon))
-f.small_roots(XX, beta, epsilon)
-```
+You use [this implementation](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/stereotyped_message.py) of the attack for now.
 
 #### Short Pad attack
 
@@ -597,16 +609,25 @@ $$
 c_1^a c_2^b = m^{ae_1} m^{be_2} = m^{ae_1 + be_2 } = m^1 \equiv 1 \mod N
 $$
 
-```python {filname="common_modulus.py"}
+```python {lienos=table,filname="common_modulus.py"}
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/common_modulus.py
+
 from sage.all import ZZ
 from sage.all import xgcd
 
-def common_modulus(n, e1, c1, e2, c2):
+def attack(n, e1, c1, e2, c2):
+    """
+    Recovers the plaintext from two ciphertexts, encrypted using the same modulus and different public exponents.
+    :param n: the common modulus
+    :param e1: the first public exponent
+    :param c1: the ciphertext of the first encryption
+    :param e2: the second public exponent
+    :param c2: the ciphertext of the second encryption
+    :return: the plaintext
+    """
     g, u, v = xgcd(e1, e2)
-
     p1 = pow(c1, u, n) if u > 0 else pow(pow(c1, -1, n), -u, n)
     p2 = pow(c2, v, n) if v > 0 else pow(pow(c2, -1, n), -v, n)
-
     return int(ZZ(int(p1 * p2) % n).nth_root(g))
 ```
 
@@ -740,20 +761,28 @@ $$
 Now can keep going as in a binary search, adjusting left bound when odd nad right one when even.
 
 ```python {linenos=table,filename="lsb_oracle.py"}
-from sage.all import *
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/lsb_oracle.py
+from sage.all import ZZ
 
-left = ZZ(0)
-right = ZZ(N)
-k = pow(2, e, N)
+def attack(N, e, c, oracle):
+    """
+    Recovers the plaintext from the ciphertext using the LSB oracle (parity oracle) attack.
+    :param N: the modulus
+    :param e: the public exponent
+    :param c: the encrypted message
+    :param oracle: a function which returns the last bit of a plaintext for a given ciphertext
+    :return: the plaintext
+    """
+    left = ZZ(0)
+    right = ZZ(N)
+    while right - left > 1:
+        c = (c * pow(2, e, N)) % N
+        if oracle(c) == 0:
+            right = (right + left) / 2
+        else:
+            left = (right + left) / 2
 
-while right - left > 1:
-    c = (c * k) % N
-    if oracle(c) == 0:
-        right = (right + left) / 2
-    else:
-        left = (right + left) / 2
-
-m = int(right)
+    return int(right)
 ```
 
 #### Attack variant
@@ -773,9 +802,7 @@ $$
 
 {{< details title="Here are the details of the following calculations" closed="true" >}}
 
-To know why those calculations are necessary, go check out the section on [modular bit shifts](docs/cryptography/math-fundamentals/modular-arithmetic/#right-shift) from a previous note.
-
-> [!important] TODO
+> [!warning] TODO
 
 {{< /details >}}
 
@@ -895,6 +922,8 @@ You can now recover $M$ by multiplying $M_2$ with the multiplicate inverse of $2
 
 #### Bleichenbacher’s attack on PKCS#1 v1.5
 
+- [bleichenbacher.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/bleichenbacher.py)
+
 > [!important] TODO
 
 #### Manger's attack on OAEP
@@ -936,6 +965,9 @@ As we know $N$, $s_v$ and $m$, we can precompute the $m^{+ 2^{b_i}}$ and $m^{- 2
 You can now find the bit-flip position **and** original bit value in $d$ by comparing $\frac{s_{fi}}{s_v} \mod N$ with the pre-computed values.
 
 ```python {linenos=table,filename="faulty_d_sig.py"}
+# BASED ON
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/d_fault_attack.py
+
 d_bits = [None] * n.bit_length()
 m = 2
 
@@ -1025,13 +1057,21 @@ $$
 
 We now have $gcd(s^e - m, N) = q$, which gives us $q$
 
-```python {linenos=table,filename="faulty_signature.py"}
+```python {linenos=table,filename="ctr_fault_attack.py"}
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/crt_fault_attack.py
 from math import gcd
 
-q = gcd(pow(s, e, N) - m, N)
-if 1 < q N:
-    p = N // q
-    print(p, q)
+def attack_known_m(n, e, m, s):
+    """
+    Recovers the prime factors from a modulus using a known message and its faulty signature.
+    :param n: the modulus
+    :param e: the public exponent
+    :param m: the message
+    :param s: the faulty signature
+    :return: a tuple containing the prime factors, or None if the signature wasn't actually faulty
+    """
+    g = gcd(m - pow(s, e, n), n)
+    return None if g == 1 else (g, n // g)
 ```
 
 #### Unknown message
@@ -1045,6 +1085,24 @@ $$
 > [!note] Remark
 > To stay consistent with previous statements, you can also calculate $$gcd(s_v^e - s_f^e, N) = p$$
 
+```python {linenos=table,filename="ctr_fault_attack.py"}
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/crt_fault_attack.py
+from math import gcd
+
+def attack_unknown_m(n, e, sv, sf):
+    """
+    Recovers the prime factors from a modulus using a correct valid and a faulty signature from the same (unknown) message.
+    :param n: the modulus
+    :param e: the public exponent
+    :param sv: the valid signature
+    :param sf: the faulty signature
+    :return: a tuple containing the prime factors, or None if the signatures were both valid, or both faulty
+    """
+    assert sv != sf
+    g = gcd(sv - sf, n)
+    return None if g == 1 else (g, n // g)
+```
+
 ## Signature forgery
 
 ### Chosen suffix for odd e
@@ -1053,17 +1111,21 @@ $$
 
 If the public exponent $e$ is odd and small enough, you can forge a signature $S$ such that $S^e < N$ ends with a chosen suffix.
 
-```python {linenos=table,filename="suffix_sig_forgery.py"}
-def chosen_suffix_sig_forgery(suffix, e):
-    # Returns a number s for which s^e ends with the provided suffix.
-
+```python {linenos=table,filename="bleichenbacher_signature_forgery.py"}
+# https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/bleichenbacher_signature_forgery.py
+def attack(suffix, suffix_bit_length):
+    """
+    Returns a number s for which s^3 ends with the provided suffix.
+    :param suffix: the suffix
+    :param suffix_bit_length: the bit length of the suffix
+    :return: the number s
+    """
     assert suffix % 2 == 1, "Target suffix must be odd"
-    assert e % 2 == 1, "Exponent must be odd"
 
     s = 1
-    for i in range(suffix.bit_length()):
-        if (((s**e) >> i) & 1) != ((suffix >> i) & 1):
-            s |= 1 << i
+    for i in range(suffix_bit_length):
+        if (((s ** 3) >> i) & 1) != ((suffix >> i) & 1):
+            s |= (1 << i)
 
     return s
 ```

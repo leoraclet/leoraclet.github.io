@@ -13,13 +13,27 @@ The [**Mersenne Twister**](https://en.wikipedia.org/wiki/Mersenne_Twister) is a 
 
 ## Attacks
 
-### Known 32-bit Outputs
+In its most common implementation, this PRNG has a period length of 624, after which it cycles back. This means that, given enough generated outputs, one can predict the future outputs of the generator or even recover the initial state. This allows the recovery of all past generated values and all the ones to come.
 
-### Known 1-bit Outputs
+It is also possible that, given two outputs separated by a fixed number of intermediate generations, the implementation may allow state recovery or output prediction, as seen in the last attack.
+
+### Known 32-bit outputs
+
+- [Known 32-bit Outputs: getrandbits(32)](https://jia.je/ctf-writeups/misc/pyrand.html#known-32-bit-outputs-getrandbits32)
+
+### Known 1-bit outputs
+
+- [Known getrandbits(1)](https://jia.je/ctf-writeups/misc/pyrand.html#known-getrandbits1)
 
 ### Known partial 16-bits
 
-### Only 2 known Outputs
+- [Known partial bits of getrandbits(16)](https://jia.je/ctf-writeups/misc/pyrand.html#known-partial-bits-of-getrandbits16)
+
+### Only 6 known ouputs
+
+- [Stackered - Seed recovery from few outputs](https://stackered.com/blog/python-random-prediction/#seed-recovery-from-few-outputs)
+
+### Only 2 known outputs
 
 - [TetCTF 2020 - (Crypto) 2020th Write-up](https://github.com/bachpc/TetCTF-2020/blob/master/2020th/2020th.ipynb)
 

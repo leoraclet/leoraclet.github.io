@@ -9,4 +9,6 @@ It is a variant of the [Diffie–Hellman](../../dhke) protocol using [elliptic-c
 
 ## Attacks
 
+These attacks are already well explained in [this GitHub repository](https://github.com/elikaski/ECC_Attacks#the-order-of-the-generator-is-too-small).
+
 ## Resources

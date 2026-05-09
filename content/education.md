@@ -1,5 +1,6 @@
 ---
 comments: false
+toc: false
 ---
 
 ## Education

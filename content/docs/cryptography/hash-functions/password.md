@@ -1,6 +1,7 @@
 ---
 title: Password Cracking
-linkTitle: Password
+linkTitle: Passwords
+weight: 3
 tags:
 - cybersecurity
 - cryptography

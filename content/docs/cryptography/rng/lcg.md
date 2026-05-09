@@ -348,11 +348,15 @@ assert seed == lcg.seed  # True
 
 - [On Stern’s Attack Against Secret Truncated Linear Congruential Generators](https://link.springer.com/content/pdf/10.1007/11506157_5.pdf)
 
-### Parameter recovery
+#### Parameter recovery
+
+- [truncated_parameter_recovery.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/lcg/truncated_parameter_recovery.py)
 
 > [!important] TODO
 
-### State recovery
+#### State recovery
+
+- [truncated_state_recovery.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/lcg/truncated_state_recovery.py)
 
 > [!important] TODO
 

@@ -108,8 +108,6 @@ You can find other packages to install on the [Nix package repository](https://s
 
 ## Resources
 
-- [bi0s Wiki](https://teambi0s.gitlab.io/bi0s-wiki/)
-- [OpenToAllCTF](https://github.com/OpenToAllCTF/Tips)
-- [HackTricks](https://book.hacktricks.xyz/)
+- [bi0s Wiki - Cryptography](https://teambi0s.gitlab.io/bi0s-wiki/crypto/roadmap/)
+- [HackTricks - Crypto](https://hacktricks.wiki/en/crypto/index.html)
 - [CryptoHack – Courses](https://cryptohack.org/courses/)
-- [Recovering cryptographic keys from partial information, by example](https://eprint.iacr.org/2020/1506.pdf)

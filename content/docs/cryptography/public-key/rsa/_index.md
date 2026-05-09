@@ -371,25 +371,6 @@ d2 = pow(dq, -1, q - 1)
 d = crt([d1, d2], [p - 1, q - 1])
 ```
 
-### Factorize of known bits
-
-In this section, we'll see how in some cases it is possible to recover the prime factors $p$ and $q$ of $N = pq$ if we know some consecutive *high* or *low* bits of one of the primes.
-
-The following attacks are based on or are variants of the [Coppersmith's method](https://en.wikipedia.org/wiki/Coppersmith_method)
-
-#### Known MSB bits
-
-> [!important] TODO
-
-#### Known LSB bits
-
-> [!important] TODO
-
-#### References
-
-- [A Coding-Theoretic Approach to Recovering Noisy RSA Keys](https://eprint.iacr.org/2012/724.pdf)
-- [RSA private key reconstruction from random bits using SAT solvers](https://eprint.iacr.org/2013/026.pdf)
-
 ### Retrieve modulus
 
 This section cover how to retrieve the modulus $N$, knowing the public exponent $e$ and given a cipher oracle.
