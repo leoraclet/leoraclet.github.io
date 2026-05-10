@@ -11,3 +11,8 @@ linkTitle: Maths
   {{< card link="./number-theory" title="Number Theory" >}}
   {{< card link="./modular-arithmetic" title="Modular Arithmetic" >}}
 {{< /cards >}}
+
+## Online Tools
+
+- [Doing Math With JavaScript](http://www.javascripter.net/math/index.htm)
+- [Modular Multiplicative Inverse](https://www.dcode.fr/modular-inverse)

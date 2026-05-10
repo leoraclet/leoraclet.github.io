@@ -2,7 +2,7 @@
 title: 404CTF 2025
 ---
 
-<!-- 
+<!--
 REGEX:
 
 Match:    \|(\s*)(-+)(\s*)\|
@@ -47,7 +47,7 @@ This 4th edition of **404CTF** ran from **May 11, 2025**, to **June 1, 2025** (2
 
 Here are all the challenges, with relevant details, ordered by category and number of points at the end of the event.
 
-#### Quantum Algorithms (2/3)
+#### Quantum Algorithms
 
 | Status | Name                    | Points |
 | :------: | :----------------------- | :------: |
@@ -57,7 +57,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Digital Forensics (3/7)
+#### Digital Forensics
 
 | Status | Name                             | Points |
 | :------: | :-------------------------------- | :------: |
@@ -71,7 +71,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Cryptanalysis (8/14)
+#### Cryptanalysis
 
 | Status | Name                          | Points |
 | :------: | :----------------------------- | :------: |
@@ -92,7 +92,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Miscellaneous (3/6)
+#### Miscellaneous
 
 | Status | Name                    | Points |
 | :------: | :----------------------- | :------: |
@@ -105,7 +105,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Binary Exploitation (1/12)
+#### Binary Exploitation
 
 | Status | Name                                | Points |
 | :------: | :----------------------------------- | :------: |
@@ -124,7 +124,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Artificial Intelligence (1/4)
+#### Artificial Intelligence
 
 | Status | Name                    | Points |
 | :------: | :----------------------- | :------: |
@@ -135,7 +135,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### OSINT (7/11)
+#### OSINT
 
 | Status | Name                     | Points |
 | :------: | :------------------------ | :------: |
@@ -153,7 +153,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Realistic (0/6)
+#### Realistic
 
 | Status | Name                             | Points |
 | :------: | :-------------------------------- | :------: |
@@ -166,7 +166,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Reverse Engineering (4/7)
+#### Reverse Engineering
 
 | Status | Name                                                        | Points |
 | :------: | :----------------------------------------------------------- | :------: |
@@ -180,7 +180,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Hardware Security (6/7)
+#### Hardware Security
 
 | Status | Name                                | Points |
 | :------: | :----------------------------------- | :------: |
@@ -194,7 +194,7 @@ Here are all the challenges, with relevant details, ordered by category and numb
 
 ---
 
-#### Web Security (3/5)
+#### Web Security
 
 | Status | Name                      | Points |
 | :------: | :------------------------- | :------: |

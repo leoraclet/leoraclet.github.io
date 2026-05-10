@@ -40,7 +40,7 @@ All there is to know about steganography / steganalysis
 
 ## Nix - Flake environment
 
-```nix
+```nix {linenos=table,filename="flake.nix"}
 {
   description = "Stego Environment";
   inputs = {

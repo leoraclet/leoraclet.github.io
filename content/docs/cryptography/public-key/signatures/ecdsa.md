@@ -55,3 +55,4 @@ Given a message $m$ and a signature $(r,s)$ on that message, one can (potentiall
 
 - [ECDSA: Handle with Care](https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/)
 - [Elliptic Curve Cryptography: ECDH and ECDSA](https://andrea.corbellini.name/2015/05/30/elliptic-curve-cryptography-ecdh-and-ecdsa/)
+- [How does the "biased-k attack" on (EC)DSA work?](https://crypto.stackexchange.com/questions/44644/how-does-the-biased-k-attack-on-ecdsa-work/48379#48379)

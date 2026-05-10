@@ -5,7 +5,7 @@ title: 404CTF 2024
 This page documents my results from the **404CTF 2024**.
 The **3rd edition of the 404CTF** took place from **April 20, 2024**, to **May 12, 2024** (22 days total).
 
-> [!important]
+> [!tip]
 > All challenge files and details are available in the official repository:
 > [https://github.com/HackademINT/404CTF-2024](https://github.com/HackademINT/404CTF-2024/tree/main)
 >

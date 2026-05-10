@@ -59,7 +59,7 @@ If you're using the [Nix package manager](https://nixos.org/download/#download-n
 
 You can find other packages to install on the [Nix package repository](https://search.nixos.org/packages?query=).
 
-```nix
+```nix {linenos=table,filename="flake.nix"}
 {
   description = "Crypto Environment";
   inputs = {
@@ -111,3 +111,4 @@ You can find other packages to install on the [Nix package repository](https://s
 - [bi0s Wiki - Cryptography](https://teambi0s.gitlab.io/bi0s-wiki/crypto/roadmap/)
 - [HackTricks - Crypto](https://hacktricks.wiki/en/crypto/index.html)
 - [CryptoHack – Courses](https://cryptohack.org/courses/)
+- [GitHub - Tools-for-Cryptanalysis](https://github.com/Deadlyelder/Tools-for-Cryptanalysis)

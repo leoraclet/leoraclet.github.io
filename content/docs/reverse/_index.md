@@ -1,15 +1,32 @@
 ---
-title: Reverse Engineering
+title: Reverse Engineering (RE)
+linkTitle: Reverse Engineering
+tags:
+- cybersecurity
+- re
+- reverse-engineering
+- reverse
+- android
+- windows
+- linux
+- elf
+- pe
 # sidebar:
 #   exclude: true
 ---
 
 ## Tools
 
+- [Angr](https://angr.io/) - Open-source binary analysis platform for Python
+- [Triton](https://github.com/JonathanSalwan/Triton/) - A dynamic binary analysis library
+
 ### Command line
 
 - [ltrace](https://www.man7.org/linux/man-pages/man1/ltrace.1.html)
 - [strace](https://www.man7.org/linux/man-pages/man1/strace.1.html)
+- [ptrace](https://www.man7.org/linux/man-pages/man2/ptrace.2.html)
+- [file](https://www.man7.org/linux/man-pages/man1/file.1.html)
+- [strings](https://www.man7.org/linux/man-pages/man1/strings.1.html)
 - [readelf](https://www.man7.org/linux/man-pages/man1/readelf.1.html)
 - [objdump](https://www.man7.org/linux/man-pages/man1/objdump.1.html)
 
@@ -20,38 +37,19 @@ title: Reverse Engineering
 ### Disassemblers
 
 - [Ghidra](http://ghidra.net/)
-  - [FindCrypt](https://github.com/TorgoTorgo/ghidra-findcrypt)
 - [IDA](https://hex-rays.com/ida-free/)
-  - [golang loader assist](https://github.com/strazzere/golang_loader_assist)
-  - [AlphaGolang](https://github.com/SentineLabs/AlphaGolang)
 - [Binary Ninja](https://binary.ninja/)
 - [Radare2](https://github.com/radareorg/radare2)
-- [Shell Storm](https://shell-storm.org/online/)
-- [dnSpy](https://github.com/dnSpy/dnSpy)
-- [ILSpy](https://github.com/icsharpcode/ILSpy)
 
-### Debuggers
+### Online
 
-- [GDB](https://www.sourceware.org/gdb/)
-- [GEF](https://github.com/hugsy/gef)
-- [HyperDbg](https://github.com/HyperDbg/HyperDbg)
-- [x64dbg](https://github.com/x64dbg/x64dbg)
-
-### Games
-
-- [Cheat Engine](https://github.com/cheat-engine/cheat-engine)
-
-**Unity**
-
-- [Il2CppDumper](https://github.com/Perfare/Il2CppDumper)
-
-**Godot**
-
-- [GDSDecomp](https://github.com/GDRETools/gdsdecomp)
+- [Compiler Explorer](https://godbolt.org/) - Online Multiple Compilers
+- [Decompiler Explorer](https://dogbolt.org/) - Online Multiple Decompilers
+- [CPUlator](https://cpulator.01xz.net/) - Computer System Simulator
 
 ## Nix - Flake environment
 
-```nix
+```nix {linenos=table,filename="flake.nix"}
 {
   description = "Reverse Environment";
   inputs = {
@@ -108,3 +106,5 @@ title: Reverse Engineering
 ```
 
 ## Resources
+
+- [Max Kersten: Binary Analysis Course](https://maxkersten.nl/binary-analysis-course/)

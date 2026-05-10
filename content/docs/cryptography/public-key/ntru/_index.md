@@ -113,4 +113,6 @@ def recover_m_from_multiple_ciphertexts():
 
 - [The Mathematics of the NTRU Public Key Cryptosystem](https://nitaj.users.lmno.cnrs.fr/ntru3final.pdf)
 - [Introduction to NTRU Public Key Cryptosystem](https://hoseinhadipour.com/course-cryptanalysis/Slides/Main/NTRU.pdf)
+- [The NTRU cryptosystem](https://shrek.unideb.hu/~tengely/crypto/section-8.html)
 - [NTRU: A Ring-Based Public Key Cryptosystem](https://www.ntru.org/f/hps98.pdf)
+- [A Simple and Efficient Key Reuse Attack on NTRU Cryptosystem](https://eprint.iacr.org/2019/1022.pdf)

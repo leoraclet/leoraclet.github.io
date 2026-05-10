@@ -6,6 +6,7 @@ linkTitle: Substitution
 ## Tools
 
 - [Quipqiup - beta3](https://quipqiup.com/)
+- [Substitution Solver](https://www.guballa.de/substitution-solver)
 
 ## Resources
 

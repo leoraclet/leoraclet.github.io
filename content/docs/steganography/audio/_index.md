@@ -20,5 +20,6 @@ tags:
 - [Universal Radio Hacker](https://github.com/jopohl/urh)
 - [GNU Radio](https://wiki.gnuradio.org/index.php/InstallingGR)
 - [Inspectrum](https://github.com/miek/inspectrum)
+- [Detect DTMF Tones](http://dialabc.com/sound/detect/index.html)
 
 ## Resources

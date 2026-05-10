@@ -1,5 +1,5 @@
 ---
 title: Hardware
-sidebar:
-  exclude: true
+# sidebar:
+#   exclude: true
 ---

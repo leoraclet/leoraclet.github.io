@@ -137,3 +137,10 @@ The [Extended Hidden Number Problem](https://link.springer.com/content/pdf/10.10
 - [Lattice Reduction: a Toolbox for the Cryptanalyst](https://www.di.ens.fr/~stern/data/St54.pdf)
 - [A Gentle Tutorial for Lattice-Based Cryptanalysis](https://eprint.iacr.org/2023/032.pdf)
 - [How to use LLL to solve linear systems of equations](https://magicfrank00.github.io/writeups/posts/lll-to-solve-linear-equations/)
+- [Practical lattice reductions for CTF challenges](https://ur4ndom.dev/static/files/latticetraining/practical_lattice_reductions.pdf)
+
+**GitHub**
+
+- [GitHub - lll_cvp](https://github.com/maple3142/lll_cvp/blob/master/lll_cvp.py)
+- [GitHub - CVP "trick" for CTF challenges ](https://github.com/rkm0959/Inequality_Solving_with_CVP)
+- [GitHub - Functions for solving linear inequalities in integers](https://github.com/TheBlupper/linineq)

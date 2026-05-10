@@ -11,6 +11,7 @@ The [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) is a 
 
 - [Vigenère Cipher Codebreaker](https://www.mygeocachingprofile.com/codebreaker.vigenerecipher.aspx)
 - [Quipqiup - beta3](https://quipqiup.com/)
+- [Vigenère Solver](https://www.guballa.de/vigenere-solver)
 
 ### Kasiski examination
 

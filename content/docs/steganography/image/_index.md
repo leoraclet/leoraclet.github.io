@@ -22,6 +22,7 @@ tags:
 
 **Online tools**
 
+- [Forensically](https://29a.ch/photo-forensics/#forensic-magnifier)
 - [FotoForensics](https://fotoforensics.com/)
 - [StegOnline](https://www.georgeom.net/StegOnline/upload)
 - [Aperi'Solve](https://www.aperisolve.com/)

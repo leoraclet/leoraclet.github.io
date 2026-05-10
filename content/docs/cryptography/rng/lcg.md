@@ -362,5 +362,6 @@ assert seed == lcg.seed  # True
 
 ## Resources
 
-- [Wikipedia - Linear congruential generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)
+- [Recover Linear Congruential Generator (LCG) Parameters](https://jia.je/ctf-writeups/misc/lcg.html)
 - [Stack Exchange - Problem with LLL reduction on truncated LCG schemes](https://crypto.stackexchange.com/questions/37836/problem-with-lll-reduction-on-truncated-lcg-schemes)
+- [LCG](https://dexterjie.github.io/2024/07/16/%E6%B5%81%E5%AF%86%E7%A0%81/%E6%B5%81%E5%AF%86%E7%A0%81-LCG/#%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B)

@@ -87,3 +87,4 @@ def attack(p, x1, y1, x2, y2):
 ## Resources
 
 - [Sage Doc - Elliptic curves](https://doc.sagemath.org/html/en/reference/arithmetic_curves/index.html)
+- [Elliptic Curve Points | Desmos](https://www.desmos.com/calculator/ialhd71we3)

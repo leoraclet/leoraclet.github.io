@@ -1,6 +1,19 @@
 ---
-title: Android
+title: Android (APK)
+tags:
+- cybersecurity
+- re
+- reverse-engineering
+- reverse
+- android
+- apk
 ---
+
+## Emulators
+
+- [Android Emulators for Reverse Engineers](https://github.com/LaurieWired/android_emulators_for_reverse_engineers)
+  - [docker-android](https://github.com/budtmo/docker-android)
+  - [dock-droid](https://github.com/sickcodes/dock-droid)
 
 ## Tools
 
@@ -11,10 +24,16 @@ title: Android
 | [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | Mobile Security Framework for automated security testing. |
 | [JadX](https://github.com/skylot/jadx) | Dex to Java decompiler for Android APKs. |
 | [APKTool](https://github.com/iBotPeaches/Apktool) | Tool for reverse engineering Android APK files. |
-| [Online Decompiler](https://www.decompiler.com/) | Online tool for decompiling APK and JAR files. |
 | [Android Studio](https://developer.android.com/studio) | Official IDE for Android app development. |
 | [dex2jar](https://github.com/pxb1988/dex2jar) | Tool to convert Android DEX files to Java JAR files. |
 | [jd-gui](https://github.com/java-decompiler/jd-gui) | Graphical Java decompiler. |
+| [androguard](https://github.com/androguard/androguard) | Reverse engineering and pentesting for Android applications |
+
+### Online
+
+- [Online APK Decompiler](https://www.decompiler.com/)
+- [Android APK Decompiler](https://www.decompileandroid.com/)
+- [Automated Malware Analysis - Joe Sandbox Cloud Basic](https://www.joesandbox.com/#android)
 
 ## Resources
 
@@ -32,23 +51,23 @@ title: Android
 
 - [Android App Bug Bounty Secrets - YouTube](https://www.youtube.com/watch?v=nxlm7pIvMdg)
 - [LaurieWired - YouTube](https://www.youtube.com/@lauriewired/videos)
-  - [Deconstructing the Android Manifest - YouTube](https://www.youtube.com/watch?v=gs-QNku8xYw)
-  - [Making a Malicious APK Debuggable with APKLab - YouTube](https://www.youtube.com/watch?v=AIqEA76_UkE)
-  - [Ghidra Analysis of Android Native Code - YouTube](https://www.youtube.com/watch?v=ODWBEtZHB6Q)
-  - [Where's the native code? (In Android) - YouTube](https://www.youtube.com/watch?v=joM3YIVyjnc)
-  - [Do This When Your Android Decompiler Fails - YouTube](https://www.youtube.com/watch?v=2Cs7nZcTeTk)
-  - [Ghidra Scripting to Speed Up Reverse Engineering - YouTube](https://www.youtube.com/watch?v=z7SO6CF3guE)
-  - [Hooking Native Android Methods with Frida - YouTube](https://www.youtube.com/watch?v=N2JtRXCofUU)
-  - [Sniffing Android HTTPS Traffic with Burpsuite - YouTube](https://www.youtube.com/watch?v=uof9voBdK60)
-  - [Unpacking Android APKs with Medusa - YouTube](https://www.youtube.com/watch?v=ffM5R2Wfl0A)
-  - [Debugging Android Java Code With JDB - YouTube](https://www.youtube.com/watch?v=8JFWTJ-hQ7A)
-  - [Hooking Java Methods with Frida - YouTube](https://www.youtube.com/watch?v=RJXsvAjZl9U)
-  - [JADXecute: Dynamic Scripting For JADX - YouTube](https://www.youtube.com/watch?v=g0r3C1iEeBg)
-  - [Beautifying Native Android Code in Ghidra - YouTube](https://www.youtube.com/watch?v=sK_jsQ5bJUk)
-  - [Triggering Android Intents - YouTube](https://www.youtube.com/watch?v=3oQho1GEqCQ)
-  - [Translating a Java Method to Native C++ (Android) - YouTube](https://www.youtube.com/watch?v=87uMi7L-3Hc)
-  - [Finding the Entrypoint of iOS Apps in Ghidra - YouTube](https://www.youtube.com/watch?v=mLDsIMXafP4)
-  - [Writing a custom Android Decryptor in Java - YouTube](https://www.youtube.com/watch?v=198D2jsNWic)
+  - [Deconstructing the Android Manifest](https://www.youtube.com/watch?v=gs-QNku8xYw)
+  - [Making a Malicious APK Debuggable with APKLab](https://www.youtube.com/watch?v=AIqEA76_UkE)
+  - [Ghidra Analysis of Android Native Code](https://www.youtube.com/watch?v=ODWBEtZHB6Q)
+  - [Where's the native code? (In Android)](https://www.youtube.com/watch?v=joM3YIVyjnc)
+  - [Do This When Your Android Decompiler Fails](https://www.youtube.com/watch?v=2Cs7nZcTeTk)
+  - [Ghidra Scripting to Speed Up Reverse Engineering](https://www.youtube.com/watch?v=z7SO6CF3guE)
+  - [Hooking Native Android Methods with Frida](https://www.youtube.com/watch?v=N2JtRXCofUU)
+  - [Sniffing Android HTTPS Traffic with Burpsuite](https://www.youtube.com/watch?v=uof9voBdK60)
+  - [Unpacking Android APKs with Medusa](https://www.youtube.com/watch?v=ffM5R2Wfl0A)
+  - [Debugging Android Java Code With JDB](https://www.youtube.com/watch?v=8JFWTJ-hQ7A)
+  - [Hooking Java Methods with Frida](https://www.youtube.com/watch?v=RJXsvAjZl9U)
+  - [JADXecute: Dynamic Scripting For JADX](https://www.youtube.com/watch?v=g0r3C1iEeBg)
+  - [Beautifying Native Android Code in Ghidra](https://www.youtube.com/watch?v=sK_jsQ5bJUk)
+  - [Triggering Android Intents](https://www.youtube.com/watch?v=3oQho1GEqCQ)
+  - [Translating a Java Method to Native C++ (Android)](https://www.youtube.com/watch?v=87uMi7L-3Hc)
+  - [Finding the Entrypoint of iOS Apps in Ghidra](https://www.youtube.com/watch?v=mLDsIMXafP4)
+  - [Writing a custom Android Decryptor in Java](https://www.youtube.com/watch?v=198D2jsNWic)
 
 ### GitHub
 
