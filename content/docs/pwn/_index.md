@@ -5,7 +5,7 @@ linkTitle: Binary Exploitation
 #   exclude: true
 ---
 
-## Pwn Environment
+## Environment
 
 ### Tools
 

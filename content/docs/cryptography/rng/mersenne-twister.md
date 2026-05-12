@@ -11,7 +11,7 @@ tags:
 
 The [**Mersenne Twister**](https://en.wikipedia.org/wiki/Mersenne_Twister) is a widely used pseudorandom number generator (PRNG). Its most popular variant, **MT19937**, is based on the [Mersenne prime](https://en.wikipedia.org/wiki/Mersenne_prime) $2^{19937} - 1$.
 
-## Attacks
+## Python Attacks
 
 In its most common implementation, this PRNG has a period length of 624, after which it cycles back. This means that, given enough generated outputs, one can predict the future outputs of the generator or even recover the initial state. This allows the recovery of all past generated values and all the ones to come.
 
@@ -36,6 +36,13 @@ It is also possible that, given two outputs separated by a fixed number of inter
 ### Only 2 known outputs
 
 - [TetCTF 2020 - (Crypto) 2020th Write-up](https://github.com/bachpc/TetCTF-2020/blob/master/2020th/2020th.ipynb)
+
+## PHP Attacks
+
+### Only 2 known values
+
+- [Breaking PHP's mt_rand() with 2 values and no bruteforce](https://blog.lexfo.fr/php-mt-rand-prediction.html)
+- [GitHUb - mt_rand-reverse](https://github.com/ambionics/mt_rand-reverse/tree/master)
 
 ## Resources
 

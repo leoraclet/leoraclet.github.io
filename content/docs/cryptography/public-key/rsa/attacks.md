@@ -172,13 +172,6 @@ def factorize(N):
     return p, q if p * q == N else None
 ```
 
-#### Cherkaoui-Semmouni
-
-- [cherkaoui_semmouni.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/cherkaoui_semmouni.py)
-- [Cryptanalysis of RSA Variants with Primes Sharing Most Significant Bits](https://eprint.iacr.org/2021/1632.pdf)
-
-> [!important] TODO
-
 ### Many small Primes
 
 #### Elliptic Curve Method (ECM)
@@ -286,7 +279,7 @@ If one of the prime factors of $N$ is a [powersmooth](https://en.wikipedia.org/w
 
 In this section we present a method to factorize a modulus $N$ that is the product of two primes $p$ and $q$ with a low [hamming weight](https://en.wikipedia.org/wiki/Hamming_weight).
 
-> [!important] TODO
+When this is the case, we can use the fact that the bit patterns for the prime factors can be derived from the bit pattern of the product.
 
 ### Pseudoprimes
 
@@ -562,11 +555,11 @@ Suppose Alice sends an **unpadded** message $M$ to $k$ people $P_1, P_2, ..., P_
 
 The attack states that as soon as $k \geq e$, the message $M$ is no longer secure, and we can recover it easily using [Chinese Remainder Theorem](/cryptography/public-key/modular-arithmetic/#chinese-remainder-theorem).
 
-#### Example
+**Example**
 
 Alice sends a message $M$ to $3$ different people using the same public key exponent $e = 3$. Let the ciphertext received by the $i$th receiver be $C_i$, where $C_i = M^3 \mod N_i$.
 
-We must assume that $gcd(N_i, N_j) = 1$ for $i \neq j$ (otherwise, it would be a [Common Prime Attack](/docs/cryptography/public-key/rsa/attacks/#common-prime).
+We must assume that $gcd(N_i, N_j) = 1$ for $i \neq j$ (otherwise, it would be a [Common Prime Attack](/docs/cryptography/public-key/rsa/attacks/#common-prime)).
 
 We can now write:
 
@@ -730,7 +723,7 @@ def franklinreiter(C1, C2, e, N, a, b):
 - [nitaj_crt_rsa.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/nitaj_crt_rsa.py)
 - [A new attack on RSA and CRT-RSA](https://nitaj.users.lmno.cnrs.fr/rsa21.pdf)
 
-> [!important] TODO
+This attack allows recovering the prime factors of $N$ if one of the CRT-RSA private exponents is too small.
 
 ## Oracles
 
@@ -797,16 +790,36 @@ You know that you can do a *right-shift* of $i$ by multiplying by $2^{-i}$. So, 
 It will calculate and return
 
 $$
-M_i = (C_i^d \mod N) \mod 2 \equiv M \cdot (2^{-ie} \mod N) \mod 2
+\begin{aligned}
+M_i &\equiv (C_i^d \mod N) &\mod 2 \\
+&\equiv M \cdot (2^{-i} \mod N) &\mod 2 \\
+&\equiv M \cdot 2^{-i} &\mod 2 \\
+\end{aligned}
 $$
 
-{{< details title="Here are the details of the following calculations" closed="true" >}}
+{{< details title="Here are the skipped details" closed="true" >}}
 
-> [!warning] TODO
+Taking $i = 1$, we have
+
+$$
+\begin{aligned}
+&M \cdot (2^{-1} \mod N) &\mod 2 \\
+\equiv \; &\{(a_{k-1} \cdot 2^{k-1}) + (a_{k-2} \cdot 2^{k-2}) + \dots + (a_0 \cdot 2^0)\} \cdot 2^{-1} &\mod 2 \\
+\equiv \; &[2 \cdot \{a_1 + (2^1 \cdot a_2) + \dots + (2^{k-2} \cdot a_{k-1}) \} + (a_0 \cdot 2^0)] \cdot 2^{-1} &\mod 2 \\
+\equiv \; &\{a_1 + (2^1 \cdot a_2) + \dots + (2^{k-2} \cdot a_{k-1}) \} + (a_0 \cdot 2^0) \cdot 2^{-1} &\mod 2 \\
+\equiv \; &a_1 + (a_0 \cdot 2^0) \cdot 2^{-1} &\mod 2 \\
+\equiv \; &y &\mod 2 \\
+\\
+\Rightarrow \; &y - (a_0 \cdot 2^0) \cdot 2^{-1} \equiv a_1 &\mod 2 \\
+\Rightarrow \; &\{(M \cdot 2^{-1}) \mod 2) - (a_0 \cdot 2^0) \cdot 2^{-1}\} \equiv a_1 &\mod 2 \\
+\end{aligned}
+$$
+
+The proof extends to all $i \in \mathbb{N}^{*}$
 
 {{< /details >}}
 
-Skipping the details here, we have :
+Skipping the details here, we can generalize this to
 
 $$
 \begin{aligned}
@@ -918,19 +931,24 @@ $$
 
 You can now recover $M$ by multiplying $M_2$ with the multiplicate inverse of $2$ mod $N$.
 
+> [!important] More methods
+> You can find more methods to exploit a Decipher Oracle in [this blog post](https://vozec.fr/rsa/rsa-10-oracle-tell-me-the-true/).
+
 ### Padding oracle
 
 #### Bleichenbacher’s attack on PKCS#1 v1.5
 
 - [bleichenbacher.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/bleichenbacher.py)
+- [Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS #1](https://link.springer.com/content/pdf/10.1007/BFb0055716.pdf)
 
-> [!important] TODO
+Daniel Bleichenbacher's attack is a padding oracle attack against RSA PKCS #1 v1.5 encryption. If a server reveals whether decrypted ciphertext has valid PKCS #1 v1.5 padding, an attacker can adaptively query the oracle to gradually recover the plaintext of any ciphertext without knowing the private key.
 
 #### Manger's attack on OAEP
 
 - [manger.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/manger.py)
+- [A Chosen Ciphertext Attack on RSA Optimal Asymmetric Encryption Padding (OAEP) as Standardized in PKCS #1 v2.0](https://link.springer.com/content/pdf/10.1007/3-540-44647-8_14.pdf)
 
-> [!important] TODO
+Manger's attack is another variant of padding oracle attack, this time applied to the RSA Optimal Asymmetric Encryption Padding (OAEP) as standardized in PKCS #1 v2.0. It allows an attacker with access to such an oracle to decrypt any ciphertext given enough time/requests.
 
 ## Fault attacks
 
@@ -1130,7 +1148,7 @@ def attack(suffix, suffix_bit_length):
     return s
 ```
 
-{{< details title="Proof" >}}
+{{< details title="Proof" closed="true" >}}
 
 Let's take $e = 3$ for the demonstration purposes.
 
@@ -1149,9 +1167,34 @@ $$
 
 {{< /details >}}
 
+### Chosen message
+
+Suppose you're given access to **signing oracle** that allows you to sign any message except a given message $M$, and that you want to forge the signature $s = M^d \mod N$.
+
+If $M$ is not prime (which is likely), then you can express it as $M = M_1 \cdot M_2$.
+Now, if you sign those two "sub"-messages, you get the signatures
+
+$$
+\begin{aligned}
+s_1 &= M_1^d \mod N \\
+s_2 &= M_2^d \mod N \\
+\end{aligned}
+$$
+
+which you can then multiply to obtain a valid signature of $M$ because
+
+$$
+\begin{aligned}
+s_1 \cdot s_2 &= M_1^d \cdot M_2^d &\mod N \\
+&= (M_1 \cdot M_2)^d &\mod N \\
+&= M^d &\mod N \\
+&= s
+\end{aligned}
+$$
+
 ### Desmedt-Odlyzko attack
 
 - [desmedt_odlyzko.py](https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/desmedt_odlyzko.py)
 - [Practical Cryptanalysis of ISO/IEC 9796-2 and EMV Signatures](https://eprint.iacr.org/2009/203.pdf)
 
-> [!important] TODO ...
+The **Desmedt–Odlyzko** attack is a forgery attack against textbook RSA signatures with multiplicative structure. If signatures are generated directly on predictable or poorly hashed messages, an attacker can combine valid signatures multiplicatively to forge a valid signature on a new message without access to the private key.

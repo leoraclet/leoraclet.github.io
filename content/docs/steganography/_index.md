@@ -1,5 +1,5 @@
 ---
-title: Steganography Notes
+title: Steganography
 linkTitle: Steganography
 tags:
 - cybersecurity

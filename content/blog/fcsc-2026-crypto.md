@@ -37,6 +37,10 @@ Those challenges are :
 | :----: | :--------: | :----: |
 | **151**  |  ★   | **194**     |
 
+{{< cards col="1" >}}
+  {{< card link="https://hackropole.fr/fr/challenges/crypto/fcsc2026-crypto-this-is-fine/" title="Play on Hackropole" icon="hackropole" >}}
+{{< /cards >}}
+
 **Description**
 
 > ![This is fine !](./fcsc-2026-crypto-wu/this-is-fine.jpg)
@@ -153,6 +157,10 @@ for y in L:
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
 | **291**  |  ★   | **94**     |
+
+{{< cards col="1" >}}
+  {{< card link="https://hackropole.fr/fr/challenges/crypto/fcsc2026-crypto-code-breaker/" title="Play on Hackropole" icon="hackropole" >}}
+{{< /cards >}}
 
 **Description**
 
@@ -360,6 +368,10 @@ print(unpad(AES.new(key, AES.MODE_CBC, iv=iv).decrypt(ciphertext), 16))
 | :----: | :--------: | :----: |
 | **410**    |  ★ ★      | **37**     |
 
+{{< cards col="1" >}}
+  {{< card link="https://hackropole.fr/fr/challenges/crypto/fcsc2026-crypto-little-d-big-trouble-1/" title="Play on Hackropole" icon="hackropole" >}}
+{{< /cards >}}
+
 **Description**
 
 > Le standard FIPS 186-5 impose dans la génération d'une clef RSA que l'exposant privé $d$ soit plus grand que $2^{(size//2)}$. Le standard précise d'ailleurs que dans le cas extrêment rare où $d$ serait plus petit, il faut générer de nouveaux nombres premiers $p$ et $q$.
@@ -499,6 +511,9 @@ Here is the final Python solve script that implements those steps :
 > [!note]
 > The value of $N$ in this script is arbitrary. It is a good value because the script finds primes fast enough and because the primes it generates satisfy the required conditions to proceed.
 
+> [!caution] The script runs forever ?!
+> Because there aren't many 10-bit primes, about half of the time the script gets stuck in the first infinite loop. Just re-run it a few times until it gets out fast. In the right conditions, this step should be instantaneous.
+
 ```python {linenos=table,filename="solve-little-d-big-trouble.py"}
 import math
 from random import randrange
@@ -548,13 +563,17 @@ while True:
             exit()
 ```
 
-**`FCSC{<i_dont_remember>}`**
+**`FCSC{bef584620e83319d1e64cdcb57346b1fa3cd1a1b6875aa6591958a3dd7e6cd6f}`**
 
 ## Fully Homomorphic RSA
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
 | **415**    |  ★ ★      | **35**     |
+
+{{< cards col="1" >}}
+  {{< card link="https://hackropole.fr/fr/challenges/crypto/fcsc2026-crypto-fully-homomorphic-rsa/" title="Play on Hackropole" icon="hackropole" >}}
+{{< /cards >}}
 
 **Description**
 
@@ -708,9 +727,8 @@ def gcd(a, b):
         a, b = b, a % b
     return a.monic()
 
-# This implementation of the attack might be much faster than mine because
-# of the custom `fast_gcd_polynomial` ?
-# I should give it a try to see how fast it is
+# ADDENDUM !!
+# The below implementation of the attack is MUCH FASTER than mine
 # https://github.com/jvdsn/crypto-attacks/blob/master/attacks/rsa/related_message.py
 
 def franklinreiter(C1, C2, e, N, a, b):
@@ -760,7 +778,7 @@ if __name__ == '__main__':
     solve_chall()
 ```
 
-**`FCSC{<i_dont_remember>}`**
+**`FCSC{4d7b3ef7300acf70c892d8327db8272f54434adbc61a4e130a563cb59a0d0f47}`**
 
 ## Not Solved
 
@@ -785,6 +803,10 @@ Those challenges are :
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
 | **372**    |  ★ ★      | **54**     |
+
+{{< cards col="1" >}}
+  {{< card link="https://hackropole.fr/fr/challenges/crypto/fcsc2026-crypto-i-love-permutations/" title="Play on Hackropole" icon="hackropole" >}}
+{{< /cards >}}
 
 **Description**
 
@@ -1067,6 +1089,10 @@ print(
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
 | **437**    |  ★ ★      | **26**     |
+
+{{< cards col="1" >}}
+  {{< card link="https://hackropole.fr/fr/challenges/crypto/fcsc2026-crypto-shor-1/" title="Play on Hackropole" icon="hackropole" >}}
+{{< /cards >}}
 
 **Description**
 
@@ -1360,7 +1386,7 @@ while True:
 
 ```
 
-**`FCSC{<I_dont_know_because_I_didnt_solved_it_in_time>}`**
+**`FCSC{e4d93d2d05e78587e736078953345d52f00f6b8ee16e7913f40fe53518452bbb}`**
 
 ## End word
 

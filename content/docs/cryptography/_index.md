@@ -1,5 +1,5 @@
 ---
-title: Cryptography Notes
+title: Cryptography
 linkTitle: Cryptography
 resources:
 - params:

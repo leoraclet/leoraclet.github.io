@@ -155,7 +155,7 @@ p.interactive()
 
 ## Helpers
 
-## Stabilize reverse shell
+### Stabilize reverse shell
 
 ```sh
 SHELL=/bin/bash script -q /dev/null
