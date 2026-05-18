@@ -2,7 +2,7 @@
 title: Ports & Services
 ---
 
-| Port      | Protocol | Common Service      | Short Description                  |
+| **Port**      | **Protocol** | **Common Service**      | **Description**        |
 | --------- | -------- | ------------------- | ---------------------------------- |
 | 20        | TCP      | FTP Data            | File transfer data channel         |
 | 21        | TCP      | FTP Control         | File transfer control channel      |

@@ -28,9 +28,9 @@ Here some tools that do exactly that for us :
 
 ### Hash Length Extension
 
-MD5, just like SHA-1, is vulnerable to the [length extension attack](https://asecuritysite.com/hash/lenattack). This attack allows a potential attacker to take a hash $h$ for an unknown message $m$ and append additional data to $m$ to produce a new valid hash $h'$ for the new message $m' = m \parallel d$, where $d$ is some chosen data.
+MD5, just like [SHA-1](../sha1), is vulnerable to the [length extension attack](https://asecuritysite.com/hash/lenattack). This attack allows a potential attacker to take a hash $h$ for an unknown message $m$ and append additional data to $m$ to produce a new valid hash $h'$ for the new message $m' = m \parallel d$, where $d$ is some chosen data.
 
-All hahs functions that are based on the [Merkle–Damgård construction](https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction) are susceptible to this kind of attack.
+All hash functions that are based on the [Merkle–Damgård construction](https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction) are susceptible to this kind of attack.
 
 ## Resources
 

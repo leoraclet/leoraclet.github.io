@@ -16,5 +16,6 @@ title: Maps
 | [FlightRadar24](https://www.flightradar24.com) | The world's most popular flight tracker |
 | [EarthExplorer](https://earthexplorer.usgs.gov/) | USGS portal for Landsat, Sentinel, and other earth observation datasets |
 | [SkyFi](https://app.skyfi.com/explore/open) | Satellite Open Data |
-| [OpenRailwayMap](https://www.openrailwaymap.org/) | |
-| [Open Infrastructure Map](https://openinframap.org/) | |
+| [OpenRailwayMap](https://www.openrailwaymap.org/) | Open map of the world's railways |
+| [Open Infrastructure Map](https://openinframap.org/) | Open map of the world's infrastructure |
+| [MarineTraffic](https://www.marinetraffic.com/) | Global Ship Tracking Intelligence |

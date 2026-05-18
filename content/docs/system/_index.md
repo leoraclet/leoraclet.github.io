@@ -1,5 +1,5 @@
 ---
-title: Systems
+title: System
 # sidebar:
 #   exclude: true
 ---

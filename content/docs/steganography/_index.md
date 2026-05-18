@@ -21,22 +21,22 @@ All there is to know about steganography / steganalysis
 
 ## Categories
 
-{{< cards >}}
+{{< cards cols="2" >}}
   {{< card link="./audio" title="Audio Steganography" >}}
   {{< card link="./image" title="Image Steganography" >}}
   {{< card link="./text" title="Text Steganography" >}}
+  {{< card link="./esoteric" title="Esoteric Programming Languages" >}}
 {{< /cards >}}
 
 
 ## Tools
 
-- [Exiftool](https://exiftool.org/)
-- [Binwalk](https://github.com/ReFirmLabs/binwalk)
-- [ImHex](https://github.com/WerWolv/ImHex)
-
-**Online**
-
-- [HexEdit](https://hexed.it/)
+| Tool                                                                    | Description                                       |
+| ----------------------------------------------------------------------- | ------------------------------------------------- |
+| [Exiftool](https://exiftool.org/)                | Reads, edits, and extracts file metadata          |
+| [Binwalk](https://github.com/ReFirmLabs/binwalk) | Analyzes and extracts embedded firmware/file data |
+| [ImHex](https://github.com/WerWolv/ImHex)        | Advanced hex editor for reverse engineering       |
+| [HexEdit](https://hexed.it/)                     | Browser-based hexadecimal file editor             |
 
 ## Nix - Flake environment
 

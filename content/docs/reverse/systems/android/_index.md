@@ -11,9 +11,11 @@ tags:
 
 ## Emulators
 
-- [Android Emulators for Reverse Engineers](https://github.com/LaurieWired/android_emulators_for_reverse_engineers)
-  - [docker-android](https://github.com/budtmo/docker-android)
-  - [dock-droid](https://github.com/sickcodes/dock-droid)
+| Tool                                                                                                                                     | Description                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Android Emulators for Reverse Engineers](https://github.com/LaurieWired/android_emulators_for_reverse_engineers) | Curated resources for Android emulation setups for reverse engineering   |
+| └── [docker-android](https://github.com/budtmo/docker-android)                                                    | Android emulator running in Docker containers for testing and automation |
+| └── [dock-droid](https://github.com/sickcodes/dock-droid)                                                         | Docker-based Android environment for emulation and analysis              |
 
 ## Tools
 
@@ -31,9 +33,11 @@ tags:
 
 ### Online
 
-- [Online APK Decompiler](https://www.decompiler.com/)
-- [Android APK Decompiler](https://www.decompileandroid.com/)
-- [Automated Malware Analysis - Joe Sandbox Cloud Basic](https://www.joesandbox.com/#android)
+| Tool                                                                                  | Description                                                         |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [Online APK Decompiler](https://www.decompiler.com/)           | Web-based tool for decompiling APK files into readable source code  |
+| [Android APK Decompiler](https://www.decompileandroid.com/)    | Online APK decompiler for Android application analysis              |
+| [Joe Sandbox Cloud Basic](https://www.joesandbox.com/#android) | Automated malware analysis platform with Android sandboxing support |
 
 ## Resources
 

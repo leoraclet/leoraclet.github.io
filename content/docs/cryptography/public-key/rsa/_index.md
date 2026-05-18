@@ -421,14 +421,18 @@ $$
 
 ### Factorize
 
-- [Integer factorization calculator - Online](https://www.alpertron.com.ar/ECM.HTM)
-- [Cado-NFS, An Implementation of the Number Field Sieve Algorithm](https://github.com/cado-nfs/cado-nfs)
-- [Factors online database](https://factordb.com/)
+| Tool                                                                                            | Description                                                              |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Integer Factorization Calculator](https://www.alpertron.com.ar/ECM.HTM) | Online tool for integer factorization using advanced methods (ECM, etc.) |
+| [Cado-NFS](https://github.com/cado-nfs/cado-nfs)                         | Implementation of the Number Field Sieve for factoring large integers    |
+| [FactorDB](https://factordb.com/)                                        | Online database of known factorizations and integer properties           |
 
 ### CTF
 
-- [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool)
-- [RSA Calculator](https://www.tausquared.net/pages/ctf/rsa.html)
+| Tool                                                                                   | Description                                                       |
+| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [RsaCtfTool](https://github.com/RsaCtfTool/RsaCtfTool)          | Automated RSA attack and analysis tool for CTFs and cryptanalysis |
+| [RSA Calculator](https://www.tausquared.net/pages/ctf/rsa.html) | Online RSA computation and parameter analysis tool                |
 
 ## Resources
 

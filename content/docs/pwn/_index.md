@@ -9,8 +9,10 @@ linkTitle: Binary Exploitation
 
 ### Tools
 
-- [PEDA - Python Exploit Development Assistance for GDB](https://github.com/longld/peda)
-- [Exploit Development and Reverse Engineering with GDB & LLDB Made Easy](https://github.com/pwndbg/pwndbg)
+| Tool                                                              | Description                                                                      |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [PEDA](https://github.com/longld/peda)     | GDB enhancement plugin for exploit development and debugging assistance          |
+| [pwndbg](https://github.com/pwndbg/pwndbg) | GDB/LLDB plugin that improves debugging for reverse engineering and exploitation |
 
 ### Docker
 
@@ -117,7 +119,7 @@ gem install one_gadget
 
 ### Syscalls
 
-- [syscal tabls](https://syscalls.w3challs.com/)
+- [syscall tables](https://syscalls.w3challs.com/)
 
 ### Tutorials
 

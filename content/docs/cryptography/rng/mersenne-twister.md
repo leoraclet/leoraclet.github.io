@@ -17,6 +17,9 @@ In its most common implementation, this PRNG has a period length of 624, after w
 
 It is also possible that, given two outputs separated by a fixed number of intermediate generations, the implementation may allow state recovery or output prediction, as seen in the last attack.
 
+> [!tip]
+> This [blog post](https://bitsdeep.com/projects/python-random-prediction/) details most of the below attacks.
+
 ### Known 32-bit outputs
 
 - [Known 32-bit Outputs: getrandbits(32)](https://jia.je/ctf-writeups/misc/pyrand.html#known-32-bit-outputs-getrandbits32)

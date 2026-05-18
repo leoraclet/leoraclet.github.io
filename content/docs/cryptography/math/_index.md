@@ -14,5 +14,7 @@ linkTitle: Maths
 
 ## Online Tools
 
-- [Doing Math With JavaScript](http://www.javascripter.net/math/index.htm)
-- [Modular Multiplicative Inverse](https://www.dcode.fr/modular-inverse)
+| Tool                                                                                            | Description                                                                |
+| ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [Doing Math With JavaScript](http://www.javascripter.net/math/index.htm) | Collection of JavaScript-based math utilities and examples                 |
+| [Modular Multiplicative Inverse](https://www.dcode.fr/modular-inverse)   | Online tool to compute modular inverses for number theory and cryptography |

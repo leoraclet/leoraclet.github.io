@@ -4,6 +4,8 @@ title: Docker Images
 
 ## Tools
 
-- [Dive](https://github.com/wagoodman/dive) - A tool for exploring each layer in a docker image
+| Tool                                                             | Description                                                       |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [Dive](https://github.com/wagoodman/dive?utm_source=chatgpt.com) | Tool for inspecting, analyzing, and exploring Docker image layers |
 
 ## Resources

@@ -6,14 +6,18 @@ title: GameBoy
 
 ### Emulators
 
-- [mGBA: Game Boy Advance Emulator](https://github.com/mgba-emu/mgba)
-- [The Emulator Zone](https://www.emulator-zone.com/)
-- [SameBoy](https://sameboy.github.io/) - A Friendly and Powerful Game Boy Emulator
+| Tool                                                                       | Description                                                         |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [mGBA](https://github.com/mgba-emu/mgba)            | High-accuracy Game Boy Advance emulator with debugging tools        |
+| [The Emulator Zone](https://www.emulator-zone.com/) | Archive and information site for various console emulators          |
+| [SameBoy](https://sameboy.github.io/)               | Accurate Game Boy / Game Boy Color emulator with debugging features |
 
 ### Disassembler
 
-- [Game Boy ROM disassembler with RGBDS compatible output](https://github.com/mattcurrie/mgbdis)
-- [GitHub - Gekkio/GhidraBoy: Sharp SM83 / Game Boy extension for Ghidra · GitHub](https://github.com/Gekkio/GhidraBoy)
+| Tool                                                                    | Description                                                 |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [mgbdis](https://github.com/mattcurrie/mgbdis)   | Game Boy ROM disassembler producing RGBDS-compatible output |
+| [GhidraBoy](https://github.com/Gekkio/GhidraBoy) | Ghidra plugin for Game Boy / SM83 CPU reverse engineering   |
 
 ## Resources
 

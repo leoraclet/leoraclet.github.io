@@ -1,3 +1,6 @@
+# Dev server
+# hugo server --buildDrafts
+
 # Hugo configuration file
 title: N£utr0nys
 
@@ -197,4 +200,4 @@ outputs:
   page: [html, markdown]
   section: [html, rss, markdown]
 
-# hugo server --buildDrafts --disableFastRender
+# hugo server --buildDrafts

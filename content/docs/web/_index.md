@@ -28,9 +28,11 @@ title: Web Exploitation
 
 ## Tools
 
-- [BurpSuite](https://portswigger.net/burp)
-- [Caido](https://caido.io/download)
-- [OWASP Zap](https://www.zaproxy.org/)
+| Tool                                                             | Description                                            |
+| ---------------------------------------------------------------- | ------------------------------------------------------ |
+| [BurpSuite](https://portswigger.net/burp) | Web security testing proxy and interception toolkit    |
+| [Caido](https://caido.io/download)        | Modern web debugging and HTTP interception platform    |
+| [OWASP Zap](https://www.zaproxy.org/)     | Open-source web application security scanner and proxy |
 
 ## Resources
 

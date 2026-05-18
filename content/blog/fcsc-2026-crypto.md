@@ -672,8 +672,8 @@ c_{f1} &= c_f \cdot A^e &\mod n \\
 \end{aligned}
 $$
 
-1. Calculate $c_b = B^e \mod n$
-2. Then, send $(c_{f1}, c_b)$ to the service and use `hom_sum` to compute
+4. Calculate $c_b = B^e \mod n$
+5. Then, send $(c_{f1}, c_b)$ to the service and use `hom_sum` to compute
 
 $$
 \begin{aligned}
@@ -684,9 +684,9 @@ c_{f2} &= (c_{f1}^d + c_b^d \mod n)^e &\mod n \\
 \end{aligned}
 $$
 
-with $m_{f2} = f(m_f)$ and $f(x) = Ax + B$
+with $m_{f2} = f(m_f) = Am_f + B$
 
-1. Now, we're in the exact case described by the attack, that we can then use to recover $m_f$ using the two following encrypted messages
+6. Now, we're in the exact case described by the attack, that we can then use to recover $m_f$ using the two following encrypted messages
 
 $$
 \begin{aligned}
@@ -696,7 +696,7 @@ c_f &= (m_f)^e &\mod n
 $$
 
 > [!important]
-> In fact, the `hom_prod` function is useless here because, as stated in the challenge's description, RSA is multiplicatively homomorphic by definition. This means we can perform this operation on our own since we know the public key used to encrypt the flag (provided by the service).
+> In fact, the `hom_prod` function is useless here because, as stated in the challenge's description, RSA is **multiplicatively homomorphic** by definition. This means we can perform this operation on our own since we know the public key used to encrypt the flag (provided by the service).
 
 ---
 
@@ -914,7 +914,7 @@ $$
 with $\sigma = (P_k P_0)^R$ an unknown permutation, and $P_k$ the *key-based* permutation we're looking for.
 
 > [!important] Remark
-> Those permutations applies to the bit representation and ordering of the numbers with are workking with.
+> These permutations apply to the bit representation and ordering of the numbers we are working with.
 
 From there, if we can recover the permutation $\sigma$ on its own, we can then take the $R$-th root to find $P_k P_0$, and since we know $P_0$, we finally have $P_k$, which allows us to revert the encryption of the flag.
 

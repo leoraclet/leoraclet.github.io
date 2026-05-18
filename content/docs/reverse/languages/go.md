@@ -5,8 +5,10 @@ linkTitle: Golang
 
 ## Tools
 
-- [IDApython Scripts for Analyzing Golang Binaries](https://github.com/SentineLabs/AlphaGolang)
-- [Making GO reversing easier in IDA Pro](https://github.com/strazzere/golang_loader_assist)
+| Tool                                                                                             | Description                                         |
+| ------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| [AlphaGolang](https://github.com/SentineLabs/AlphaGolang)                 | IDA Python scripts for improving Go binary analysis |
+| [golang_loader_assist](https://github.com/strazzere/golang_loader_assist) | IDA Pro plugin to simplify reversing Go binaries    |
 
 ## Resources
 

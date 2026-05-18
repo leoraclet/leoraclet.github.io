@@ -1,6 +1,6 @@
 ---
 title: Server Side Template Injection (SSTI)
-linkTitle: Server Side Template Injection
+linkTitle: SSTI
 ---
 
 ## Python

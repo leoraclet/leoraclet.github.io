@@ -1,14 +1,17 @@
 ---
-title: Radio (RF)
+title: Radio Frequency (RF)
+linkTitle: Radio Frequency
 ---
 
 ## Tools
 
-- [GNU Radio](https://github.com/gnuradio/gnuradio)
-- [Universal Radio Hacker](https://github.com/jopohl/urh)
-- [Inspectrum](https://github.com/miek/inspectrum)
-- [SigDigger](https://batchdrake.github.io/SigDigger/)
-- [gqrx](https://github.com/gqrx-sdr/gqrx)
+| Tool                                                                           | Description                                                      |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| [GNU Radio](https://github.com/gnuradio/gnuradio)       | SDR framework for building and processing radio signal pipelines |
+| [Universal Radio Hacker](https://github.com/jopohl/urh) | Tool for analyzing and decoding wireless communication signals   |
+| [Inspectrum](https://github.com/miek/inspectrum)        | Interactive tool for visualizing and analyzing RF signals        |
+| [SigDigger](https://batchdrake.github.io/SigDigger/)    | Signal analysis tool for exploring digital modulations           |
+| [gqrx](https://github.com/gqrx-sdr/gqrx)                | Software-defined radio receiver with GUI for signal monitoring   |
 
 ## Resources
 

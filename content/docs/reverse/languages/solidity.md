@@ -4,18 +4,22 @@ title: Solidy (EVM)
 
 ## Tools
 
-- [My swiss army knife for reversing EVM bytecodes](https://github.com/minaminao/erever)
-- [evm binary static analysis](https://github.com/crytic/rattle/tree/master)
-- [GitHub - crytic/ethersplay: EVM dissassembler](https://github.com/crytic/ethersplay)
-- [GitHub - crytic/evm-opcodes: Ethereum opcodes and instruction reference](https://github.com/crytic/evm-opcodes)
-- [Mythril is a symbolic-execution-based securty analysis tool for EVM bytecode](https://github.com/ConsenSysDiligence/mythril)
-- [Security Analysis tool for WebAssembly module and Blockchain Smart Contracts](https://github.com/FuzzingLabs/octopus)
-- [An ethereum evm bytecode disassembler and static/dynamic analysis tool](https://github.com/tintinweb/ethereum-dasm)
+| Tool                                                                               | Description                                                         |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [erever](https://github.com/minaminao/erever)               | “Swiss army knife” toolkit for EVM bytecode reversing and analysis  |
+| [rattle](https://github.com/crytic/rattle/tree/master)      | Static analysis framework for Ethereum EVM binaries                 |
+| [ethersplay](https://github.com/crytic/ethersplay)          | EVM bytecode disassembler and execution tracing tool                |
+| [evm-opcodes](https://github.com/crytic/evm-opcodes)        | Reference database of Ethereum Virtual Machine opcodes              |
+| [Mythril](https://github.com/ConsenSysDiligence/mythril)    | Symbolic execution tool for smart contract vulnerability analysis   |
+| [Octopus](https://github.com/FuzzingLabs/octopus)           | Security analysis tool for WebAssembly and blockchain contracts     |
+| [ethereum-dasm](https://github.com/tintinweb/ethereum-dasm) | EVM bytecode disassembler with static and dynamic analysis features |
 
 ### Online
 
-- [Online Solidity Decompiler](https://ethervm.io/decompile)
-- [Remix - Ethereum IDE](https://remix.ethereum.org/#lang=en)
+| Tool                                                                              | Description                                                                    |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [Online Solidity Decompiler](https://ethervm.io/decompile) | Web-based tool to decompile EVM bytecode into Solidity-like code               |
+| [Remix Ethereum IDE](https://remix.ethereum.org/#lang=en)  | Browser-based IDE for writing, testing, and deploying Ethereum smart contracts |
 
 ## Resources
 

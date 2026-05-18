@@ -4,5 +4,7 @@ title: Java
 
 ## Tools
 
-- [Java decompiler online](https://www.javadecompilers.com/)
-- [Krakatau](https://github.com/Storyyeller/Krakatau)
+| Tool                                                                              | Description                                                   |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [Java Decompiler Online](https://www.javadecompilers.com/) | Web-based Java decompiler supporting multiple backend tools   |
+| [Krakatau](https://github.com/Storyyeller/Krakatau)        | Java bytecode disassembler, assembler, and decompiler toolkit |

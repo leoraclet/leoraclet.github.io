@@ -1,5 +1,5 @@
 ---
 title: Computer Science
-sidebar:
-  exclude: true
+# sidebar:
+#   exclude: true
 ---

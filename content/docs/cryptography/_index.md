@@ -32,26 +32,30 @@ Here you'll find all my notes related to cryptography and cryptanalysis in the c
 
 Here are the more general tools I always use and recommend when starting to do things about cryptography :
 
-- [**Python**](https://www.python.org/) - Programming language with packages
-  - [gmpy2](https://gmpy-skirpichev.readthedocs.io/en/latest/)
-  - [sympy](https://docs.sympy.org/latest/index.html)
-  - [cryptography](https://cryptography.io/en/latest/)
-  - [pycryptodome](https://pycryptodome.readthedocs.io/en/latest/)
-  - [pwntools](https://docs.pwntools.com/en/stable/index.html)
-  - [z3-solver](https://github.com/Z3Prover/z3)
-  - [Scipy](https://scipy.org/)
-  - [Numpy](https://numpy.org/)
-- [**SageMath**](https://www.sagemath.org/) - Free open-source mathematics software system.
-- [**fplll**](https://github.com/fplll/fplll) - Lattice algorithms using floating-point arithmetic.
-- [**Pari/GP**](https://pari.math.u-bordeaux.fr/) - Computer algebra system designed for fast computations in number theory.
-- [**Magma**](https://magma.maths.usyd.edu.au/magma/) - Computational Algebra System.
-- [**flatter**](https://github.com/keeganryan/flatter) - Fast lattice reduction.
-- [**msolve**](github.com/algebraic-solving/msolve) - Library for Polynomial System Solving through Algebraic Methods.
+| Tool                                                                                      | Description                                                                         |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [Python](https://www.python.org/)                                  | General-purpose programming language with extensive scientific and crypto libraries |
+| └── [gmpy2](https://gmpy-skirpichev.readthedocs.io/en/latest/)     | Fast multiple-precision arithmetic library for number theory                        |
+| └── [sympy](https://docs.sympy.org/latest/index.html)              | Symbolic mathematics library for algebra and calculus                               |
+| └── [cryptography](https://cryptography.io/en/latest/)             | Secure cryptographic primitives and recipes                                         |
+| └── [pycryptodome](https://pycryptodome.readthedocs.io/en/latest/) | Self-contained cryptographic library for Python                                     |
+| └── [pwntools](https://docs.pwntools.com/en/stable/index.html)     | CTF and exploit development framework                                               |
+| └── [z3-solver](https://github.com/Z3Prover/z3)                    | SMT solver for symbolic reasoning and constraint solving                            |
+| └── [SciPy](https://scipy.org/)                                    | Scientific computing library for optimization and numerical methods                 |
+| └── [NumPy](https://numpy.org/)                                    | Core numerical computing library for arrays and linear algebra                      |
+| [SageMath](https://www.sagemath.org/)                              | Open-source mathematics system for algebra, number theory, and cryptography         |
+| [fplll](https://github.com/fplll/fplll)                            | Lattice reduction algorithms using floating-point methods                           |
+| [Pari/GP](https://pari.math.u-bordeaux.fr/)                        | Fast computer algebra system for number theory computations                         |
+| [Magma](https://magma.maths.usyd.edu.au/magma/)                    | Computational algebra system for advanced mathematical research                     |
+| [flatter](https://github.com/keeganryan/flatter)                   | High-performance lattice reduction tool                                             |
+| [msolve](https://github.com/algebraic-solving/msolve)              | Solver for polynomial systems using algebraic methods                               |
 
-**Online**
+### Online
 
-- [**Boxentriq**](https://www.boxentriq.com/analysis/cipher-identifier) - Cipher Identifier.
-- [**CyberChef**](https://gchq.github.io/CyberChef/) - The Cyber Swiss Army Knife.
+| Tool                                                                                     | Description                                                      |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [Boxentriq](https://www.boxentriq.com/analysis/cipher-identifier) | Online cipher identifier and automated cryptanalysis helper      |
+| [CyberChef](https://gchq.github.io/CyberChef/)                    | Web-based data analysis and encoding/decoding “Swiss Army knife” |
 
 ## Flake Environment
 

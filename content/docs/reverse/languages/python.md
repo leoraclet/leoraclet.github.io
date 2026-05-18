@@ -5,8 +5,10 @@ linkTitle: Python
 
 ## Tools
 
-- [uncompyle6](https://github.com/rocky/python-uncompyle6) - A cross-version Python bytecode decompiler
-- [pycdc](https://github.com/zrax/pycdc) - C++ python bytecode disassembler and decompiler
-- [pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor) -  PyInstaller Extractor
+| Tool                                                                                        | Description                                                |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [uncompyle6](https://github.com/rocky/python-uncompyle6)             | Cross-version Python bytecode decompiler                   |
+| [pycdc](https://github.com/zrax/pycdc)                               | Python bytecode disassembler and decompiler written in C++ |
+| [pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor) | Extracts contents from PyInstaller-packaged executables    |
 
 ## Resources

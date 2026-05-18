@@ -6,7 +6,11 @@ title: Forensics
 
 ## Tools
 
-- [Scalpel](https://github.com/sleuthkit/scalpel) (Not maintained)
+| Tool                                                                                 | Description                                                 |
+| ------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| [xxd](https://linux.die.net/man/1/xxd)                        | Converts binary files to hex dump and vice versa            |
+| [dd](https://man7.org/linux/man-pages/man1/dd.1.html)         | Low-level utility for copying and converting data           |
+| [grep](https://www.man7.org/linux/man-pages/man1/grep.1.html) | Searches text using regular expressions in files or streams |
 
 ## Nix - Flake environment
 

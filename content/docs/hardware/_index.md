@@ -4,10 +4,6 @@ title: Hardware
 #   exclude: true
 ---
 
-## Tools
-
-- [Radio tools](./radio#tools)
-
 ## Nix - Flake environment
 
 ```nix {linenos=table,filename="flake.nix"}

@@ -21,18 +21,21 @@ Here is a non-exhaustive list of many common and useful encodings you'll encount
 ## Quick reference
 
 
-| Encoding                  | Alphabet / Structure                      | Recognition Hints                                       |
-|---------------------------|-------------------------------------------|---------------------------------------------------------|
-| **Base64**                | A–Z a–z 0–9 +/ (= for padding)            | Ends with `=`  / `==`. ASCII letters + slashes          |
-| **Base32**                | A–Z 2–7                                   | Uppercase letters and digits 2–7, often ends with `=`   |
-| **Base58**                | BTC alphabet (excludes 0 O l I)           | No `+/=`, mixed case letters & digits                   |
-| **Base85 / Ascii85**      | ASCII 33–117, `<~ … ~>`                   | `<~` prefix                                             |
-| **Base92**                | Compact form, 92 printable chars          | No padding, very dense string                           |
-| **Hex**                   | 0–9 A–F  pairs                            | Even length, only hex digits                            |
-| **Binary (ASCII)**        | 0 / 1 (8‑bit groups)                      | Only 0s and 1s, usually multiple of 8                   |
-| **Octal**                 | 0–7 digits                                | Text of 7 and 3 digits separated by spaces              |
-| **Unicode/UTF‑16**        | Null bytes between letters (`h\x00i\x00`) | Appears in hexdumps/UTF‑16 files                        |
-| **Morse Code**                    | `.` and `-`             | Only those characters separated by spaces |
+  Encoding                  | Alphabet / Structure                      | Recognition Hints                                       |
+ |---------------------------|-------------------------------------------|---------------------------------------------------------|
+ | **Base64**                | `A–Z a–z 0–9 +/ =`                        | Ends with `=` / `==`. ASCII letters + slashes          |
+ | **Base32**                | `A–Z 2–7 =`                               | Uppercase letters and digits `2–7`, often ends with `=` |
+ | **Base58**                | `1–9 A–H J–N P–Z a–k m–z` (BTC alphabet)   | No `+/=`, mixed case letters & digits                   |
+ | **Base85 / Ascii85**      | `<~ !–u ~>`                               | `<~` prefix, uses ASCII `33–117`                        |
+ | **Base92**                | `A–Z a–z 0–9 !"#$%&'()*+,./:;<=>?@[\]^_`{\|}~` | No padding, 92 printable chars                           |
+ | **Hex**                   | `0–9 A–F` (pairs)                         | Even length, only hex digits                            |
+ | **Binary (ASCII)**        | `0 1` (8‑bit groups)                      | Only `0`s and `1`s, usually multiple of 8               |
+ | **Octal**                 | `0–7` (groups of 3)                        | Digits `0–7`, often separated by spaces                 |
+ | **Unicode/UTF‑8**         | Variable-length (1–4 bytes per char)      | Non-ASCII chars appear as multi-byte sequences         |
+ | **Unicode/UTF‑16**        | `h\x00i\x00` (null bytes between letters)  | Appears in hexdumps/UTF‑16 files                        |
+ | **Morse Code**            | `. -` (separated by spaces)               | Only `.` and `-` separated by spaces                    |
+ | **URL Encoding**          | `%00–%FF` (hex pairs)                     | `%`-prefixed hex pairs (e.g., `%20` for space)          |
+ | **HTML Entities**         | `&name;` or `&#ddd;`                       | Starts with `&` and ends with `;`                       |
 
 ## Examples
 

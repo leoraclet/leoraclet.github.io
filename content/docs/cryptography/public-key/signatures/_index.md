@@ -3,7 +3,7 @@ title: Digital Signatures
 linkTitle: Signatures
 ---
 
-This section will cover algorithms tha are used to create and verify digital singatures. A [digital signature](https://en.wikipedia.org/wiki/Digital_signature) is a mathematical scheme for verifying the authenticity of digital messages or documents.
+This section will cover algorithms that are used to create and verify **digital signatures**. A [digital signature](https://en.wikipedia.org/wiki/Digital_signature) is a mathematical scheme for verifying the authenticity of digital messages or documents.
 
 ## Schemes
 

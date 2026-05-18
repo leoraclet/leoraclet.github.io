@@ -15,7 +15,9 @@ The [Secure Hash Algorithm 1](https://en.wikipedia.org/wiki/SHA-1) (SHA-1) is a 
 
 ## Attacks
 
-The attacks on **SHA-1** are similar to those on [**MD5**](../md5#attacks), but the chosen-prefix collision is much more restrictive, especially in terms of computational power, than for MD5. However, due to its existence, SHA-1 is now also considered insecure by today's standards.
+The attacks on **SHA-1** are similar to those on [**MD5**](../md5#attacks), but the chosen-prefix collision is much more restrictive, especially in terms of computational power, than for MD5.
+
+However, due to its existence, SHA-1 is now also considered insecure by today's standards.
 
 ### Collisions
 

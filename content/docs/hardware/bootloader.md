@@ -4,10 +4,12 @@ title: Bootloader
 
 ## Tools
 
-- [Qemu](https://en.wikipedia.org/wiki/QEMU)
-- [Capstone Engine](https://www.capstone-engine.org/)
-- [Unicorn Engine](https://www.unicorn-engine.org/)
-- [Qiling](https://qiling.io/)
+| Tool                                                                       | Description                                                      |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [QEMU](https://en.wikipedia.org/wiki/QEMU)          | Hardware emulator and virtualization platform                    |
+| [Capstone Engine](https://www.capstone-engine.org/) | Lightweight multi-architecture disassembly framework             |
+| [Unicorn Engine](https://www.unicorn-engine.org/)   | CPU emulator based on QEMU for dynamic binary analysis           |
+| [Qiling](https://qiling.io/)                        | Binary emulation framework for malware analysis and RE workflows |
 
 ## Resources
 

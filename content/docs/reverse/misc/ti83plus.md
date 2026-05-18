@@ -4,7 +4,9 @@ title: TI83+ & .8xp
 
 ## Tools
 
-- [Cemetech - SourceCoder 3](https://www.cemetech.net/sc/)
+| Tool                                                                          | Description                                                                       |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Cemetech SourceCoder 3](https://www.cemetech.net/sc/) | Online IDE for creating, editing, and managing calculator programs |
 
 ## Resources
 

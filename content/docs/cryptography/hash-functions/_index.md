@@ -19,20 +19,26 @@ There are a lot of hash functions. Here are the most popular ones you will encou
 
 ## Tools
 
-- [Hashcat](https://hashcat.net/hashcat/) - Hash / password cracker
-- [John The Ripper](https://www.openwall.com/john/) - Another password cracker
+| Tool                                                                     | Description                                                        |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| [Hashcat](https://hashcat.net/hashcat/)           | High-performance password and hash cracking tool (GPU-accelerated) |
+| [John The Ripper](https://www.openwall.com/john/) | Versatile password cracking tool for hashes and encrypted data     |
 
-**Online**
+### Online
 
-- [CyberChef](https://gchq.github.io/CyberChef/#input=ZXhhbXBsZQ)
-- [Crackstation - Free Password Hash Cracker](https://crackstation.net/) - Rainbow table
-- [MD5Hashing.net](https://md5hashing.net/) - MD5 Cracker
-- [DCode - Hash Identifier](https://www.dcode.fr/hash-identifier) - Hash identifier
+| Tool                                                                                   | Description                                               |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| [CyberChef](https://gchq.github.io/CyberChef/#input=ZXhhbXBsZQ) | Web-based tool for encoding, decoding, and data analysis  |
+| [Crackstation](https://crackstation.net/)                       | Online rainbow-table-based password hash cracking service |
+| [MD5Hashing.net](https://md5hashing.net/)                       | Online MD5 hash lookup and cracking database              |
+| [DCode Hash Identifier](https://www.dcode.fr/hash-identifier)   | Identifies likely hash types from input strings           |
 
-**Wordlists**
+### Wordlists
 
-- [rockyou.txt](https://github.com/zacheller/rockyou)
-- [SecList](https://github.com/danielmiessler/SecLists)
+| Tool                                                                          | Description                                                 |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [rockyou.txt](https://github.com/zacheller/rockyou)    | Famous password wordlist used for brute-force and cracking  |
+| [SecLists](https://github.com/danielmiessler/SecLists) | Comprehensive collection of security wordlists and payloads |
 
 ## Resources
 

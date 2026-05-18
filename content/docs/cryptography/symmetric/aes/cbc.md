@@ -108,6 +108,15 @@ def attack(padding_oracle, iv, c):
 
 - [Wikipedia - Bit-flipping attack](https://en.wikipedia.org/wiki/Bit-flipping_attack)
 
+To quote the good explanation from Wikipedia :
+
+> A bit-flipping attack is an attack on a cryptographic cipher in which the attacker can change the ciphertext in such a way as to result in a predictable change of the plaintext, although the attacker is not able to learn the plaintext itself.
+
+It is especially useful when you know the format of the underlying message and control the IV and ciphertext decoded. This means you can specifically choose where to modify the IV and ciphertext to produce the desired result on the decrypted plaintext, thus altering an essential part of the original message.
+
+> [!warning] Attention
+> Be careful because while you can alter the structure of one block, the following ones will be complete garbage when decrypted, and you can't compensate for that because you don't know the underlying message.
+
 ```python {linenos=table,filename="cbc_bit_flipping.py"}
 # https://github.com/jvdsn/crypto-attacks/blob/master/attacks/cbc/bit_flipping.py
 def attack(iv, c, pos, p, p_):

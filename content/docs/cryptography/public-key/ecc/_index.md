@@ -10,7 +10,7 @@ tags:
 
 For the moment, this [GitHub repository](https://github.com/elikaski/ECC_Attacks) covers nearly all the essentials of Elliptic Curve Cryptography and its associated attacks.
 
-I will only add here information that are not explicitly covered by this repo.
+I will only add here information that are not explicitly covered by this repo or custom Python scripts.
 
 ## Parameters
 
@@ -82,6 +82,29 @@ def attack(p, x1, y1, x2, y2):
     a = pow(x1 - x2, -1, p) * (pow(y1, 2, p) - pow(y2, 2, p) - (pow(x1, 3, p) - pow(x2, 3, p))) % p
     b = (pow(y1, 2, p) - pow(x1, 3, p) - a * x1) % p
     return int(a), int(b)
+```
+
+## Check for bad curves
+
+Here is a simple Python script that checks for **bad** curves, including singular, [supersingular](https://en.wikipedia.org/wiki/Supersingular_elliptic_curve), and anomalous curves.
+
+These are curves that are considered **weak** for cryptographic applications because on such curves, we can use specific methods and algorithms to simplify the ECDLP problem and solve it efficiently.
+
+```python {linenos=table, filename="check_bad_curves.py"}
+from sage.all import EllipticCurve, GF
+
+def check_curve(p, a, b, k_bound=1e9):
+    assert (4*a^3 + 27*b^2) % p != 0, "The curve is Singular"
+
+    E = EllipticCurve(GF(p), [a, b])
+    assert E.order() != p, "The curve is Anomalous"
+
+    Gn = E.gens()[0].order()
+
+    for k in range(int(k_bound)):
+        assert p^k % Gn != 1, f"Curve is Supersingular of Embedding Degree {k}"
+
+check_curve(p, a, b, 1e3)
 ```
 
 ## Resources

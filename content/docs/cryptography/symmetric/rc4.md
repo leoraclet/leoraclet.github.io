@@ -57,6 +57,9 @@ def attack(encrypt_oracle, key_len):
 
 ## Klein's attack
 
+- [Attacks on the RC4 stream cipher](https://engineering.purdue.edu/ece404/Resources/AndreasKlein.pdf)
+- [GitHub - Key Recovery Attacks on RC4](https://github.com/dj311/rc4-key-recovery-attacks/tree/master)
+
 > [!important] TODO
 
 ## Resources

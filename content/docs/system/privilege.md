@@ -13,14 +13,14 @@ title: Privilege Escalation
 With the following command, you can check what actions the current user can do as sudo, which is useful to know to escalate privileges.
 
 ```bash
-sudo -l
+sudo -l # https://www.man7.org/linux/man-pages/man8/sudo.8.html
 ```
 
 #### Look for SETUID
 
-Files with the setuid bit set are executed with the permissions of the owner of the file, not the user who started the program. This can be used to escalate privileges.
+Files with the [setuid](https://en.wikipedia.org/wiki/Setuid) bit set are executed with the permissions of the owner of the file, not the user who started the program. This can be used to escalate privileges.
 
-You can use the following command to find all files/executables with the setuid bit set.
+You can use the following command to find all files/executables with the **setuid** bit set.
 
 ```bash
 find / -perm -u=s -type f 2>/dev/null
