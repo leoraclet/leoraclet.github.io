@@ -181,7 +181,7 @@ with:
 
 - $g$, $h$: two points on $E$
 - $s$, $t$: two vectors of 256 elements in $K_2$
-- $hi$: an array of points in $E$ such that $hi[k] = s_k \cdot g + t_k \cdot h$ for $k \in [0, 255]$w
+- $hi$: an array of points in $E$ such that $hi[k] = s_k \cdot g + t_k \cdot h$ for $k \in [1, 256]$w
 
 #### Encryption
 
@@ -793,7 +793,7 @@ giving us $g' = \alpha \cdot g$ as we wanted.
 
 The most important thing to complete the solve is now to find a way to figure out if we correctly found $\alpha \cdot g$ and not $k \cdot \alpha \cdot g$ for some random $k \in [0, 256]$.
 
-To do this, we can compute $PD(y_i)$ for each $y_i$ with $i \in [0, 63]$, and if for each and everyone of them we can find a number $c \in [0, 256]$ such that $c \cdot g' = PD(y_i)$, then we can be confident that we correctly found $g' = \alpha \cdot g$.
+To do this, we can compute $PD(y_i)$ for each $y_i$ with $i \in [1, 63]$, and if for each and everyone of them we can find a number $c \in [0, 256]$ such that $c \cdot g' = PD(y_i)$, then we can be confident that we correctly found $g' = \alpha \cdot g$.
 
 From there, the strategy is:
 
