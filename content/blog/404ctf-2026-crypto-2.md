@@ -178,6 +178,7 @@ if __name__ == "__main__":
 ```
 
 with:
+
 - $g$, $h$: two points on $E$
 - $s$, $t$: two vectors of 256 elements in $K_2$
 - $hi$: an array of points in $E$ such that $hi[k] = s_k \cdot g + t_k \cdot h$ for $k \in [0, 255]$w
@@ -244,7 +245,7 @@ def decrypt(g, x, sx, tx, C, D, Ei, log_table=None):
 This function computes the point:
 
 $$
-PD(x) = \sum^{256}_{k = 0} x_k \cdot Ei[k] - s_x \cdot C - t_x \cdot D
+PD(x) = \sum^{256}_{k = 1} x_k \cdot Ei[k] - s_x \cdot C - t_x \cdot D
 $$
 
 It then tries to compute the elliptic curve discrete logarithm $d_x$ such that:
@@ -261,10 +262,10 @@ $$
 
 with $S_x = d_x$ a number.
 
-More precisely, $S$ is the sum of the elements of $y$ at the positions $x_k$ when $x_k = 1$, that is:
+More precisely, $S_x$ is the sum of the elements of $y$ at the positions $x_k$ when $x_k = 1$, that is:
 
 $$
-S = \sum^{256}_{k = 0} x_k \cdot y_k
+S = \sum^{256}_{k = 1} x_k \cdot y_k
 $$
 
 You can think of it as the [**Hamming weight**](https://en.wikipedia.org/wiki/Hamming_weight) of a subset of the values of $y$.
@@ -275,13 +276,13 @@ In more details, we have
 
 $$
 \begin{aligned}
-PD(x) &= \left( \sum^{256}_{k = 0} x_k \cdot Ei[k] \right) - s_x \cdot C - t_x \cdot D \\
-&= \left( \sum^{256}_{k = 0} x_k \cdot [ y_k \cdot g + C \cdot s_k + D \cdot t_k ] \right) - s_x \cdot C - t_x \cdot D \\
-&= \left( \sum^{256}_{k = 0} x_k \cdot y_k \cdot g + C \cdot s_k \cdot x_k + D \cdot t_k \cdot x_k \right) - s_x \cdot C - t_x \cdot D \\
-&= \left( \sum^{256}_{k = 0} x_k \cdot y_k \cdot g + \sum^{256}_{k = 0} C \cdot s_k \cdot x_k + \sum^{256}_{k = 0} D \cdot t_k \cdot x_k \right) - s_x \cdot C - t_x \cdot D \\
-&= \left( \sum^{256}_{k = 0} x_k \cdot y_k \cdot g + C \cdot \sum^{256}_{k = 0} s_k \cdot x_k + D \cdot \sum^{256}_{k = 0} t_k \cdot x_k \right) - s_x \cdot C - t_x \cdot D \\
-&= \left( \sum^{256}_{k = 0} x_k \cdot y_k \cdot g + C \cdot s_x + D \cdot t_x \right) - s_x \cdot C - t_x \cdot D \\
-&= \left( \sum^{256}_{k = 0} x_k \cdot y_k \right) \cdot g \\
+PD(x) &= \left( \sum^{256}_{k = 1} x_k \cdot Ei[k] \right) - s_x \cdot C - t_x \cdot D \\
+&= \left( \sum^{256}_{k = 1} x_k \cdot [ y_k \cdot g + C \cdot s_k + D \cdot t_k ] \right) - s_x \cdot C - t_x \cdot D \\
+&= \left( \sum^{256}_{k = 1} x_k \cdot y_k \cdot g + C \cdot s_k \cdot x_k + D \cdot t_k \cdot x_k \right) - s_x \cdot C - t_x \cdot D \\
+&= \left( \sum^{256}_{k = 1} x_k \cdot y_k \cdot g + \sum^{256}_{k = 1} C \cdot s_k \cdot x_k + \sum^{256}_{k = 1} D \cdot t_k \cdot x_k \right) - s_x \cdot C - t_x \cdot D \\
+&= \left( \sum^{256}_{k = 1} x_k \cdot y_k \cdot g + C \cdot \sum^{256}_{k = 1} s_k \cdot x_k + D \cdot \sum^{256}_{k = 1} t_k \cdot x_k \right) - s_x \cdot C - t_x \cdot D \\
+&= \left( \sum^{256}_{k = 1} x_k \cdot y_k \cdot g + C \cdot s_x + D \cdot t_x \right) - s_x \cdot C - t_x \cdot D \\
+&= \left( \sum^{256}_{k = 1} x_k \cdot y_k \right) \cdot g \\
 \end{aligned}
 $$
 
@@ -723,15 +724,15 @@ As described in our analysis of the first part, this function (or at least the b
 
 $$
 \begin{aligned}
-PD(x) &= \sum^{256}_{k = 0} x_k \cdot Ei[k] - sx \cdot C - tx \cdot D \\
-&= \left(\sum^{256}_{k = 0} x_k \cdot y_k\right) \cdot g
+PD(x) &= \sum^{256}_{k = 1} x_k \cdot Ei[k] - sx \cdot C - tx \cdot D \\
+&= \left(\sum^{256}_{k = 1} x_k \cdot y_k\right) \cdot g
 \end{aligned}
 $$
 
 Because $y$ is a binary vector fo size 256, we can deduce that :
 
 $$
-0 \le S = \sum^{256}_{k = 0} x_k \cdot y_k \le 256
+0 \le S = \sum^{256}_{k = 1} x_k \cdot y_k \le 256
 $$
 
 And that finding $s_x$ is hence an **easy** instance of the [ECDLP](https://rtullydo.github.io/cryptography-notes/section-ecdlp.html#definition-17) because we only need to check 256 values to find the correct one.
@@ -744,7 +745,7 @@ And that finding $s_x$ is hence an **easy** instance of the [ECDLP](https://rtul
 Now, in this part, the first difference means that this time we have:
 
 $$
-PD(x) = \left(\sum^{256}_{k = 0} x_k \cdot y_k\right) \cdot \alpha \cdot g
+PD(x) = \left(\sum^{256}_{k = 1} x_k \cdot y_k\right) \cdot \alpha \cdot g
 $$
 
 with $\alpha \in K_2$, which makes it now a **hard** instance of the ECDLP that we cannot solve as it is right now, knowing only $g$.
@@ -1173,14 +1174,14 @@ Because of what we've just said before, we can re-write the `decrypt()` expressi
 
 $$
 \begin{aligned}
-PD(x) &= \left(\sum^{255}_{k = 0} x_k \cdot y_k + R_x \right) \cdot \alpha \cdot g \\
+PD(x) &= \left(\sum^{256}_{k = 1} x_k \cdot y_k + R_x \right) \cdot \alpha \cdot g \\
 &= \left(PS_x + R_x \right) \cdot \alpha \cdot g
 \end{aligned}
 $$
 
-with $PS_x$ the partial sum such that $0 \le PS_x = \sum^{255}_{k = 0} x_k \cdot y_k \le 255$.
+with $PS_x$ the partial sum such that $0 \le PS_x = \sum^{256}_{k = 1} x_k \cdot y_k \le 255$.
 
-The reason for the re-write is that because of the change, $\sum^{256}_{k = 0} x_k \cdot y_k$ has now values in $K_2$ and is no longer bounded by $0$ or $256$, making it unusable.
+The reason for the re-write is that because of the change, $\sum^{256}_{k = 1} x_k \cdot y_k$ has now values in $K_2$ and is no longer bounded by $0$ or $256$, making it unusable.
 
 Now, after some long hours "playing" with the equations in every way possible, I noticed something quite simple I could've noticed way sooner and used to also solve [Part 2](#part-23) of this challenge.
 
