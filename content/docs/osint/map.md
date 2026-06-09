@@ -4,6 +4,8 @@ title: Maps
 
 ## Tools
 
+### Online
+
 | Tool Name | Description |
 | :---- | :----------- |
 | [Google Map](https://www.google.com/maps) | Interactive maps and satellite imagery. |
@@ -19,3 +21,10 @@ title: Maps
 | [OpenRailwayMap](https://www.openrailwaymap.org/) | Open map of the world's railways |
 | [Open Infrastructure Map](https://openinframap.org/) | Open map of the world's infrastructure |
 | [MarineTraffic](https://www.marinetraffic.com/) | Global Ship Tracking Intelligence |
+| [GPSWise](https://gpswise.aero/map) | Live GPS Jamming & Spoofing Map |
+| [Geofabric](https://download.geofabrik.de/) | OpenStreetMap Data Extracts |
+
+| Tool Name | Description |
+| :-------- | :---------- |
+| [QGIS](https://github.com/qgis/QGIS) | |
+| [docker-overpass-api](https://github.com/mediasuitenz/docker-overpass-api) | Docker Overpass API |

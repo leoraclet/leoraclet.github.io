@@ -21,7 +21,7 @@ tags:
 | -------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [Angr](https://angr.io/)                            | Python framework for symbolic execution and binary analysis |
 | [Triton](https://github.com/JonathanSalwan/Triton/) | Dynamic binary analysis and symbolic execution library      |
-| [Qu1cksc0pe](https://github.com/CYB3RMX/Qu1cksc0pe) | All-in-one malware analysis and threat inspection tool      | 
+| [Qu1cksc0pe](https://github.com/CYB3RMX/Qu1cksc0pe) | All-in-one malware analysis and threat inspection tool      |
 
 ### Command line
 

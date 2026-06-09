@@ -54,7 +54,7 @@ If $p = q$, then $N = p \cdot q = p^2$, and you can use functions such as `isqrt
 Note that in the situation $N = p^2$, $\phi(N) \neq (p-1)^2$ due to the full definition of Euler's totient function:
 
 $$
-\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right)
+\phi(n) = \prod_{p|n} \left(1 - \frac{1}{p}\right)
 $$
 
 The key here is that $p \mid n$ are **distinct** prime factors, so we only use $p$ once in the equation:
@@ -173,6 +173,73 @@ def factorize(N):
 ```
 
 ### Many small Primes
+
+### Successive primes
+
+If the modulus $N$ is the result of the product of many, say $k$, consecutive primes $p_1, p_2, \dots, p_k$ such that
+
+$$
+N = \prod_{i = 1}^{k} p_i,
+$$
+
+then one can easily factor this number $N$.
+
+The thing is that primes become rarer as numbers grow, but not **that** much. What this means is that the difference between two consecutive primes is usually pretty small, even for large numbers (compared to their size).
+
+> [!note] Example
+> For 128-bit numbers, most of the time you'll find that difference to be less than 200 for numbers that are ~50 digits long.
+
+Because of that, we can write
+
+$$
+N = \prod_{i = 1}^{k} (p_1 + x_i) = p_1^k + p_1^{k-1}x_k + \dots + \prod_{i = 1}^{k} x_i
+$$
+
+with the $x_i = p_i - p_1$ being the difference between the prime $p_i$ and $p_1$.
+
+Now, given sufficiently *"large"* primes, we have
+
+$$
+p_1 \gg x_i \quad \forall i \in \mathbb{N}^{*}, i \le k,
+$$
+
+which means that
+
+$$
+p_1^k \gg p_1^{k-1}x_i \quad \forall i \in \mathbb{N}^{*}, i \le k.
+$$
+
+From there, we can approximate
+
+$$
+N \simeq p_1^k \quad \Longrightarrow \quad p_1 \simeq \sqrt[k]{N}.
+$$
+
+We can then find one of the prime factors of $N$ by looking for the previous or next prime starting from this approximation. Given one prime factor of $N$, it is now trivial to recover all the factors of $N$.
+
+Here is how to take the $n$-th root of a number using Sage, using the [`real_nth_root()`](https://doc.sagemath.org/html/en/reference/functions/sage/functions/other.html#sage.functions.other.Function_real_nth_root) function:
+
+```python {linenos=table,filename="many_primes.py"}
+from sage.all import *
+
+from sympy import nextprime, prevprime
+import random
+
+
+K = 50 # For example
+p = random.randint(0, 2**256)
+N = 1
+
+for i in range(k):
+    p = nextprime(p)
+    N *= p
+
+r = int(real_nth_root(N, K))
+while N % r != :
+    r = nextprime(r)
+
+print(f'{r} is a factor of {N}')
+```
 
 #### Elliptic Curve Method (ECM)
 
