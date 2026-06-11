@@ -1,7 +1,6 @@
 ---
 title: "404CTF 2026 - Crypto Write-Ups"
 date: 2026-06-10
-draft: true
 tags:
 - ctf
 - 404ctf
@@ -15,6 +14,7 @@ tags:
 - hellman
 - dhke
 - python
+- prng
 ---
 
 <!-- markdownlint-disable MD033 -->
