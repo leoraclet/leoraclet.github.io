@@ -1,6 +1,6 @@
 ---
 title: "404CTF 2026 - Crypto Write-Ups"
-date: 2026-05-25
+date: 2026-06-10
 draft: true
 tags:
 - ctf
@@ -25,6 +25,9 @@ Welcome back 👋 ! In this new post, I’ll again present my write-ups for all 
 
 <!--more-->
 
+> [!tip] Another Write-Up ?
+> You can find the write-up for `Pas functional encryption` in a [dedicated blog post](../404ctf-2026-crypto-2)
+
 Those challenges are :
 
 1. [Dur à CERNer](#dur-à-cerner)
@@ -33,7 +36,11 @@ Those challenges are :
 4. [2B or not to be](#2b-or-not-to-be)
 5. [Le Tour de RSA en quatre-vingts seize jours](#le-tour-de-rsa-en-quatre-vingts-seize-jours)
 6. [What the hellman](#what-the-hellman)
-7. [CHAesT](#chaest)
+7. [Pas très discret](#pas-très-discret)
+8. [CHAesT](#chaest)
+
+> [!note]
+> You can find the original sources for all the challenges in [the official GitHub repository](https://github.com/HackademINT/404CTF-2026) of the event.
 
 ---
 
@@ -48,13 +55,13 @@ Here is the difficulty rating legend:
 | 😈     | Insane     | 500         |
 
 > [!note] Information
-> The **base points** represent the points that were valued for challenges at the beginning of the CTF before any solves.
+> The **base points** represent the points that were valued for challenges at the beginning of the CTF, before any solves.
 
 ## Dur à CERNer
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **100**  |  😇   | **SOLVES**     |
+| **100**  |  😇   | **478**     |
 
 **Description**
 
@@ -130,24 +137,27 @@ if __name__ == "__main__":
         print("Malhereusement vos particules ont échoué à se rencontrer...")
 ```
 
-After a quick observation, we see that the server asks for two hexadecimal inputs that should be different, then calculates the **SHA256** hash of each. If their hashes are equal, you get the flag!
+After a quick observation, we see that the server asks for two hexadecimal inputs that should be different, then calculates the **SHA256** hash for each. If their hashes are equal, you **get the flag !**
 
-At first sight, it looks like we have to find a hash collision on SHA256. Now there are two things:
+At first sight, it looks like we have to find a hash collision on SHA256. Now, there are two things:
 
 1. First, to my knowledge and the internet's knowledge, there is no known hash collision on SHA256 as of today.
 2. This is an introductory challenge and the first of this category.
 
-So we're either about to make a breakthrough in cryptanalysis, or there is something fishy here. As you've probably guessed, it's the second option.
+So we're either about to make a breakthrough in cryptanalysis, or there is something fishy here. As you've probably guessed, it's not the first option.
 
 **Solving**
 
-The only function that is applied to our inputs before hashing is `bytes.fromhex()`, and the equality check for the inputs happens **before** this transformation. So my guess is that there must be a way to pass two different inputs to this function that will result in the same output (bytes). I'm used to Python, but I don't know any... It's therefore time to read [the documentation](https://docs.python.org/3/library/stdtypes.html#bytes.fromhex).
+The only function that is applied to our inputs before hashing is `bytes.fromhex()`, and the equality check for the inputs happens **before** this transformation.
+So my guess is that there must be a way to pass two different inputs to this function that will result in the same output (bytes).
+
+I'm used to Python, but I don't know any way to do this $\dots$ It's therefore time to read [the documentation](https://docs.python.org/3/library/stdtypes.html#bytes.fromhex).
 
 Now, if we read carefully, we will find:
 
 > This bytes class method returns a bytes object, decoding the given string object. The string must contain two hexadecimal digits per byte, **with ASCII whitespace being ignored**.
 
-What this means is that two inputs `aaaa` and `aa aa` will output the same thing. And indeed, this is the information we need to solve this first challenge.
+What this means is that the two inputs `aaaa` and `aa aa` will output the same thing. And indeed, this is the information we need to solve this first challenge.
 
 ```python
 particule_a = "aa aa"
@@ -182,7 +192,7 @@ print(io.recvline())
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **100**  |  🙂   | **SOLVES**     |
+| **100**  |  🙂   | **338**     |
 
 **Description**
 
@@ -258,7 +268,7 @@ D(k \cdot c) = D(k) \cdot D(c)
 $$
 
 > [!note]
-> You can check [my notes on RSA](/docs/cryptography/public-key/rsa/) if you want to know the details of why this is true.
+> You can check [my notes on RSA](/docs/cryptography/public-key/rsa/attacks/#decipher-oracle) if you want to know the details of why this is true.
 
 Because of that, we can send to the decryption oracle the number $(k^e \mod N) \cdot c$, which we can calculate, and the server will send us:
 
@@ -313,7 +323,7 @@ io.close()
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **100**  |  🙂   | **SOLVES**     |
+| **100**  |  🙂   | **170**     |
 
 **Description**
 
@@ -351,13 +361,13 @@ with open("output.txt", "w") as file:
 {"ct": [...], "N": [...], "e": 65537}
 ```
 
-Again, we're facing an RSA cryptosystem, but this time, the modulus $N$ is the product of 4000 128-bit prime numbers, and therefore **very large**.
+Again, we're facing an RSA cryptosystem, but this time, the modulus $N$ is the product of 4000 128-bit prime numbers, and is therefore **VERY large**.
 
 **Solving**
 
 To understand how to solve this challenge, I send you to [my notes](/docs/cryptography/public-key/rsa/attacks/#successive-primes) on this exact problem.
 
-The key insight here is that by taking the 4000-th root of $N$, we get a very good approximation of one of the factors of $N$. From there, we can use the same function `nextprime()` used in the source file to recover one of the prime factors of $N$. Now that we know one, it is trivial to find all the others.
+The key insight here is that by taking the 4000-th root of $N$, we get a very good approximation of one of the factors of $N$. From there, we can use the function `nextprime()` used in the source file to recover one of the prime factors of $N$. Now that we know one, it is trivial to find all the others.
 
 Once we've found all the factors of $N$, we can calculate $\phi(N)$ as usual. But if you do so, you'll calculate a very large $d$, and the decryption process will take **FOREVER**. So how can we accelerate things ?
 
@@ -423,7 +433,7 @@ print(long_to_bytes(pow(ct % new_N, d, new_N)).decode())
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **100**  |  🙂   | **SOLVES**     |
+| **100**  |  🙂   | **222**     |
 
 **Description**
 
@@ -479,7 +489,16 @@ if __name__ == '__main__':
 
 **Solving**
 
-This one was very easy for me because I was lazy. I knew it was just a XOR, and I didn't want to read nor understand the `verify_all()` function, so the first thing I did was to XOR the known part of the flag (`404CTF{`) with the given ciphertext to see if I could spot a pattern. And indeed, if you do so, you find repeating `b2` bytes.
+This one was very easy for me because I was lazy. I knew it was just a XOR, and I didn't want to read nor understand the `verify_all()` function, so the first thing I did was to XOR the known part of the flag (`404CTF{`, given by the flag format of the event) with the given ciphertext to see if I could spot a pattern. And indeed, if you do so, you find repeating `b2` bytes.
+
+```python {linenos=table}
+from pwn import xor
+
+c = bytes.fromhex(
+    "868286f1e6f4c9e182dff7c683ffd796ed80eddfe7f186ed83c1ed8582fdedffc7f1dacf"
+)
+print(xor(c, b"404CTF{"))  # b'\xb2\xb2\xb2\xb2\xb2\xb2\xb2'
+```
 
 So I just tried to decrypt using a long chain of these same bytes to see if it would successfully decrypt the ciphertext, and I was indeed correct.
 
@@ -503,7 +522,7 @@ print(xor(c, b"\xb2" * 16).decode()
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **100**  |  🙂   | **SOLVES**     |
+| **100**  |  🙂   | **141**     |
 
 **Description**
 
@@ -554,7 +573,7 @@ ciphers = [...]
 Again, RSA, but one thing should strike your attention if you're familiar with it: the value of the parameter $e = 96$, because:
 
 1. It is rather small (compared to the more usual $65537$).
-2. And it is even ... not odd, so it is probably not coprime with $\phi(N)$ (and indeed it isn't, as we'll see), hence we can't calculate $d$ to decrypt the ciphertexts.
+2. And it is even $\dots$ not odd, so it is probably not coprime with $\phi(N)$ (and indeed it isn't, as we'll see), hence we can't calculate $d$ to decrypt the ciphertexts.
 
 **Solving**
 
@@ -566,8 +585,8 @@ From that knowledge, we compute a new $\phi_1$ by repeatedly dividing $\phi$ by 
 
 Using this new value $\phi_1$, what we can do is find the $e$-th **roots of unity** and calculate a *"partial"* private exponent $d = e^{-1} \mod \phi_1$.
 
-> [!important]
-> A root of unity is any number $r$ such that $r^e \equiv 1 \mod N$.
+> [!important] Some math knowledge
+> A root of unity in this case is any number $r$ such that $r^e \equiv 1 \mod N$.
 
 Using $d$, we can *"partially"* decrypt $c_1$ by calculating:
 
@@ -581,7 +600,8 @@ $$
 f_p \cdot r_i \mod N \quad \forall i \in \mathbb{N}^{*}
 $$
 
-until we find the correct plaintext, which we can easily check because we know that it contains the `404CTF{` string once converted from number to bytes.
+until we find the correct plaintext, which we can easily check because we know that it contains the `404CTF{`
+string once converted from number to bytes, due to the flag format of the event.
 
 ---
 
@@ -655,7 +675,7 @@ for i in range(0, len(moduli) - 1, 2):
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **275**  |  🙂   | **SOLVES**     |
+| **100**  |  🙂   | **120**     |
 
 **Description**
 
@@ -734,9 +754,41 @@ This time we're facing a **[Diffie–Hellman Key Exchange](/docs/cryptography/pu
 
 The important observation we have to make here is about how the secret coefficients $f$ and $d$ are generated, using a hash function, and a different one for both. $d$ is generated by converting to a number the output of a SHA256 hash, whereas $f$ uses SHA1.
 
-The main difference that we find between those two hash functions is that the output length of SHA256 is 256 bits, while it is only 160 bits for SHA1.
+The main difference that we find between those two hash functions is their output length, which is 256 bits for SHA256, while it is only 160 bits for SHA1.
 
-Now from the challenge, we know that the prime used is a 256 bit number, so it means that our secret exponent si many orders of magnitude smaller than the order of the group we're operating in. This is the flaw we're gonna exploit. The name of the challenge and some research on internet should point to the **[Pohlig–Hellman algorithm](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm)** which is powerfull to solve the DLP when $p-1$ is a smooth number.
+Now, from the challenge, we know that the prime used is a 256-bit number, so it means that our secret exponent $f$ is many orders of magnitude smaller than the order of the group we're operating in. This is the flaw we're going to exploit.
+
+The name of the challenge and some research on the internet should point you towards the **[Pohlig–Hellman algorithm](https://en.wikipedia.org/wiki/Pohlig%E2%80%93Hellman_algorithm)**, which is powerful for solving the DLP when $p-1$ is a smooth number.
+
+More precisely in this challenge, we'll use a variant of this algorithm. Because $f$ is "small", we can solve the DLP in a subgroup, as long as $p - 1$ has enough "small" factors.
+
+Using this very great [Integer factorization calculator](https://www.alpertron.com.ar/ECM.HTM), you can quickly get all "small" factors of $p-1$, and if we take their product, we get a 229-bit number $n$:
+
+$$
+n = \prod_{p_i \in P} p_i
+$$
+
+```python
+factors = [2, 11, 13, 43, 109, 409, 499, 541, 907, 2579, 2887, 3607, 3847, 4373, 5737, 23819, 27551, 34361, 356561, 457673, 555767]
+x = 1
+for e in factors:
+    x *= e
+
+print(x.bit_length())  # 229
+```
+
+which is a large enough subgroup to solve our DLP for $f$ because, as we've said earlier, $f$ is only of the order of 160 bits.
+
+**One last problem ?**
+
+The thing is that, from what I've tested and depending on your implementation of this algorithm, if we take this value of $n$, we won't get the correct value of $f$ because the size of th subgroup is too much bigger than the value of $f$.
+
+The trick is therefore to take a subset of these factors such that their product is as close as possible to the maximum order of $f$ while still being bigger. One good approach, and the one I took, is to progressively discard the smaller factors until you get there.
+
+> [!note]
+> In this case, I've found that discarding only the two first factors was enough for this implementation.
+>
+> But to respect and get as close as possible to the order of $f$, you should discard the first 10 factors.
 
 ---
 
@@ -748,9 +800,6 @@ import hashlib
 from Crypto.Cipher import AES
 from Crypto.Util.number import GCD, inverse
 from Crypto.Util.Padding import unpad
-
-# from sympy import discrete_log
-from sage.all import *
 
 flag = {
     "iv": "0cbdc451ad48c5529d4adab554a1e1e0",
@@ -903,7 +952,7 @@ print(decrypt_flag(S, encrypted_flag, iv).decode())
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **304**  |  😑   | **SOLVES**     |
+| **162**  |  😑   | **80**     |
 
 **Description**
 
@@ -983,13 +1032,69 @@ if __name__ == "__main__":
     challenge()
 ```
 
+This challenge implements a custom random number generator that uses Python's standard PRNG under the hood.
+
+The goal is to make use of the infinite loop and the given outputs to aggregate information until you have enough
+to be able to predict the next $2047$-bits output of this custom generator, which will then give you the flag if correct.
+
+At the beginning of the program, we're given the prime $p$ and the base $m$.
+
 **Solving**
 
+I know from [my notes](/docs/cryptography/rng/mersenne-twister/) on the subject (and previous experiences) that it is possible to predict the output of the
+Python standard PRNG given 624 consecutive [32-bit outputs](/docs/cryptography/rng/mersenne-twister/#known-32-bit-outputs), which is what the custom
+class do by calling `getrandbits(32)`.
+
+```python {linenos=table,linenostart=10,hl_lines=[3],filename="pas-tres-discret.py"}
+def _add_random_bits(self, n):
+    for i in range(0, n, 32):
+        self.random_string += f"{random.getrandbits(32):032b}"
+```
+
+The server lets us generate as many outputs as we want with a size we choose between 8 and 2047 bits.
+The tricky part is that the values are not directly given to us but are "masked" as a [discrete logarithm problem](http://localhost:1313/docs/cryptography/math/dlp/), with $p$ a **strong** prime.
+
+```python {linenos=table,linenostart=47,hl_lines=[1],filename="pas-tres-discret.py"}
+exp = rng.getrandbits(option) % p
+print(pow(m, exp, p))
+```
+
+It means that if we query the server for 32-bit outputs, we can't solve the DLP and hence can't access the hidden underlying generated random value.
+
+The solution is simply to break down those words of 32 bits we need into 4 chunks of 8 bits. So we ask the server to generate 8-bit random values, and it sends us:
+
+$$
+m^e \mod p
+$$
+
+Now, because $e$ is only 8 bits, we only have 256 numbers to test to find the correct one. Doing this 4 consecutive times gives us one complete 32-bit word.
+
+The strategy to solve this challenge is:
+
+- Repeat the above 624 times, by querying the server $624 \times 4 = 2496$ times.
+- Use the 624 32-bit outputs to recover the initial state of Python's standard PRNG with known attacks.
+- Simulate locally from this original state all the interactions you just had with the server to put your random generator in the same state as the server now.
+- Ask the server to generate a 2047-bit value, generate it on your side, send it, and **get the flag !**
+
+> [!tip] Improvement
+> Because $m$ is created using the first $2048$ output bits of the custom random generator, we can actually reduce our number of needed requests because $m$ already gives us $\frac{2048}{32} = 64$ of the 624 needed words.
+
 ---
+
+> [!note] Optimization
+> Because having that many exchanges with the server can take quite some time, I first send all the requests and data before I receive all the server's responses at the same time.
+>
+> I then parse all of it to extract what is needed before moving on to the last step.
+
+```python {base_url="https://github.com/StackeredSAS/python-random-playground/blob/main/",filename="functions.py"}
+# Utilities and functions to recover initial states of PRNG
+# Taken from: https://github.com/StackeredSAS/python-random-playground/blob/main/functions.py
+```
 
 ```python {linenos=table,filename="solve-pas-tres-discret.py"}
 import random
 
+# See file above
 from functions import *
 
 from pwn import *
@@ -1012,17 +1117,23 @@ class WRandom:
         return int(p, 2)
 
 
+# Receive parameters
 io = remote("challenge.404ctf.fr", 10010)
 io.recvuntil(b"script : \n")
 p = int(io.recvline().decode().strip())
 m = int(io.recvline().decode().strip())
 
-
+#################################################
+# Extract 32-bits words from the value of m
+#################################################
 m_bits = f"{m:02048b}"
 nums = []
 for i in range(0, len(m_bits), 32):
     nums.append(int(m_bits[i : i + 32], 2))
 
+#################################################
+# Send all queries to generate our values
+#################################################
 option = 8
 
 for j in range(624 - len(nums)):
@@ -1030,6 +1141,10 @@ for j in range(624 - len(nums)):
         io.sendline(str(option).encode())
         io.sendline(b"0")
 
+#################################################
+# Receive all data, parse it, recover the
+# generated values and reconstruct all 32-bits words
+#################################################
 data = io.clean(0.5).split(b"?\n> ")
 data = [e.split(b"\n> ")[0] for e in data]
 data = [int(e) for e in data[1:-1]]
@@ -1051,9 +1166,15 @@ for j in range(624 - len(nums)):
 io.sendline(b"2047")
 TARGET_RES = int(io.recvline().decode().strip())
 
+#################################################
+# Recover initial seed of the server's PRNG
+#################################################
 S = [untemper(e) for e in nums]
 seed = seedArrayToInt(seedArrayFromState(rewindState(S)))
 
+#################################################
+# Simulate interactions locally
+#################################################
 random.seed(seed)
 rng = WRandom()
 M = rng.getrandbits(2048)
@@ -1063,6 +1184,9 @@ for j in range(624 - 64):
     for _ in range(32 // option):
         _ = rng.getrandbits(option) % p
 
+#################################################
+# Predict and get the flag
+#################################################
 guess = rng.getrandbits(2047)
 if TARGET_RES == pow(m, guess, p):
     io.recvuntil(b"> ")
@@ -1079,7 +1203,7 @@ io.close()
 
 | Points | Difficulty | Solves |
 | :----: | :--------: | :----: |
-| **304**  |  😑   | **SOLVES**     |
+| **205**  |  😑   | **74**     |
 
 **Description**
 
@@ -1135,8 +1259,6 @@ class User:
         seed = int.from_bytes(os.urandom(64), 'big') | (1 << 511) | 1
         p = int(nextprime(seed))
         q = int(nextprime(p + M))
-        # q = p + M + x1
-        # N = p*q = p*(p + M + X) = p^2 + pM + pX = p^2 + p(M + x)
         n = p * q
         e = 65537
         d = inverse(e, (p - 1) * (q - 1))
@@ -1385,9 +1507,97 @@ if __name__ == "__main__":
     run()
 ```
 
+For this challenge, because there is quite some code and I'm lazy and don't want to go through all of it in writing, I encourage you to take the time to read and understand this code as I will only point out the key points to solve it.
+
+That being said, let's get to it.
+
 **Solving**
 
-> [!important] TODO
+First things first, what we're looking for (the **FLAG**) is in a chat session that is pre-made and stored by the server.
+
+```python {linenos=table,linenostart=115,hl_lines=[4],filename="chaest.py"}
+chat = Chat(admin, flagbot)
+chat.add(admin, "Did you store the secret safely?")
+chat.add(flagbot, "Yes. IV discarded after sealing.")
+chat.add(admin, f"Perfect. Here it is: {FLAG}")
+chat.add(flagbot, "Vault sealed. End-to-end encrypted.")
+chat.seal()
+```
+
+To access it, we'll need to forge a valid access token for this chat session.
+
+We know that those tokens are cryptographically created using the session key, itself generated like so:
+
+```python {linenos=table,linenostart=104,hl_lines=[2],filename="chaest.py"}
+# ...
+self._session_secret = os.urandom(32) and b'server_secret'
+```
+
+If you test this line of code locally, you'll find that it always evaluates to `server_secret`.
+
+Knowing the secret key, we can now forge the correct token by reading how the server handles its format to give you access to the corresponding stored chat.
+
+Once you get the stored chat session, its content is encrypted using AES-GCM with a random 32-byte key and a random 12-byte IV.
+
+```python {linenos=table,linenostart=76,hl_lines=[4],filename="chaest.py"}
+def seal(self):
+    pt = json.dumps([{"from": s, "msg": m} for s, m in self.messages]).encode()
+    aad = f"chat:{self.u1.id}:{self.u2.id}".encode()
+    self._ct, self._tag = aes_gcm_encrypt(self._key, self._iv, pt, aad)
+```
+
+The encryption key used is given in the plain data but encrypted with RSA.
+
+```python {linenos=table,linenostart=91,hl_lines=[2],filename="chaest.py"}
+return {"rsa_public_key": {"n": hex(n), "e": hex(e)},
+                "wrapped_aes_key": wk.hex(),
+                "encrypted_flag": self._ct.hex(),
+                "auth_tag": self._tag.hex(),
+                "iv": None,
+                "aad": f"chat:{self.u1.id}:{self.u2.id}"}
+```
+
+If we look more closely, the way the primes are generated for this RSA implementation seems weird, so we'll focus our attention on this to try to recover the key.
+
+```python {linenos=table,linenostart=40,filename="chaest.py"}
+def _gen_key(self):
+        seed = int.from_bytes(os.urandom(64), 'big') | (1 << 511) | 1
+        p = int(nextprime(seed))
+        q = int(nextprime(p + M))
+        n = p * q
+        e = 65537
+        d = inverse(e, (p - 1) * (q - 1))
+        self.rsa_key = RSA.construct((n, e, d, p, q))
+```
+
+It first generates a prime $p$ from a seed, then computes $q$ as the next prime after $p + M$ with $M$ being a primorial, that is the product of the first 100 primes.
+
+Because of that, we can express $q$ as $p + M + x$ for a small number $x$, hence we have:
+
+$$
+\begin{aligned}
+N &= p \cdot q \\
+&= p (p + M + x) \\
+&= p^2 + pM + px \\
+&= p^2 + p(M + x)
+\end{aligned}
+$$
+
+which we can rewrite as the following equation:
+
+$$
+\begin{equation}
+p^2 + p(M + x) - N = 0 \tag{1}
+\end{equation}
+$$
+
+Because $x$ is rather small, we can increment it and solve the equation for $p$ until we get $p \mid N$.
+From there, we can easily recover $q$, compute the RSA private key, and decrypt the encrypted encryption key.
+
+Finally, to decrypt the content, we need to know the IV, and this information is not available anymore.
+But because we know the beginning of the encrypted content and the key used, we can recover the IV by XORing the AES-GCM encrypted content that we're given with our own AES-**ECB** encrypted content of the known plaintext.
+
+Once we know the IV, we just have to decrypt the **flag !**
 
 ---
 
@@ -1497,4 +1707,6 @@ log.success(cipher.decrypt_and_verify(encrypted_flag, tag).decode())
 
 ## Final Word
 
-...
+In the end, I really liked the crypto challenges that were proposed this year, and I almost cleared the category this time, except for one challenge 😞, the hardest one, which was only solved by a few people.
+
+Great CTF as always, looking forward to next year!

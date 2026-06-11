@@ -22,6 +22,9 @@ This blog post is a write-up that will cover specifically the 3 parts of the cha
 
 <!--more-->
 
+> [!tip]
+> You can read all my other Write-Ups in [this blog post](../404ctf-2026-crypto).
+
 ## Part [1/3]
 
 | Points | Difficulty | Solves |
