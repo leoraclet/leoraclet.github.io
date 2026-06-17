@@ -112,6 +112,7 @@ gem install one_gadget
 ### Shellcodes
 
 - [Shell Storm](https://shell-storm.org/online/)
+- [shellcode](https://github.com/7feilee/shellcode)
 
 ### Reverse shell
 

@@ -10,4 +10,4 @@ title: Images
 | [TinEye](https://tineye.com/) | Reverse image search engine. |
 | [exiftool](https://exiftool.org/) | Read, Write and Edit Meta Information! |
 | [Plant@Net](https://identify.plantnet.org/) | Identify, explore and share your observations of wild plants |
-| [Yandex](https://yandex.com/) | |
+| [Yandex](https://yandex.com/) | Russian based search engine with powerfull image search |

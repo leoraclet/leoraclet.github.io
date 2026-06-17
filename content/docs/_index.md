@@ -13,7 +13,7 @@ I try to keep explanations most of the time and make them as clear as possible, 
 {{< cards cols="2" >}}
   {{< card link="./cryptography" title="Cryptography" >}}
   {{< card link="./steganography" title="Steganography" >}}
-  {{< card link="./forensic" title="Forensic" >}}
+  {{< card link="./forensics" title="Forensics" >}}
   {{< card link="./hardware" title="Hardware" >}}
   {{< card link="./robotics" title="Robotics" >}}
   {{< card link="./reverse" title="Reverse Engineering" >}}

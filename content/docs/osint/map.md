@@ -9,6 +9,7 @@ title: Maps
 | Tool Name | Description |
 | :---- | :----------- |
 | [Google Map](https://www.google.com/maps) | Interactive maps and satellite imagery. |
+| [Google Earth](https://earth.google.com/) | Google Earth is the most photorealistic, digital version of our planet |
 | [OpenStreetMap](https://www.openstreetmap.org/) | Collaborative, open-source mapping platform. |
 | [Overpass Turbo](https://overpass-turbo.eu/) | Query tool for OpenStreetMap data. |
 | [World Imagery Wayback](https://livingatlas.arcgis.com/wayback/) | Historical satellite imagery archive |
@@ -23,6 +24,7 @@ title: Maps
 | [MarineTraffic](https://www.marinetraffic.com/) | Global Ship Tracking Intelligence |
 | [GPSWise](https://gpswise.aero/map) | Live GPS Jamming & Spoofing Map |
 | [Geofabric](https://download.geofabrik.de/) | OpenStreetMap Data Extracts |
+| [SunCalc](https://www.suncalc.org/) | Online application to ascertain the sun movement with interactive map |
 
 | Tool Name | Description |
 | :-------- | :---------- |

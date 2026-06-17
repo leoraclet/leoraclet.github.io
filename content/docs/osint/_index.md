@@ -12,4 +12,5 @@ linkTitle: OSINT
 | [OSINT Framework](https://osintframework.com/) | A comprehensive framework |
 | [Google Dorking](https://gist.github.com/sundowndev/283efaddbcf896ab405488330d1bbc06) | Google dork cheatsheet |
 | [Explorateur de données tabulaires](https://explore.data.gouv.fr/fr/) | Explorer facilement les données tabulaires |
-| [BirdNET](https://github.com/birdnet-team/BirdNET-Analyzer) | |
+| [BirdNET](https://github.com/birdnet-team/BirdNET-Analyzer) | Research platform that aims at recognizing birds by sound at scale using machine learning. |
+| [Internet Archive](https://archive.org/) | Library of millions of free texts, movies, software, music, websites, and more. |

@@ -6,7 +6,7 @@ title: MIPS
 
 ### Assembly
 
-- [MIPS Assembly/](https://en.wikibooks.org/wiki/MIPS_Assembly/)
+- [MIPS Assembly](https://en.wikibooks.org/wiki/MIPS_Assembly/)
 - [MIPS Instruction Set](https://cscie95.dce.harvard.edu/fall2023/slides/MIPS%20Instruction%20Set.pdf)
 
 ### Syscalls
@@ -41,7 +41,6 @@ syscall 0x040405
 ```python
 "\x34\x02\x0f\xd1\x01\x01\x01\x0c\xaf\xa2\xff\xfc\x8f\xa4\xff\xfc\xaf\xa2\xff\xfc\x8f\xa5\xff\xfc\xaf\xa2\xff\xfc\x8f\xa6\xff\xfc\x34\x02\x10\x59\x01\x01\x01\x0c"
 ```
-
 
 ## Resources
 
