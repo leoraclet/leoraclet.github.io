@@ -57,8 +57,8 @@ jobs:
         run: |
           hugo \
             --gc --minify \
-            --baseURL "https://neutronys.com/"
-      # --baseURL "https://${{ github.repository_owner }}.github.io/"
+            --baseURL "https://${{ github.repository_owner }}.github.io/"
+      # --baseURL "https://neutronys.com/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
