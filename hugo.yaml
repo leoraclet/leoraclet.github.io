@@ -13,7 +13,7 @@ hasCJKLanguage: true
 defaultContentLanguage: en
 languages:
   en:
-    languageName: English
+    label: English
     weight: 1
 
 # import hextra as module
@@ -195,6 +195,26 @@ params:
   editURL:
     enable: true
     base: "https://github.com/leoraclet/leoraclet.github.io/tree/main"
+
+  analytics:
+    umami:
+      serverURL: "https://example.com"
+      websiteID: "94db1cb1-74f4-4a40-ad6c-962362670409"
+      # scriptName: "script.js" # optional (default: script.js)
+      # https://umami.is/docs/tracker-configuration#data-host-url
+      # hostURL: "http://stats.example.org" # optional
+      # https://umami.is/docs/tracker-configuration#data-auto-track
+      # autoTrack: "false" # optional
+      # https://umami.is/docs/tracker-configuration#data-tag
+      # domains: "example.net,example.org" # optional
+      # https://umami.is/docs/tracker-configuration#data-exclude-search
+      # tag: "umami-eu" # optional
+      # https://umami.is/docs/tracker-configuration#data-exclude-hash
+      # excludeSearch: "true" # optional
+      # https://umami.is/docs/tracker-configuration#data-do-not-track
+      # excludeHash: "true" # optional
+      # https://umami.is/docs/tracker-configuration#data-domains
+      # doNotTrack: "true" # optional
 
 outputs:
   page: [html, markdown]

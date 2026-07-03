@@ -1,8 +1,10 @@
 ---
-title: My Blog
+title: Blog
 cascade:
   type: blog
 ---
+
+<!-- markdownlint-disable MD033 -->
 
 <div style="text-align: center; margin-top: 1em;">
 {{< hextra/hero-badge link="index.xml" >}}

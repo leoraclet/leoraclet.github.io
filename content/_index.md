@@ -188,7 +188,7 @@ comments: false
                     </div>
                 </div>
                 <br>
-                and much more ...
+                and many more ...
             </div>
         </section>
     </div>
@@ -197,11 +197,11 @@ comments: false
 <script>
 const texts = [
   "CTF Player",
+  "Proud NixOS User",
   "Hobby Software Developer",
   "Cyber Security Enthusiast",
   "Privacy Advocate",
   "Student",
-  "Proud NixOS User"
 ];
 
 let currentIndex = 0;
